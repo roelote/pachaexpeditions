@@ -179,6 +179,17 @@ function pachaexp_scripts() {
 					1024: { slidesPerView: 3 }
 				}
 			});
+			new Swiper(".adventures-swiper", {
+				slidesPerView: 1,
+				spaceBetween: 24,
+				loop: false,
+				pagination: { el: ".adventures-swiper .swiper-pagination", clickable: true, dynamicBullets: true },
+				navigation: { nextEl: ".adventures-swiper .swiper-button-next", prevEl: ".adventures-swiper .swiper-button-prev" },
+				breakpoints: {
+					768:  { slidesPerView: 2 },
+					1024: { slidesPerView: 3 }
+				}
+			});
 		});
 	' );
 }
