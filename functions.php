@@ -190,6 +190,17 @@ function pachaexp_scripts() {
 					1024: { slidesPerView: 3 }
 				}
 			});
+			new Swiper(".daytours-swiper", {
+				slidesPerView: 1,
+				spaceBetween: 20,
+				loop: true,
+				pagination: { el: ".daytours-swiper .swiper-pagination", clickable: true },
+				navigation: { nextEl: ".daytours-swiper .swiper-button-next", prevEl: ".daytours-swiper .swiper-button-prev" },
+				breakpoints: {
+					640:  { slidesPerView: 2 },
+					1024: { slidesPerView: 4 }
+				}
+			});
 		});
 	' );
 }

@@ -143,7 +143,7 @@ get_header();
             <div class="relative overflow-hidden">
               <img src="https://www.pachaexpeditions.com/wp-content/uploads/2021/09/salkantayhikingperu--1900x710.jpg" alt="Salkantay Trek 5 Days" class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500">
               <span class="absolute top-3 left-3 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full shadow">Best Seller</span>
-              <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black/40 to-transparent"></div>
+             
             </div>
             <div class="p-5 flex flex-col flex-1">
               <div class="flex items-center gap-2 mb-2 flex-wrap">
@@ -172,7 +172,7 @@ get_header();
             <div class="relative overflow-hidden">
               <img src="https://www.pachaexpeditions.com/wp-content/uploads/2021/09/salkantayhikingperu--1900x710.jpg" alt="Salkantay Trek 7 Days" class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500">
               <span class="absolute top-3 left-3 bg-amber-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow">Recommended</span>
-              <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black/40 to-transparent"></div>
+             
             </div>
             <div class="p-5 flex flex-col flex-1">
               <div class="flex items-center gap-2 mb-2 flex-wrap">
@@ -200,7 +200,7 @@ get_header();
           <div class="bg-white rounded-2xl shadow-md overflow-hidden group hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
             <div class="relative overflow-hidden">
               <img src="https://www.pachaexpeditions.com/wp-content/uploads/2021/09/salkantayhikingperu--1900x710.jpg" alt="Humantay Lake Day Trip" class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black/40 to-transparent"></div>
+             
             </div>
             <div class="p-5 flex flex-col flex-1">
               <div class="flex items-center gap-2 mb-2 flex-wrap">
@@ -229,7 +229,7 @@ get_header();
             <div class="relative overflow-hidden">
               <img src="https://www.pachaexpeditions.com/wp-content/uploads/2021/09/salkantayhikingperu--1900x710.jpg" alt="Salkantay Luxury Trek" class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500">
               <span class="absolute top-3 left-3 bg-gray-900 text-white text-xs font-bold px-3 py-1 rounded-full shadow">Luxury</span>
-              <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black/40 to-transparent"></div>
+             
             </div>
             <div class="p-5 flex flex-col flex-1">
               <div class="flex items-center gap-2 mb-2 flex-wrap">
@@ -302,14 +302,9 @@ get_header();
           <div class="bg-white rounded-2xl shadow-md overflow-hidden group hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
             <div class="relative overflow-hidden">
               <img src="https://www.pachaexpeditions.com/wp-content/uploads/2022/02/ausangate-trek-5-days.jpg" alt="Ausangate Trek 5 Days" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
-              <span class="absolute top-3 left-3 bg-amber-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow">Exclusive</span>
-              <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black/40 to-transparent"></div>
-              <div class="absolute bottom-3 left-4">
-                <span class="flex items-center gap-1.5 text-xs text-white/90 font-medium">
-                  <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                  Cusco Region
-                </span>
-              </div>
+            
+             
+             
             </div>
             <div class="p-5 flex flex-col flex-1">
               <div class="flex items-center gap-2 mb-2 flex-wrap">
@@ -317,7 +312,7 @@ get_header();
                   <svg class="w-3.5 h-3.5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
                   5 Days / 4 Nights
                 </span>
-                <span class="text-xs text-amber-600 bg-amber-50 border border-amber-200 px-2.5 py-1 rounded-full font-medium">High Altitude</span>
+            
               </div>
               <h3 class="text-base font-bold text-gray-900 mb-1 leading-snug">Ausangate Trek 5 Days — Rainbow Mountain</h3>
               <p class="text-sm text-gray-500 mb-4 flex-1 leading-relaxed">Circumnavigate the sacred Ausangate glacier at 5,200m and witness the breathtaking Vinicunca Rainbow Mountain on this remote Andean expedition.</p>
@@ -337,14 +332,9 @@ get_header();
           <div class="bg-white rounded-2xl shadow-md overflow-hidden group hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
             <div class="relative overflow-hidden">
               <img src="https://www.pachaexpeditions.com/wp-content/uploads/2022/02/amazon-jungle-expedition.jpg" alt="Amazon Jungle Expedition 4 Days" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
-              <span class="absolute top-3 left-3 bg-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow">Adventure</span>
-              <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black/40 to-transparent"></div>
-              <div class="absolute bottom-3 left-4">
-                <span class="flex items-center gap-1.5 text-xs text-white/90 font-medium">
-                  <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                  Manu, Madre de Dios
-                </span>
-              </div>
+            
+             
+              
             </div>
             <div class="p-5 flex flex-col flex-1">
               <div class="flex items-center gap-2 mb-2 flex-wrap">
@@ -352,7 +342,7 @@ get_header();
                   <svg class="w-3.5 h-3.5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
                   4 Days / 3 Nights
                 </span>
-                <span class="text-xs text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-full font-medium">Wildlife</span>
+      
               </div>
               <h3 class="text-base font-bold text-gray-900 mb-1 leading-snug">Amazon Jungle Expedition — Manu Reserve</h3>
               <p class="text-sm text-gray-500 mb-4 flex-1 leading-relaxed">Venture deep into the Manu Biosphere Reserve — home to jaguars, macaws, and giant river otters — on this immersive jungle expedition led by expert naturalist guides.</p>
@@ -372,14 +362,8 @@ get_header();
           <div class="bg-white rounded-2xl shadow-md overflow-hidden group hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
             <div class="relative overflow-hidden">
               <img src="https://www.pachaexpeditions.com/wp-content/uploads/2022/02/choquequirao-trek-4-dias-310x340.jpg" alt="Choquequirao to Machu Picchu Circuit" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
-              <span class="absolute top-3 left-3 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full shadow">Epic Route</span>
-              <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black/40 to-transparent"></div>
-              <div class="absolute bottom-3 left-4">
-                <span class="flex items-center gap-1.5 text-xs text-white/90 font-medium">
-                  <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                  Cusco – Apurímac
-                </span>
-              </div>
+            
+            
             </div>
             <div class="p-5 flex flex-col flex-1">
               <div class="flex items-center gap-2 mb-2 flex-wrap">
@@ -387,7 +371,7 @@ get_header();
                   <svg class="w-3.5 h-3.5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
                   8 Days / 7 Nights
                 </span>
-                <span class="text-xs text-purple-700 bg-purple-50 border border-purple-200 px-2.5 py-1 rounded-full font-medium">Remote</span>
+             
               </div>
               <h3 class="text-base font-bold text-gray-900 mb-1 leading-snug">Choquequirao to Machu Picchu Circuit</h3>
               <p class="text-sm text-gray-500 mb-4 flex-1 leading-relaxed">The ultimate Inca circuit — trek from the "lost city" of Choquequirao through dramatic canyons and cloud forests, finishing with the sunrise at Machu Picchu.</p>
@@ -402,6 +386,37 @@ get_header();
           </div>
         </div>
 
+         <!-- Card 3: Choquequirao + Inca Trail Circuit -->
+        <div class="swiper-slide">
+          <div class="bg-white rounded-2xl shadow-md overflow-hidden group hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
+            <div class="relative overflow-hidden">
+              <img src="https://www.pachaexpeditions.com/wp-content/uploads/2022/02/choquequirao-trek-4-dias-310x340.jpg" alt="Choquequirao to Machu Picchu Circuit" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
+       
+             
+            
+            </div>
+            <div class="p-5 flex flex-col flex-1">
+              <div class="flex items-center gap-2 mb-2 flex-wrap">
+                <span class="flex items-center gap-1 text-xs text-gray-500 bg-gray-100 px-2.5 py-1 rounded-full font-medium">
+                  <svg class="w-3.5 h-3.5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                  8 Days / 7 Nights
+                </span>
+               
+              </div>
+              <h3 class="text-base font-bold text-gray-900 mb-1 leading-snug">Choquequirao to Machu Picchu Circuit</h3>
+              <p class="text-sm text-gray-500 mb-4 flex-1 leading-relaxed">The ultimate Inca circuit — trek from the "lost city" of Choquequirao through dramatic canyons and cloud forests, finishing with the sunrise at Machu Picchu.</p>
+              <div class="flex items-center justify-between mt-auto pt-3 border-t border-gray-100">
+                <div>
+                  <span class="text-xs text-gray-400">From</span>
+                  <p class="text-xl font-extrabold text-primary leading-none">$750 <span class="text-xs font-normal text-gray-400">/ person</span></p>
+                </div>
+                <a href="#" class="bg-primary hover:bg-primary-dark text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-colors duration-200 shadow-sm">Book Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
       </div><!-- /.swiper-wrapper -->
 
       <!-- Navigation -->
@@ -410,6 +425,105 @@ get_header();
 
       <!-- Pagination -->
       <div class="swiper-pagination adventures-pagination !bottom-0"></div>
+    </div><!-- /.swiper -->
+
+  </div>
+</section>
+
+<!-- Top Day Tours In Cusco -->
+<section class="py-16 bg-gray-50">
+  <div class="container">
+
+    <!-- Header -->
+    <div class="text-center mb-10">
+      <span class="inline-block text-primary text-sm font-semibold tracking-widest uppercase mb-2">Cusco</span>
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Top Day Tours In Cusco</h2>
+      <div class="mt-4 flex justify-center">
+        <span class="block w-14 h-1 rounded-full bg-primary"></span>
+      </div>
+    </div>
+
+    <!-- Swiper -->
+    <div class="swiper daytours-swiper relative pb-12">
+      <div class="swiper-wrapper">
+
+        <!-- Card 1 -->
+        <div class="swiper-slide">
+          <a href="#" class="group block bg-white rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+            <div class="relative overflow-hidden">
+              <img src="https://www.pachaexpeditions.com/wp-content/uploads/2021/09/salkantayhikingperu--1900x710.jpg" alt="Rainbow Mountain Day Trip" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 left-3 bg-primary text-white text-[11px] font-bold px-3 py-1 rounded-full">1 Day</span>
+            </div>
+            <div class="p-4">
+              <h3 class="font-bold text-gray-900 text-sm mb-1">Rainbow Mountain Day Trip</h3>
+              <p class="text-xs text-gray-500 mb-3 leading-relaxed">Vinicunca — the colorful mountain at 5,200m above Cusco.</p>
+              <div class="flex items-center justify-between">
+                <p class="text-primary font-extrabold text-base">$45 <span class="text-xs font-normal text-gray-400">/ person</span></p>
+                <span class="text-xs text-primary font-semibold">Book Now →</span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="swiper-slide">
+          <a href="#" class="group block bg-white rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+            <div class="relative overflow-hidden">
+              <img src="https://www.pachaexpeditions.com/wp-content/uploads/2021/09/salkantayhikingperu--1900x710.jpg" alt="Machu Picchu Day Trip" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 left-3 bg-amber-500 text-white text-[11px] font-bold px-3 py-1 rounded-full">1 Day</span>
+            </div>
+            <div class="p-4">
+              <h3 class="font-bold text-gray-900 text-sm mb-1">Machu Picchu Full Day Tour</h3>
+              <p class="text-xs text-gray-500 mb-3 leading-relaxed">Train to Aguas Calientes + guided tour of the iconic citadel.</p>
+              <div class="flex items-center justify-between">
+                <p class="text-primary font-extrabold text-base">$120 <span class="text-xs font-normal text-gray-400">/ person</span></p>
+                <span class="text-xs text-primary font-semibold">Book Now →</span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="swiper-slide">
+          <a href="#" class="group block bg-white rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+            <div class="relative overflow-hidden">
+              <img src="https://www.pachaexpeditions.com/wp-content/uploads/2021/09/salkantayhikingperu--1900x710.jpg" alt="Sacred Valley Tour" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 left-3 bg-emerald-600 text-white text-[11px] font-bold px-3 py-1 rounded-full">1 Day</span>
+            </div>
+            <div class="p-4">
+              <h3 class="font-bold text-gray-900 text-sm mb-1">Sacred Valley Full Day Tour</h3>
+              <p class="text-xs text-gray-500 mb-3 leading-relaxed">Pisac market, Ollantaytambo ruins and traditional lunch included.</p>
+              <div class="flex items-center justify-between">
+                <p class="text-primary font-extrabold text-base">$55 <span class="text-xs font-normal text-gray-400">/ person</span></p>
+                <span class="text-xs text-primary font-semibold">Book Now →</span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="swiper-slide">
+          <a href="#" class="group block bg-white rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+            <div class="relative overflow-hidden">
+              <img src="https://www.pachaexpeditions.com/wp-content/uploads/2021/09/salkantayhikingperu--1900x710.jpg" alt="Humantay Lake Day Trip" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 left-3 bg-primary text-white text-[11px] font-bold px-3 py-1 rounded-full">1 Day</span>
+            </div>
+            <div class="p-4">
+              <h3 class="font-bold text-gray-900 text-sm mb-1">Humantay Lake Day Trip</h3>
+              <p class="text-xs text-gray-500 mb-3 leading-relaxed">Stunning turquoise glacial lake at 4,200m in the Salkantay range.</p>
+              <div class="flex items-center justify-between">
+                <p class="text-primary font-extrabold text-base">$65 <span class="text-xs font-normal text-gray-400">/ person</span></p>
+                <span class="text-xs text-primary font-semibold">Book Now →</span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+      </div><!-- /.swiper-wrapper -->
+
+      <div class="swiper-button-prev after:text-sm after:font-bold !w-10 !h-10 bg-white shadow-md rounded-full !text-primary hover:bg-primary hover:!text-white transition-colors duration-200 -left-2 md:-left-5"></div>
+      <div class="swiper-button-next after:text-sm after:font-bold !w-10 !h-10 bg-white shadow-md rounded-full !text-primary hover:bg-primary hover:!text-white transition-colors duration-200 -right-2 md:-right-5"></div>
+      <div class="swiper-pagination !bottom-0"></div>
     </div><!-- /.swiper -->
 
   </div>
