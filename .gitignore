@@ -1,0 +1,34 @@
+# Node
+node_modules/
+npm-debug.log*
+
+# Build output (regenerated via npm run build)
+src/output.css
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# WordPress
+wp-config.php
+wp-content/uploads/
+wp-content/cache/
+wp-content/upgrade/
+wp-content/backup-db/
+wp-content/advanced-cache.php
+wp-content/wp-cache-config.php
+
+# Logs
+*.log
+error_log
+
+# Environment
+.env
+.env.local
