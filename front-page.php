@@ -452,7 +452,7 @@ get_header();
           <a href="#" class="group block bg-white rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden">
             <div class="relative overflow-hidden">
               <img src="https://www.pachaexpeditions.com/wp-content/uploads/2021/09/salkantayhikingperu--1900x710.jpg" alt="Rainbow Mountain Day Trip" class="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500">
-              <span class="absolute top-3 left-3 bg-primary text-white text-[11px] font-bold px-3 py-1 rounded-full">1 Day</span>
+        
             </div>
             <div class="p-4">
               <h3 class="font-bold text-gray-900 text-sm mb-1">Rainbow Mountain Day Trip</h3>
@@ -470,7 +470,7 @@ get_header();
           <a href="#" class="group block bg-white rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden">
             <div class="relative overflow-hidden">
               <img src="https://www.pachaexpeditions.com/wp-content/uploads/2021/09/salkantayhikingperu--1900x710.jpg" alt="Machu Picchu Day Trip" class="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500">
-              <span class="absolute top-3 left-3 bg-amber-500 text-white text-[11px] font-bold px-3 py-1 rounded-full">1 Day</span>
+            
             </div>
             <div class="p-4">
               <h3 class="font-bold text-gray-900 text-sm mb-1">Machu Picchu Full Day Tour</h3>
@@ -488,7 +488,7 @@ get_header();
           <a href="#" class="group block bg-white rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden">
             <div class="relative overflow-hidden">
               <img src="https://www.pachaexpeditions.com/wp-content/uploads/2021/09/salkantayhikingperu--1900x710.jpg" alt="Sacred Valley Tour" class="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500">
-              <span class="absolute top-3 left-3 bg-emerald-600 text-white text-[11px] font-bold px-3 py-1 rounded-full">1 Day</span>
+        
             </div>
             <div class="p-4">
               <h3 class="font-bold text-gray-900 text-sm mb-1">Sacred Valley Full Day Tour</h3>
@@ -506,7 +506,7 @@ get_header();
           <a href="#" class="group block bg-white rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden">
             <div class="relative overflow-hidden">
               <img src="https://www.pachaexpeditions.com/wp-content/uploads/2021/09/salkantayhikingperu--1900x710.jpg" alt="Humantay Lake Day Trip" class="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500">
-              <span class="absolute top-3 left-3 bg-primary text-white text-[11px] font-bold px-3 py-1 rounded-full">1 Day</span>
+             
             </div>
             <div class="p-4">
               <h3 class="font-bold text-gray-900 text-sm mb-1">Humantay Lake Day Trip</h3>
@@ -532,12 +532,12 @@ get_header();
 	<main id="primary" class="site-main">
 
 		<?php
-		while ( have_posts() ) :
-			the_post();
+	  //	while ( have_posts() ) :
+			//the_post();
 
-			get_template_part( 'template-parts/content', 'page' );
+			// get_template_part( 'template-parts/content', 'page' );
 
-		endwhile; // End of the loop.
+		// endwhile; // End of the loop.
 		?>
 
 	</main><!-- #main -->
