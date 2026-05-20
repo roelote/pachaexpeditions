@@ -1,0 +1,156 @@
+/*
+ * Gutenberg Editor Styles — pachaexp
+ */
+
+.editor-styles-wrapper {
+    font-family: 'Poppins', system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.75;
+    color: #374151;
+    
+}
+
+.editor-styles-wrapper p {
+    margin-bottom: 1.25em;
+    color: #374151;
+}
+
+/* ================================================
+   LISTAS — ul / ol
+   ================================================ */
+
+.editor-styles-wrapper ul,
+.editor-styles-wrapper ol {
+    margin: 0.75em 0 1.25em 1.5em;
+    padding: 0;
+    color: #374151;
+    font-size: 0.9375rem;
+    line-height: 1.8;
+}
+
+
+
+.editor-styles-wrapper ol li {
+    list-style-type: decimal;
+    margin-bottom: 0.35em;
+}
+
+.editor-styles-wrapper ol li::marker {
+    color: #637124;
+    font-weight: 700;
+}
+
+.editor-styles-wrapper ul ul,
+.editor-styles-wrapper ol ul {
+    list-style-type: circle;
+    margin-top: 0.35em;
+    margin-bottom: 0;
+}
+
+/* ================================================
+   HEADINGS
+   ================================================ */
+
+.editor-styles-wrapper h1,
+.editor-styles-wrapper h2 {
+    font-family: 'Poppins', system-ui, sans-serif;
+    font-weight: 700;
+    color: #111827;
+}
+
+.editor-styles-wrapper h3,
+.editor-styles-wrapper h4,
+.editor-styles-wrapper h5,
+.editor-styles-wrapper h6 {
+    font-family: 'Poppins', system-ui, sans-serif;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+/* ================================================
+   LINKS
+   ================================================ */
+
+.editor-styles-wrapper a {
+    color: #637124;
+    text-decoration: underline;
+}
+
+.editor-styles-wrapper a:hover {
+    color: #4e5a1c;
+}
+
+/* ================================================
+   BLOCKQUOTE
+   ================================================ */
+
+.editor-styles-wrapper blockquote {
+    border-left: 4px solid #637124;
+    background-color: #f5f6ef;
+    margin: 1.5em 0;
+    padding: 1em 1.5em;
+    font-style: italic;
+    color: #6b7280;
+    border-radius: 0 8px 8px 0;
+}
+
+.editor-styles-wrapper blockquote p {
+    margin: 0;
+}
+
+/* ================================================
+   TABLAS
+   ================================================ */
+
+.editor-styles-wrapper table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5em;
+    font-size: 0.875rem;
+}
+
+.editor-styles-wrapper th {
+    background-color: #637124;
+    color: #ffffff;
+    font-weight: 700;
+    padding: 0.65em 1em;
+    text-align: left;
+    font-family: 'Poppins', system-ui, sans-serif;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.editor-styles-wrapper td {
+    padding: 0.6em 1em;
+    border-bottom: 1px solid #e5e7eb;
+    color: #374151;
+}
+
+.editor-styles-wrapper tr:nth-child(even) td {
+    background-color: #f5f6ef;
+}
+
+/* ================================================
+   CODE
+   ================================================ */
+
+.editor-styles-wrapper code {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.85em;
+    background-color: #f3f4f6;
+    color: #637124;
+    padding: 0.15em 0.45em;
+    border-radius: 4px;
+}
+
+.editor-styles-wrapper pre {
+    background-color: #1e1e1e;
+    color: #d4d4d4;
+    padding: 1.25em 1.5em;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-size: 0.85rem;
+    line-height: 1.65;
+    margin-bottom: 1.5em;
+}

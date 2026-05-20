@@ -1,0 +1,53 @@
+{
+    "key": "group_mapa_tour_pacha",
+    "title": "Mapa del Tour",
+    "fields": [
+        {
+            "key": "field_mapa_imagen",
+            "label": "Imagen del Mapa",
+            "name": "mapa_imagen",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Sube una imagen del mapa de la ruta (captura de Google Maps, mapa ilustrado, etc.).",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "medium"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 10,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Imagen del mapa de ruta para mostrar en el sidebar del tour.",
+    "show_in_rest": 0,
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1779150271
+}
