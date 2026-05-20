@@ -24,11 +24,14 @@
     margin: 0.75em 0 1.25em 1.5em;
     padding: 0;
     color: #374151;
-    font-size: 0.9375rem;
+    font-size: 15px;
     line-height: 1.8;
 }
 
-
+.editor-styles-wrapper .block-editor-block-list__block li
+{
+    font-size: 15px !important;
+}
 
 .editor-styles-wrapper ol li {
     list-style-type: decimal;
@@ -153,4 +156,91 @@
     font-size: 0.85rem;
     line-height: 1.65;
     margin-bottom: 1.5em;
+}
+
+/* ================================================
+   TOUR NAV
+   ================================================ */
+
+#tour-nav {
+    position: sticky;
+    top: var(--header-h, 0px);
+    z-index: 35;
+    background: #9db247;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.18);
+}
+
+.tour-nav-inner {
+    display: flex;
+    align-items: stretch;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.tour-nav-inner::-webkit-scrollbar {
+    display: none;
+}
+
+.tour-nav-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    flex: 1 0 auto;
+    min-width: 100px;
+    padding: 10px 16px;
+    text-decoration: none;
+    color: #ffffff;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -3px;
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.tour-nav-link:hover {
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.12);
+}
+
+.tour-nav-link.is-active {
+    color: #ffffff;
+    border-bottom-color: #c9a227;
+    background: rgba(0, 0, 0, 0.15);
+}
+
+.tour-nav-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    transition: color 0.2s ease;
+}
+
+.tour-nav-link:hover .tour-nav-icon,
+.tour-nav-link.is-active .tour-nav-icon {
+    color: white;
+}
+
+.tour-nav-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    line-height: 1;
+    font-family: 'Poppins', system-ui, sans-serif;
+    color: white;
+}
+
+@media (max-width: 640px) {
+    .tour-nav-link {
+        min-width: 80px;
+        padding: 8px 10px;
+    }
+    .tour-nav-label {
+        font-size: 11px;
+    }
 }

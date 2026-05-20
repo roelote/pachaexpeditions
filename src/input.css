@@ -522,6 +522,192 @@ nav.is-floating {
 .btn-quote:hover::before { transform: translateX(0); }
 
 /* ================================================
+   PAGE — contenido de páginas estáticas
+   ================================================ */
+
+.page-main {
+    font-family: 'Poppins', system-ui, sans-serif;
+    color: #374151;
+    line-height: 1.8;
+}
+
+.page-main p {
+    font-size: 15px;
+    color: #4b5563;
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+}
+
+.page-main h2 {
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: #111827;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.page-main h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-top: 1.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.page-main h4 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #374151;
+    margin-top: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.page-main ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 1.25rem;
+    margin-top: 0.5rem;
+}
+
+.page-main ul li {
+    font-size: 15px;
+    color: #4b5563;
+    padding-left: 1.25rem;
+    position: relative;
+    margin-bottom: 0.5rem;
+}
+
+.page-main ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #9db247;
+    flex-shrink: 0;
+}
+
+.page-main ol {
+    list-style: decimal;
+    padding-left: 1.5rem;
+    margin-bottom: 1.25rem;
+    margin-top: 0.5rem;
+}
+
+.page-main ol li {
+    font-size: 15px;
+    color: #4b5563;
+    margin-bottom: 0.5rem;
+}
+
+.page-main ol li::marker {
+    color: #9db247;
+    font-weight: 700;
+}
+
+.page-main strong,
+.page-main b {
+    font-weight: 600;
+    color: #111827;
+}
+
+.page-main a {
+    color: #9db247;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+}
+
+.page-main a:hover {
+    color: #7a8f39;
+}
+
+.page-main blockquote {
+    position: relative;
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    background: linear-gradient(135deg, #f7f9ee 0%, #f2f5e8 100%);
+    border-left: 4px solid #9db247;
+    border-radius: 0 12px 12px 0;
+    font-style: italic;
+    color: #4b5563;
+    font-size: 15px;
+    box-shadow: 0 2px 12px rgba(157, 178, 71, 0.1);
+}
+
+.page-main blockquote p {
+    margin: 0;
+}
+
+.page-main img {
+    border-radius: 12px;
+    max-width: 100%;
+    height: auto;
+    margin: 1.5rem 0;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+}
+
+.page-main table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    margin-bottom: 1.5rem;
+}
+
+.page-main table th {
+    background: #9db247;
+    color: #fff;
+    font-weight: 700;
+    padding: 0.65rem 1rem;
+    text-align: left;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.page-main table td {
+    padding: 0.6rem 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    color: #4b5563;
+}
+
+.page-main table tr:nth-child(even) td {
+    background: #f7f9ee;
+}
+
+.page-main hr {
+    border: none;
+    border-top: 1px solid #e5e7eb;
+    margin: 2.5rem 0;
+}
+
+/* Breadcrumb sobre fondo oscuro (hero con imagen) */
+.page-breadcrumb a,
+.page-breadcrumb span {
+    color: rgba(255, 255, 255, 0.78) !important;
+    font-size: 0.78rem;
+}
+
+.page-breadcrumb a:hover {
+    color: #fff !important;
+}
+
+/* Cabecera simple sin imagen destacada */
+.page-hero-simple {
+    background: #f9fafb;
+    border-bottom: 1px solid #efefef;
+}
+
+.page-title-line {
+    border-bottom: 3px solid #9db247;
+    display: inline-block;
+}
+
+/* ================================================
    BLOG ARCHIVE — mosaic grid
    Layout: 3 cols × 3 rows
    Col 1+2 row 1-2 = big photo

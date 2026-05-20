@@ -301,7 +301,7 @@ get_header();
         <div class="swiper-slide">
           <div class="bg-white rounded-2xl shadow-md overflow-hidden group hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
             <div class="relative overflow-hidden">
-              <img src="https://www.pachaexpeditions.com/wp-content/uploads/2022/02/ausangate-trek-5-days.jpg" alt="Ausangate Trek 5 Days" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
+              <img src="https://www.pachaexpeditions.com/wp-content/uploads/2021/09/salkantayhikingperu--1900x710.jpg" alt="Ausangate Trek 5 Days" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
             
              
              
@@ -331,7 +331,7 @@ get_header();
         <div class="swiper-slide">
           <div class="bg-white rounded-2xl shadow-md overflow-hidden group hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
             <div class="relative overflow-hidden">
-              <img src="https://www.pachaexpeditions.com/wp-content/uploads/2022/02/amazon-jungle-expedition.jpg" alt="Amazon Jungle Expedition 4 Days" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
+              <img src="https://www.pachaexpeditions.com/wp-content/uploads/2021/09/salkantayhikingperu--1900x710.jpg" alt="Amazon Jungle Expedition 4 Days" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
             
              
               
@@ -361,7 +361,7 @@ get_header();
         <div class="swiper-slide">
           <div class="bg-white rounded-2xl shadow-md overflow-hidden group hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
             <div class="relative overflow-hidden">
-              <img src="https://www.pachaexpeditions.com/wp-content/uploads/2022/02/choquequirao-trek-4-dias-310x340.jpg" alt="Choquequirao to Machu Picchu Circuit" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
+              <img src="https://www.pachaexpeditions.com/wp-content/uploads/2021/09/salkantayhikingperu--1900x710.jpg" alt="Choquequirao to Machu Picchu Circuit" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
             
             
             </div>
