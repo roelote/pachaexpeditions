@@ -176,7 +176,9 @@ if ( $gallery ) :
 									</div>
 
 									<!-- Book Now -->
-									<a href="<?php echo esc_url( get_field('book_now_url') ?: '#booking' ); ?>"
+									<?php $booking_url = get_field('booking_url', 'option'); ?>
+									<a href="<?php echo esc_url( $booking_url ); ?>?tour=t<?php echo esc_attr( get_the_ID() ); ?>"
+									target="_blank"
 									class="flex items-center justify-center gap-2 w-full bg-primary hover:bg-primary-dark text-white font-bold text-sm uppercase tracking-wider py-3.5 rounded-xl transition-colors duration-200 shadow-sm mb-5">
 										<svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
 											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"
