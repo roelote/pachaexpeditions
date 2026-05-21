@@ -198,7 +198,7 @@ function pachaexp_scripts() {
 				navigation: { nextEl: ".daytours-swiper .swiper-button-next", prevEl: ".daytours-swiper .swiper-button-prev" },
 				breakpoints: {
 					640:  { slidesPerView: 2 },
-					1024: { slidesPerView: 4 }
+					1024: { slidesPerView: 3 }
 				}
 			});
 		});
