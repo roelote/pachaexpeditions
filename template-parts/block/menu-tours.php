@@ -104,8 +104,14 @@ document.addEventListener('DOMContentLoaded', function () {
         scrollNavToActive(activeLink);
     }
 
+    function totalOffset() {
+        var siteNavH = (siteNav) ? siteNav.offsetHeight : 0;
+        var tourNavH = tourNav ? tourNav.offsetHeight : 52;
+        return siteNavH + tourNavH;
+    }
+
     function updateActive() {
-        var offset = tourNav ? tourNav.offsetHeight : 52;
+        var offset = totalOffset();
         var activeId = targets[0].getAttribute('id');
         targets.forEach(function (el) {
             if (el.getBoundingClientRect().top <= offset + 16) activeId = el.getAttribute('id');
@@ -122,8 +128,7 @@ document.addEventListener('DOMContentLoaded', function () {
             e.preventDefault();
             var target = document.getElementById(this.getAttribute('href').replace('#', ''));
             if (!target) return;
-            var offset = tourNav ? tourNav.offsetHeight : 52;
-            window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - offset - 8, behavior: 'smooth' });
+            window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - totalOffset() - 8, behavior: 'smooth' });
             setActive(this.getAttribute('href').replace('#', ''));
         });
     });

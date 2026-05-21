@@ -371,7 +371,7 @@ nav.is-floating {
 #tour-nav {
     position: sticky;
     top: var(--header-h, 0px);
-    z-index: 41;
+    z-index: 39;
     background: #9db247;
     box-shadow: 0 3px 12px rgba(0, 0, 0, 0.18);
 }
@@ -388,7 +388,7 @@ nav.is-floating {
     left: 0;
     right: 0;
     width: 100%;
-    z-index: 45;
+    z-index: 39;
 }
 
 .tour-nav-inner {
