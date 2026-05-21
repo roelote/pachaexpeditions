@@ -48,14 +48,17 @@
           <!-- Row 1: quick links + social icons + TripAdvisor -->
           <div class="flex items-center gap-3">
             <!-- Quick links -->
-            <div class="flex items-center gap-3 text-sm text-gray-500 border-r border-gray-200 pr-3">
+            <div class="flex items-center gap-3 text-sm text-gray-500">
               <a href="#" class="hover:text-primary transition-colors duration-200 font-medium">Circuits</a>
+              <span class="text-gray-300">|</span>
               <a href="#" class="hover:text-primary transition-colors duration-200 font-medium">FAQs</a>
+              <span class="text-gray-300">|</span>
               <a href="#" class="hover:text-primary transition-colors duration-200 font-medium">Contact</a>
+              <span class="text-gray-300">|</span>
             </div>
 
             <!-- Social icons -->
-            <div class="flex items-center gap-0.5 border-r border-gray-200 pr-3">
+            <div class="flex items-center gap-0.5 pr-3">
               <!-- Facebook -->
               <a href="#" aria-label="Facebook" class="social-icon fb">
                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -96,10 +99,7 @@
               TripAdvisor
             </a>
 
-            <!-- Get a Quote CTA -->
-            <a href="#" class="btn-quote bg-primary hover:bg-primary-dark text-white text-xs font-bold px-5 py-2 rounded-full tracking-wide shadow-sm transition-colors duration-200 whitespace-nowrap">
-              Get a Quote
-            </a>
+            
           </div>
 
           <!-- Row 2: Contact info -->
