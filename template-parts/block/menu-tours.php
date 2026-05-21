@@ -1,7 +1,6 @@
 <div id="tour-nav" class="rounded">
     <nav class="tour-nav-inner">
 
-
      <a href="#overview" class="tour-nav-link">
             <span class="tour-nav-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
@@ -59,144 +58,73 @@
 
     </nav>
 </div>
-    		<script>
+<script>
 document.addEventListener('DOMContentLoaded', function () {
-    // Nav flotante
-    var siteNav  = document.querySelector('header + nav') || document.querySelector('header nav') || document.querySelector('nav.border-t') || document.querySelector('nav');
-    var tourNav  = document.getElementById('tour-nav');
-    var placeholder = null;
-    var navOffset   = 0;
-    var navH        = 0;
+    var siteNav = document.querySelector('header + nav') || document.querySelector('nav.border-t');
+    var tourNav = document.getElementById('tour-nav');
 
-    function calcNavOffset() {
-        if (!siteNav) return;
-        var el = siteNav, top = 0;
-        while (el) { top += el.offsetTop; el = el.offsetParent; }
-        navOffset = top;
-        navH      = siteNav.offsetHeight;
+    // Solo se necesita calcular el offset una vez (load + resize)
+    // En móvil el nav principal no tiene items visibles → top:0 es correcto (CSS)
+    // En desktop sticky debajo del nav principal
+    function applyNavOffset() {
+        if (!tourNav) return;
+        var navH = (window.innerWidth >= 768 && siteNav) ? siteNav.offsetHeight : 0;
+        tourNav.style.top = navH + 'px';
+        document.documentElement.style.setProperty('--header-h', navH + 'px');
     }
 
-    function applyStack(floating) {
-        // Empuja el tour-nav justo debajo del nav flotante
-        var offset = floating ? navH : 0;
-        document.documentElement.style.setProperty('--header-h', offset + 'px');
-        if (tourNav) tourNav.style.top = offset + 'px';
-    }
+    window.addEventListener('load', applyNavOffset);
+    window.addEventListener('resize', applyNavOffset);
 
-    function onNavScroll() {
-        if (!siteNav) return;
-        if (window.scrollY >= navOffset) {
-            if (!placeholder) {
-                placeholder = document.createElement('div');
-                placeholder.style.height = navH + 'px';
-                siteNav.parentNode.insertBefore(placeholder, siteNav);
-            }
-            siteNav.classList.add('is-floating');
-            applyStack(true);
-        } else {
-            siteNav.classList.remove('is-floating');
-            if (placeholder && placeholder.parentNode) {
-                placeholder.parentNode.removeChild(placeholder);
-                placeholder = null;
-            }
-            applyStack(false);
-        }
-    }
-
-    window.addEventListener('load', function () {
-        calcNavOffset();
-        onNavScroll();
-    });
-
-    window.addEventListener('scroll', onNavScroll, { passive: true });
-    window.addEventListener('resize', function () { calcNavOffset(); onNavScroll(); });
-
-    var links = document.querySelectorAll('#tour-nav .tour-nav-link');
+    // ── Active link tracking ──
+    var links   = document.querySelectorAll('#tour-nav .tour-nav-link');
+    var container = document.querySelector('#tour-nav .tour-nav-inner');
     if (!links.length) return;
 
-    var nav = document.getElementById('tour-nav');
-    var container = document.querySelector('#tour-nav .tour-nav-inner');
-
-    // Obtener targets
     var targets = [];
     links.forEach(function (link) {
-        var id = link.getAttribute('href').replace('#', '');
-        var el = document.getElementById(id);
+        var el = document.getElementById(link.getAttribute('href').replace('#', ''));
         if (el) targets.push(el);
     });
     if (!targets.length) return;
 
-    // Scroll horizontal automático
     function scrollNavToActive(activeLink) {
         if (!container || !activeLink) return;
-
-        var containerWidth = container.offsetWidth;
-        var linkLeft = activeLink.offsetLeft;
-        var linkWidth = activeLink.offsetWidth;
-
-        var scrollTo = linkLeft - (containerWidth / 2) + (linkWidth / 2);
-
-        container.scrollTo({
-            left: scrollTo,
-            behavior: 'smooth'
-        });
+        var scrollTo = activeLink.offsetLeft - (container.offsetWidth / 2) + (activeLink.offsetWidth / 2);
+        container.scrollTo({ left: scrollTo, behavior: 'smooth' });
     }
 
     function setActive(id) {
         var activeLink = null;
-
         links.forEach(function (l) {
-            var isMatch = l.getAttribute('href').replace('#', '') === id;
-            l.classList.toggle('is-active', isMatch);
-            if (isMatch) activeLink = l;
+            var match = l.getAttribute('href').replace('#', '') === id;
+            l.classList.toggle('is-active', match);
+            if (match) activeLink = l;
         });
-
         scrollNavToActive(activeLink);
     }
 
-    function getTotalOffset() {
-        var headerH = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-h')) || 0;
-        var navH = nav ? nav.offsetHeight : 52;
-        return headerH + navH;
-    }
-
     function updateActive() {
-        var navH = getTotalOffset();
+        var offset = tourNav ? tourNav.offsetHeight : 52;
         var activeId = targets[0].getAttribute('id');
-
         targets.forEach(function (el) {
-            var rect = el.getBoundingClientRect();
-            if (rect.top <= navH + 16) {
-                activeId = el.getAttribute('id');
-            }
+            if (el.getBoundingClientRect().top <= offset + 16) activeId = el.getAttribute('id');
         });
-
         setActive(activeId);
     }
 
-    // Estado inicial
     setActive(targets[0].getAttribute('id'));
-
     window.addEventListener('scroll', updateActive, { passive: true });
 
-    // Click con offset
+    // Click con scroll suave
     links.forEach(function (link) {
         link.addEventListener('click', function (e) {
             e.preventDefault();
-
-            var id = this.getAttribute('href').replace('#', '');
-            var target = document.getElementById(id);
+            var target = document.getElementById(this.getAttribute('href').replace('#', ''));
             if (!target) return;
-
-            var navH = getTotalOffset();
-            var top = target.getBoundingClientRect().top + window.pageYOffset - navH - 8;
-
-            window.scrollTo({
-                top: top,
-                behavior: 'smooth'
-            });
-
-            setActive(id);
+            var offset = tourNav ? tourNav.offsetHeight : 52;
+            window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - offset - 8, behavior: 'smooth' });
+            setActive(this.getAttribute('href').replace('#', ''));
         });
     });
 });

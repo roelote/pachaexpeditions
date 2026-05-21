@@ -22,7 +22,31 @@ if ( $gallery ) :
 	<div class="container">
 		<div class="py-2">
 		<div class="relative">
-			<div class="grid h-[540px] grid-cols-[1fr_320px] grid-rows-3 gap-3">
+
+			<!-- MÓVIL: solo foto principal -->
+			<a href="<?php echo esc_url( $main['url'] ); ?>"
+			   data-fancybox="gallery-tours"
+			   data-caption="<?php echo esc_attr( $main['caption'] ); ?>"
+			   class="md:hidden relative overflow-hidden rounded-2xl block group h-[280px]">
+				<img src="<?php echo esc_url( $main['sizes']['large'] ); ?>"
+				     alt="<?php echo esc_attr( $main['alt'] ); ?>"
+				     class="h-full w-full object-cover" />
+				<span class="absolute bottom-4 left-4 inline-flex items-center gap-2 bg-gold text-white text-sm font-semibold px-4 py-2 rounded-xl shadow-lg pointer-events-none">
+					<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+						<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
+					</svg>
+					See Gallery &middot; <?php echo $total; ?> photos
+				</span>
+				<?php foreach ( array_slice( $gallery, 1 ) as $img ) : ?>
+				<a href="<?php echo esc_url( $img['url'] ); ?>"
+				   data-fancybox="gallery-tours"
+				   data-caption="<?php echo esc_attr( $img['caption'] ); ?>"
+				   class="hidden"></a>
+				<?php endforeach; ?>
+			</a>
+
+			<!-- DESKTOP: grid completo -->
+			<div class="hidden md:grid h-[540px] grid-cols-[1fr_320px] grid-rows-3 gap-3">
 				<!-- Foto principal -->
 				<a href="<?php echo esc_url( $main['url'] ); ?>"
 				   data-fancybox="gallery-tours"
@@ -64,7 +88,6 @@ if ( $gallery ) :
 				   data-caption="<?php echo esc_attr( $img['caption'] ); ?>"
 				   class="hidden"></a>
 				<?php endforeach; ?>
-
 			</div>
 
 		</div><!-- /relative -->
@@ -75,7 +98,7 @@ if ( $gallery ) :
 
 
 
-<section>
+<section class="px-3 xl:px-0">
 
 		<div class="container">
 				<?php if ( function_exists( 'yoast_breadcrumb' ) ) : ?>
@@ -83,7 +106,7 @@ if ( $gallery ) :
 					<?php yoast_breadcrumb( '<nav class="breadcrumb-nav" aria-label="breadcrumb">', '</nav>' ); ?>
 				</div>
 				<?php endif; ?>
-		
+
 
 			<div class="flex flex-col md:flex-row justify-between items-start gap-10 mt-6 xl:mt-1">
 				<div class="w-full md:w-1/2 xl:w-[70%]">
@@ -136,7 +159,7 @@ if ( $gallery ) :
 					</a>
 				</div>
 				<?php endif; ?>
-						
+
 				</div>
 			</div>
 		</div>

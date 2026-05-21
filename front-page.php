@@ -21,7 +21,7 @@ get_header();
 </section>
 
 <!-- Enjoy the Magic of the Andes -->
-<section class="py-16 bg-white">
+<section class="py-16 bg-white px-3 xl:px-0">
   <div class="container">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
 
@@ -120,7 +120,7 @@ get_header();
 
 
 <!-- Best Salkantay Treks to Machu Picchu -->
-<section class="py-16 bg-gray-50">
+<section class="py-16 bg-gray-50 px-3 xl:px-0">
   <div class="container">
 
     <!-- Header -->
@@ -274,7 +274,7 @@ get_header();
 </section>
 
 <!-- Exclusive Adventures and Treks -->
-<section class="py-16 bg-white">
+<section class="py-16 bg-white px-3 xl:px-0">
   <div class="container">
 
     <!-- Header -->
@@ -431,7 +431,7 @@ get_header();
 </section>
 
 <!-- Top Day Tours In Cusco -->
-<section class="py-16 bg-gray-50">
+<section class="py-16 bg-gray-50 px-3 xl:px-0">
   <div class="container">
 
     <!-- Header -->

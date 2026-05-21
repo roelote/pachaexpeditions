@@ -33,7 +33,7 @@ while ( have_posts() ) : the_post();
 <?php endif; ?>
 
 <!-- Contenido de la página -->
-<section class="py-10 md:py-14">
+<section class="py-4 md:py-4 px-3 xl:px-0">
     <div class="container px-5 xl:px-4">
         <div class="max-w-7xl mx-auto">
             <main id="primary" class="page-main">
