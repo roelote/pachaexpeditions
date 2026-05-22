@@ -138,7 +138,7 @@ if ( $gallery ) :
 									<p class="text-[10px] font-bold tracking-[0.25em] uppercase text-white/75 mb-1">FLASH SALE</p>
 									<p class="text-white font-semibold text-sm leading-snug">
 										Get
-										<span class="inline-block bg-gold text-[#3a2800] font-extrabold px-3 py-0.5 rounded-full text-sm mx-1">
+										<span class="inline-block bg-gold text-white font-extrabold px-3 py-0.5 rounded-full text-sm mx-1">
 											7% OFF
 										</span>
 										for the <?php echo get_the_title(); ?>

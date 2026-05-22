@@ -1,0 +1,197 @@
+[
+  {
+    "key": "group_fp_salkantay_section",
+    "title": "Salkantay Section – Portada",
+    "fields": [
+      {
+        "key": "field_salkantay_badge",
+        "label": "Badge \/ Categoría",
+        "name": "salkantay_badge",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "Texto pequeño sobre el título. Ej: Alternative Treks",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": { "width": "", "class": "", "id": "" },
+        "default_value": "Alternative Treks",
+        "maxlength": "",
+        "placeholder": "Alternative Treks",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_salkantay_title",
+        "label": "Título de la sección",
+        "name": "salkantay_title",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": { "width": "", "class": "", "id": "" },
+        "default_value": "Best Salkantay Treks to Machu Picchu",
+        "maxlength": "",
+        "placeholder": "Best Salkantay Treks to Machu Picchu",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_salkantay_subtitle",
+        "label": "Subtítulo \/ Descripción",
+        "name": "salkantay_subtitle",
+        "aria-label": "",
+        "type": "textarea",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": { "width": "", "class": "", "id": "" },
+        "default_value": "Explore our most popular Salkantay trekking routes — breathtaking landscapes, authentic experiences, and expert guides.",
+        "new_lines": "br",
+        "maxlength": "",
+        "placeholder": "",
+        "rows": 3
+      },
+      {
+        "key": "field_salkantay_tours",
+        "label": "Tours Salkantay",
+        "name": "salkantay_tours",
+        "aria-label": "",
+        "type": "relationship",
+        "instructions": "Selecciona los tours que aparecerán en esta sección (máx. 8).",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": { "width": "", "class": "", "id": "" },
+        "post_type": ["tour"],
+        "post_status": "",
+        "taxonomy": "",
+        "filters": ["search", "taxonomy"],
+        "return_format": "object",
+        "min": "",
+        "max": 8,
+        "elements": ["featured_image"]
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "page_type",
+          "operator": "==",
+          "value": "front_page"
+        }
+      ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0
+  },
+  {
+    "key": "group_tour_fields",
+    "title": "Tour – Datos del Tour",
+    "fields": [
+      {
+        "key": "field_tour_badge_label",
+        "label": "Badge principal",
+        "name": "tour_badge_label",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "Ej: Best Seller, Special Offer, New",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": { "width": "50%", "class": "", "id": "" },
+        "default_value": "",
+        "maxlength": "",
+        "placeholder": "Best Seller",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_tour_secondary_badge",
+        "label": "Badge secundario",
+        "name": "tour_secondary_badge",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "Opcional. Ej: Luxury, Recommended, Popular",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": { "width": "50%", "class": "", "id": "" },
+        "default_value": "",
+        "maxlength": "",
+        "placeholder": "Luxury",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_tour_duration",
+        "label": "Duración (días) — fijo",
+        "name": "tour_duration",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "Este dato se fija por tour. Ej: 5 Days \/ 4 Nights",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": { "width": "50%", "class": "", "id": "" },
+        "default_value": "",
+        "maxlength": "",
+        "placeholder": "5 Days \/ 4 Nights",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_tour_price",
+        "label": "Precio (From)",
+        "name": "tour_price",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "Ej: $380",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": { "width": "50%", "class": "", "id": "" },
+        "default_value": "",
+        "maxlength": "",
+        "placeholder": "$380",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_tour_description",
+        "label": "Descripción corta (card)",
+        "name": "tour_description",
+        "aria-label": "",
+        "type": "textarea",
+        "instructions": "Si se deja vacío, se usa el excerpt del post.",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": { "width": "", "class": "", "id": "" },
+        "default_value": "",
+        "new_lines": "br",
+        "maxlength": "",
+        "placeholder": "",
+        "rows": 3
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "post_type",
+          "operator": "==",
+          "value": "tour"
+        }
+      ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0
+  }
+]

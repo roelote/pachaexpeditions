@@ -127,9 +127,9 @@ get_header();
 
     <!-- Header -->
     <div class="text-center mb-10">
-      <span class="inline-block text-primary text-sm font-semibold tracking-widest uppercase mb-2">Alternative Treks</span>
-      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Best Salkantay Treks to Machu Picchu</h2>
-      <p class="mt-3 text-gray-500 max-w-xl mx-auto text-base">Explore our most popular Salkantay trekking routes — breathtaking landscapes, authentic experiences, and expert guides.</p>
+      <span class="inline-block text-primary text-sm font-semibold tracking-widest uppercase mb-2"><?php echo esc_html( get_field('salkantay_badge') ?: 'Alternative Treks' ); ?></span>
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight"><?php echo esc_html( get_field('salkantay_title') ?: 'Best Salkantay Treks to Machu Picchu' ); ?></h2>
+      <p class="mt-3 text-gray-500 max-w-xl mx-auto text-base"><?php echo esc_html( get_field('salkantay_subtitle') ?: 'Explore our most popular Salkantay trekking routes — breathtaking landscapes, authentic experiences, and expert guides.' ); ?></p>
       <div class="mt-4 flex justify-center">
         <span class="block w-14 h-1 rounded-full bg-primary"></span>
       </div>
@@ -139,119 +139,60 @@ get_header();
     <div class="swiper salkantay-swiper relative pb-12">
       <div class="swiper-wrapper">
 
-        <!-- Card 1 -->
+        <?php
+        $salk_tours = get_field( 'salkantay_tours' );
+        if ( $salk_tours ) :
+          foreach ( $salk_tours as $tour ) :
+            $tour_id    = $tour->ID;
+            $tour_img   = get_the_post_thumbnail_url( $tour_id, 'large' ) ?: 'https://via.placeholder.com/800x400?text=No+Image';
+            $tour_title = get_the_title( $tour_id );
+            $raw_desc   = get_field( 'tour_description', $tour_id );
+            if ( ! $raw_desc ) {
+              $raw_desc = get_post_field( 'post_excerpt', $tour_id );
+            }
+            if ( ! $raw_desc ) {
+              $raw_desc = wp_trim_words( strip_tags( get_post_field( 'post_content', $tour_id ) ), 22, '...' );
+            }
+            $tour_desc  = $raw_desc;
+            $tour_badge = get_field( 'tour_badge_label', $tour_id ) ?: 'Best Seller';
+            $tour_sec   = get_field( 'tour_secondary_badge', $tour_id );
+            $tour_dur   = get_field( 'tour_duration', $tour_id );
+            $tour_price = get_field( 'price', $tour_id );
+            $tour_link  = get_permalink( $tour_id );
+        ?>
         <div class="swiper-slide">
           <div class="bg-white rounded-2xl shadow-md overflow-hidden group hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
             <div class="relative overflow-hidden">
-              <img src="https://www.pachaexpeditions.com/wp-content/uploads/2021/09/salkantayhikingperu--1900x710.jpg" alt="Salkantay Trek 5 Days" class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute top-0 left-0 right-0 bg-[#b1393b] text-white text-xs font-bold tracking-widest uppercase text-center py-1.5 z-10">Best Seller</div>
+              <img src="<?php echo esc_url( $tour_img ); ?>" alt="<?php echo esc_attr( $tour_title ); ?>" class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute top-0 left-0 right-0 bg-[#b1393b] text-white text-xs font-bold tracking-widest uppercase text-center py-1.5 z-10"><?php echo esc_html( $tour_badge ); ?></div>
+              <?php if ( $tour_sec ) : ?>
+              <span class="absolute top-8 left-3 bg-gray-900 text-white text-xs font-bold px-3 py-1 rounded-full shadow"><?php echo esc_html( $tour_sec ); ?></span>
+              <?php endif; ?>
             </div>
             <div class="p-5 flex flex-col flex-1">
+              <?php if ( $tour_dur ) : ?>
               <div class="flex items-center gap-2 mb-2 flex-wrap">
                 <span class="flex items-center gap-1 text-xs text-gray-500 bg-gray-100 px-2.5 py-1 rounded-full font-medium">
                   <svg class="w-3.5 h-3.5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                  5 Days / 4 Nights
+                  <?php echo esc_html( $tour_dur ); ?>
                 </span>
-               
               </div>
-              <h3 class="text-base font-bold text-gray-900 mb-1 leading-snug">Salkantay Trek 5 Days to Machu Picchu</h3>
-              <p class="text-sm text-gray-500 mb-4 flex-1 leading-relaxed">Cross the stunning Salkantay Pass at 4,638m and descend through cloud forests to the iconic citadel of Machu Picchu.</p>
+              <?php endif; ?>
+              <h3 class="text-base font-bold text-gray-900 mb-1 leading-snug"><?php echo esc_html( $tour_title ); ?></h3>
+              <p class="text-sm text-gray-500 mb-4 flex-1 leading-relaxed"><?php echo esc_html( $tour_desc ); ?></p>
               <div class="flex items-center justify-between mt-auto pt-3 border-t border-gray-100">
                 <div>
                   <span class="text-xs text-gray-400">From</span>
-                  <p class="text-xl font-extrabold text-primary leading-none">$380 <span class="text-xs font-normal text-gray-400">/ person</span></p>
+                  <p class="text-xl font-extrabold text-primary leading-none"><?php echo esc_html( $tour_price ); ?> <span class="text-xs font-normal text-gray-400">/ person</span></p>
                 </div>
-                <a href="#" class="bg-primary hover:bg-primary-dark text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-colors duration-200 shadow-sm">Book Now</a>
+                <a href="<?php echo esc_url( $tour_link ); ?>" class="bg-primary hover:bg-primary-dark text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-colors duration-200 shadow-sm">Book Now</a>
               </div>
             </div>
           </div>
         </div>
-
-        <!-- Card 2 -->
-        <div class="swiper-slide">
-          <div class="bg-white rounded-2xl shadow-md overflow-hidden group hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
-            <div class="relative overflow-hidden">
-              <img src="https://www.pachaexpeditions.com/wp-content/uploads/2021/09/salkantayhikingperu--1900x710.jpg" alt="Salkantay Trek 7 Days" class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute top-0 left-0 right-0 bg-[#b1393b] text-white text-xs font-bold tracking-widest uppercase text-center py-1.5 z-10">Best Seller</div>
-            </div>
-            <div class="p-5 flex flex-col flex-1">
-              <div class="flex items-center gap-2 mb-2 flex-wrap">
-                <span class="flex items-center gap-1 text-xs text-gray-500 bg-gray-100 px-2.5 py-1 rounded-full font-medium">
-                  <svg class="w-3.5 h-3.5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                  7 Days / 6 Nights
-                </span>
-               
-              </div>
-              <h3 class="text-base font-bold text-gray-900 mb-1 leading-snug">Salkantay Trek 7 Days Extended Route</h3>
-              <p class="text-sm text-gray-500 mb-4 flex-1 leading-relaxed">The ultimate Salkantay adventure — includes the Humantay Lake, Sacred Valley, and a full-day guided tour of Machu Picchu.</p>
-              <div class="flex items-center justify-between mt-auto pt-3 border-t border-gray-100">
-                <div>
-                  <span class="text-xs text-gray-400">From</span>
-                  <p class="text-xl font-extrabold text-primary leading-none">$520 <span class="text-xs font-normal text-gray-400">/ person</span></p>
-                </div>
-                <a href="#" class="bg-primary hover:bg-primary-dark text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-colors duration-200 shadow-sm">Book Now</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="swiper-slide">
-          <div class="bg-white rounded-2xl shadow-md overflow-hidden group hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
-            <div class="relative overflow-hidden">
-              <img src="https://www.pachaexpeditions.com/wp-content/uploads/2021/09/salkantayhikingperu--1900x710.jpg" alt="Humantay Lake Day Trip" class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute top-0 left-0 right-0 bg-[#b1393b] text-white text-xs font-bold tracking-widest uppercase text-center py-1.5 z-10">Best Seller</div>
-            </div>
-            <div class="p-5 flex flex-col flex-1">
-              <div class="flex items-center gap-2 mb-2 flex-wrap">
-                <span class="flex items-center gap-1 text-xs text-gray-500 bg-gray-100 px-2.5 py-1 rounded-full font-medium">
-                  <svg class="w-3.5 h-3.5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                  1 Day
-                </span>
-                
-              </div>
-              <h3 class="text-base font-bold text-gray-900 mb-1 leading-snug">Humantay Lake Day Trip from Cusco</h3>
-              <p class="text-sm text-gray-500 mb-4 flex-1 leading-relaxed">A stunning turquoise glacial lake nestled at 4,200m in the Salkantay mountain range — perfect for a one-day escape from Cusco.</p>
-              <div class="flex items-center justify-between mt-auto pt-3 border-t border-gray-100">
-                <div>
-                  <span class="text-xs text-gray-400">From</span>
-                  <p class="text-xl font-extrabold text-primary leading-none">$65 <span class="text-xs font-normal text-gray-400">/ person</span></p>
-                </div>
-                <a href="#" class="bg-primary hover:bg-primary-dark text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-colors duration-200 shadow-sm">Book Now</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 4 (extra para loop) -->
-        <div class="swiper-slide">
-          <div class="bg-white rounded-2xl shadow-md overflow-hidden group hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
-            <div class="relative overflow-hidden">
-              <img src="https://www.pachaexpeditions.com/wp-content/uploads/2021/09/salkantayhikingperu--1900x710.jpg" alt="Salkantay Luxury Trek" class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute top-0 left-0 right-0 bg-[#b1393b] text-white text-xs font-bold tracking-widest uppercase text-center py-1.5 z-10">Best Seller</div>
-              <span class="absolute top-8 left-3 bg-gray-900 text-white text-xs font-bold px-3 py-1 rounded-full shadow">Luxury</span>
-             
-            </div>
-            <div class="p-5 flex flex-col flex-1">
-              <div class="flex items-center gap-2 mb-2 flex-wrap">
-                <span class="flex items-center gap-1 text-xs text-gray-500 bg-gray-100 px-2.5 py-1 rounded-full font-medium">
-                  <svg class="w-3.5 h-3.5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                  5 Days / 4 Nights
-                </span>
-                
-              </div>
-              <h3 class="text-base font-bold text-gray-900 mb-1 leading-snug">Salkantay Luxury Trek — Lodge to Lodge</h3>
-              <p class="text-sm text-gray-500 mb-4 flex-1 leading-relaxed">Experience Salkantay in comfort — private mountain lodges, gourmet meals, and hot showers after every trekking day.</p>
-              <div class="flex items-center justify-between mt-auto pt-3 border-t border-gray-100">
-                <div>
-                  <span class="text-xs text-gray-400">From</span>
-                  <p class="text-xl font-extrabold text-primary leading-none">$850 <span class="text-xs font-normal text-gray-400">/ person</span></p>
-                </div>
-                <a href="#" class="bg-primary hover:bg-primary-dark text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-colors duration-200 shadow-sm">Book Now</a>
-              </div>
-            </div>
-          </div>
-        </div>
+        <?php endforeach; else : ?>
+        <div class="swiper-slide w-full py-12 text-center text-gray-400 text-sm col-span-3">No hay tours seleccionados. Edita la página de inicio y añade tours en la sección Salkantay.</div>
+        <?php endif; ?>
 
       </div><!-- /.swiper-wrapper -->
 
@@ -530,6 +471,18 @@ get_header();
       <div class="swiper-button-next after:text-sm after:font-bold !w-10 !h-10 bg-white shadow-md rounded-full !text-primary hover:bg-primary hover:!text-white transition-colors duration-200 -right-2 md:-right-5"></div>
       <div class="swiper-pagination !bottom-0"></div>
     </div><!-- /.swiper -->
+
+  </div>
+</section>
+
+<!-- seccion tripadviosr -->
+<section class="py-12 px-4">
+  <div class="max-w-6xl mx-auto text-center">
+    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-2">What Our Travelers Say</h2>
+    <p class="text-gray-500 mb-8">Real reviews from adventurers who explored Peru with us</p>
+       
+
+       <?php echo do_shortcode( '[trustindex no-registration=tripadvisor]' ); ?>
 
   </div>
 </section>

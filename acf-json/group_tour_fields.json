@@ -1,0 +1,128 @@
+{
+    "key": "group_tour_fields",
+    "title": "Tour – Datos del Tour",
+    "fields": [
+        {
+            "key": "field_tour_badge_label",
+            "label": "Badge principal",
+            "name": "tour_badge_label",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Ej: Best Seller, Special Offer, New",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50%",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "Best Seller",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_tour_secondary_badge",
+            "label": "Badge secundario",
+            "name": "tour_secondary_badge",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Opcional. Ej: Luxury, Recommended, Popular",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50%",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "Luxury",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_tour_duration",
+            "label": "Duración (días) — fijo",
+            "name": "tour_duration",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Este dato se fija por tour. Ej: 5 Days \/ 4 Nights",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50%",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "5 Days \/ 4 Nights",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_tour_price",
+            "label": "Precio (From)",
+            "name": "tour_price",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Ej: $380",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50%",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "$380",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_tour_description",
+            "label": "Descripción corta (card)",
+            "name": "tour_description",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Si se deja vacío, se usa el excerpt del post.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "new_lines": "br",
+            "maxlength": "",
+            "placeholder": "",
+            "rows": 3
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "tour"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1779490653
+}

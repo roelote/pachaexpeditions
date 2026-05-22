@@ -16,7 +16,7 @@ module.exports = {
             primary: '#9db247',
             'primary-dark': '#4a5419',
             'primary-light': '#7a8a2d',
-            gold: '#c9a227',
+            gold: '#ff9308',
           },
            fontFamily: {
         sans:    ['Poppins', 'system-ui', 'sans-serif'],

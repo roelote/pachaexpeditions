@@ -1,0 +1,121 @@
+{
+    "key": "group_fp_salkantay_section",
+    "title": "Salkantay Section – Portada",
+    "fields": [
+        {
+            "key": "field_salkantay_badge",
+            "label": "Badge \/ Categoría",
+            "name": "salkantay_badge",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Texto pequeño sobre el título. Ej: Alternative Treks",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Alternative Treks",
+            "maxlength": "",
+            "placeholder": "Alternative Treks",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_salkantay_title",
+            "label": "Título de la sección",
+            "name": "salkantay_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Best Salkantay Treks to Machu Picchu",
+            "maxlength": "",
+            "placeholder": "Best Salkantay Treks to Machu Picchu",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_salkantay_subtitle",
+            "label": "Subtítulo \/ Descripción",
+            "name": "salkantay_subtitle",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Explore our most popular Salkantay trekking routes — breathtaking landscapes, authentic experiences, and expert guides.",
+            "new_lines": "br",
+            "maxlength": "",
+            "placeholder": "",
+            "rows": 3
+        },
+        {
+            "key": "field_salkantay_tours",
+            "label": "Tours Salkantay",
+            "name": "salkantay_tours",
+            "aria-label": "",
+            "type": "relationship",
+            "instructions": "Selecciona los tours que aparecerán en esta sección (máx. 8).",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "post"
+            ],
+            "post_status": "",
+            "taxonomy": "",
+            "filters": [
+                "search",
+                "taxonomy"
+            ],
+            "return_format": "object",
+            "min": "",
+            "max": 8,
+            "allow_in_bindings": 1,
+            "elements": [
+                "featured_image"
+            ],
+            "bidirectional": 0,
+            "bidirectional_target": []
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_type",
+                "operator": "==",
+                "value": "front_page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1779490815
+}

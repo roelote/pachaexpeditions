@@ -740,6 +740,10 @@ body {
   z-index: 90;
 }
 
+.col-span-3 {
+  grid-column: span 3 / span 3;
+}
+
 .row-span-3 {
   grid-row: span 3 / span 3;
 }
@@ -996,6 +1000,10 @@ body {
 
 .max-w-xl {
   max-width: 36rem;
+}
+
+.max-w-6xl {
+  max-width: 72rem;
 }
 
 .flex-1 {
@@ -1269,7 +1277,7 @@ body {
 
 .bg-gold {
   --tw-bg-opacity: 1;
-  background-color: rgb(201 162 39 / var(--tw-bg-opacity, 1));
+  background-color: rgb(255 147 8 / var(--tw-bg-opacity, 1));
 }
 
 .bg-gray-100 {

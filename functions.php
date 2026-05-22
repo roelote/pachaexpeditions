@@ -255,6 +255,31 @@ if (function_exists('acf_register_block_type')) {
 	add_action('acf/init', 'register_acf_block_types');
 }
 
+/* CPT: Tour */
+function pachaexp_register_cpt_tour() {
+	register_post_type( 'tour', array(
+		'labels' => array(
+			'name'               => 'Tours',
+			'singular_name'      => 'Tour',
+			'add_new'            => 'Añadir Tour',
+			'add_new_item'       => 'Añadir nuevo Tour',
+			'edit_item'          => 'Editar Tour',
+			'new_item'           => 'Nuevo Tour',
+			'view_item'          => 'Ver Tour',
+			'search_items'       => 'Buscar Tours',
+			'not_found'          => 'No se encontraron Tours',
+			'not_found_in_trash' => 'No hay Tours en la papelera',
+		),
+		'public'             => true,
+		'has_archive'        => true,
+		'supports'           => array( 'title', 'editor', 'thumbnail', 'excerpt' ),
+		'menu_icon'          => 'dashicons-location-alt',
+		'rewrite'            => array( 'slug' => 'tours' ),
+		'show_in_rest'       => true,
+	) );
+}
+add_action( 'init', 'pachaexp_register_cpt_tour' );
+
 /* Quitar <p> y <br/> de Contact Form 7 */
 add_filter('wpcf7_autop_or_not', '__return_false');
 
