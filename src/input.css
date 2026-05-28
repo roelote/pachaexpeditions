@@ -1024,6 +1024,8 @@ nav.is-floating {
 .blog-article__sep { color: #d1d5db; }
 .blog-article__date { font-size: 13px; }
 .blog-article__read { font-size: 13px; color: #9ca3af; }
+.blog-article__views { font-size: 13px; color: #9ca3af; }
+.blog-sidebar__item-views { font-size: 11px; color: #9ca3af; display: block; margin-top: 2px; }
 
 /* ── Article title ── */
 .blog-article__title {

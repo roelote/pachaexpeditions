@@ -206,6 +206,24 @@ function pachaexp_scripts() {
 add_action( 'wp_enqueue_scripts', 'pachaexp_scripts' );
 
 
+/* ── Post view counter (AJAX) ───────────────────────────────────── */
+function pachaexp_get_post_views( $post_id ) {
+	return (int) get_post_meta( $post_id, '_post_views_count', true );
+}
+
+function pachaexp_ajax_track_view() {
+	$post_id = isset( $_POST['post_id'] ) ? intval( $_POST['post_id'] ) : 0;
+	if ( ! $post_id || ! check_ajax_referer( 'track_view_' . $post_id, 'nonce', false ) ) {
+		wp_die( 0 );
+	}
+	$count = (int) get_post_meta( $post_id, '_post_views_count', true );
+	update_post_meta( $post_id, '_post_views_count', $count + 1 );
+	wp_die( 1 );
+}
+add_action( 'wp_ajax_nopriv_track_view', 'pachaexp_ajax_track_view' );
+add_action( 'wp_ajax_track_view',        'pachaexp_ajax_track_view' );
+
+
 /**
  * Implement the Custom Header feature.
  */

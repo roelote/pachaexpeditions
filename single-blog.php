@@ -36,7 +36,7 @@ while ( have_posts() ) :
 <?php endif; ?>
 
 <!-- ══ CONTENIDO ═══════════════════════════════════════════════════ -->
-<section class="container px-4 xl:px-4 py-10">
+<section class="container px-4 xl:px-4 py-2">
 
     <!-- Breadcrumb -->
     <?php if ( function_exists( 'yoast_breadcrumb' ) ) : ?>
@@ -50,7 +50,12 @@ while ( have_posts() ) :
         <!-- ── Artículo principal ────────────────────────────── -->
         <article class="blog-article w-full xl:w-[68%]">
 
-            <!-- Meta: categoría + fecha + tiempo de lectura -->
+            
+
+            <!-- Título -->
+            <h1 class="blog-article__title"><?php the_title(); ?></h1>
+
+         <!-- Meta: categoría + fecha + tiempo de lectura -->
             <div class="blog-article__meta">
                 <?php if ( $cat_name ) : ?>
                 <a href="<?php echo esc_url( $cat_link ); ?>" class="blog-article__cat-pill">
@@ -69,15 +74,14 @@ while ( have_posts() ) :
                     echo $minutes . ' min read';
                     ?>
                 </span>
-            </div>
-
-            <!-- Título -->
-            <h1 class="blog-article__title"><?php the_title(); ?></h1>
-
-            <!-- Autor -->
-            <div class="blog-article__author">
-                <?php echo get_avatar( get_the_author_meta( 'ID' ), 36, '', '', ['class' => 'blog-article__avatar'] ); ?>
-                <span>By <strong><?php the_author(); ?></strong></span>
+                <span class="blog-article__sep">·</span>
+                <span class="blog-article__views">
+                    <svg class="inline w-3.5 h-3.5 mb-0.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                    </svg>
+                    <?php echo number_format( pachaexp_get_post_views( get_the_ID() ) ); ?> views
+                </span>
             </div>
 
             <!-- Separador -->
@@ -215,5 +219,20 @@ while ( have_posts() ) :
 
 <?php
 endwhile;
+?>
 
-get_footer();
+<script>
+(function(){
+    var postId = <?php echo (int) get_the_ID(); ?>;
+    var nonce  = '<?php echo wp_create_nonce( "track_view_" . get_the_ID() ); ?>';
+    var body   = 'action=track_view&post_id=' + postId + '&nonce=' + nonce;
+    if ( sessionStorage.getItem( 'viewed_' + postId ) ) return;
+    fetch( '<?php echo esc_url( admin_url("admin-ajax.php") ); ?>', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: body
+    }).then(function(){ sessionStorage.setItem( 'viewed_' + postId, 1 ); });
+})();
+</script>
+
+<?php get_footer();

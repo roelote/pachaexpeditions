@@ -67,7 +67,7 @@ get_header();
       </div>
 
       <!-- Col 2: 2x2 Cards grid -->
-      <div class="grid grid-cols-2 gap-4" style="grid-template-rows: 330px 330px;">
+      <div class="grid grid-cols-2 gap-4" style="grid-template-rows: 400px 400px;">
 
         <!-- Card: Classic Inca Trail 4D -->
         <a href="#" class="group relative rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 block h-full">
