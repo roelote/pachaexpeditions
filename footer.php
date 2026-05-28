@@ -5,14 +5,43 @@
  */
 ?>
 
+
+<!-- marcas -->
+<section class="py-10 bg-gray-50 border-y border-gray-100">
+  <div class="container px-4 xl:px-0">
+    <div class="swiper marcas-swiper">
+      <div class="swiper-wrapper items-center">
+
+        <?php
+        $marcas = [
+          [ 'file' => 'aatc.jpeg',              'alt' => 'AATC' ],
+          [ 'file' => 'agencia-registrada.jpeg', 'alt' => 'Agencia Registrada' ],
+          [ 'file' => 'asta.jpeg',               'alt' => 'ASTA' ],
+          [ 'file' => 'caltur.jpeg',             'alt' => 'Caltur' ],
+          [ 'file' => 'gercetur.jpeg',           'alt' => 'Gercetur' ],
+          [ 'file' => 'peru.jpeg',               'alt' => 'Peru' ],
+          [ 'file' => 'promperu.jpeg',           'alt' => 'PromPerú' ],
+          [ 'file' => 'sernap.jpeg',             'alt' => 'Sernanp' ],
+        ];
+        foreach ( $marcas as $marca ) : ?>
+        <div class="swiper-slide flex items-center justify-center">
+          <img src="<?php echo esc_url( get_template_directory_uri() . '/img/marcas/' . $marca['file'] ); ?>"
+               alt="<?php echo esc_attr( $marca['alt'] ); ?>"
+               class="h-14 w-auto object-contain mx-auto grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+        </div>
+        <?php endforeach; ?>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
 <div class="h-36 bg-contain bg-center fondo-footer opacity-80"></div>
 
 <footer style="background:#1c2130; color:#9ca3af;">
 
     <!-- Imagen de paisaje decorativa -->
-    
-
-   
 
     <!-- Cuerpo principal del footer -->
     <div class="container px-5 xl:px-4 py-12">
@@ -78,12 +107,7 @@
             <div>
                 <h4 class="footer-heading">Payment Methods</h4>
                 <div class="mt-4 space-y-4">
-                    <a target="_blank"
-                       href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4ASURV4UZLSQU"
-                       class="inline-block hover:opacity-80 transition-opacity">
-                        <img src="https://www.pachaexpeditions.com/wp-content/themes/pachaexpeditions/img/paypal.png"
-                             alt="PayPal" class="h-10 w-auto">
-                    </a>
+                  
                     <div>
                         <a target="_blank" href="#">
                             <img src="https://www.pachaexpeditions.com/wp-content/uploads/2025/04/logo.png"

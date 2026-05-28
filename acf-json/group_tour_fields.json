@@ -63,12 +63,12 @@
             "append": ""
         },
         {
-            "key": "field_tour_price",
+            "key": "field_price",
             "label": "Precio (From)",
-            "name": "tour_price",
+            "name": "price",
             "aria-label": "",
             "type": "text",
-            "instructions": "Ej: $380",
+            "instructions": "Ej: $380 — usado como get_field('price', $tour_id)",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {

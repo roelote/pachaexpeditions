@@ -190,15 +190,14 @@ function pachaexp_scripts() {
 					1024: { slidesPerView: 3 }
 				}
 			});
-			new Swiper(".daytours-swiper", {
-				slidesPerView: 1,
-				spaceBetween: 20,
+			new Swiper(".marcas-swiper", {
+				slidesPerView: 3,
+				spaceBetween: 32,
 				loop: true,
-				pagination: { el: ".daytours-swiper .swiper-pagination", clickable: true },
-				navigation: { nextEl: ".daytours-swiper .swiper-button-next", prevEl: ".daytours-swiper .swiper-button-prev" },
+				autoplay: { delay: 2500, disableOnInteraction: false },
 				breakpoints: {
-					640:  { slidesPerView: 2 },
-					1024: { slidesPerView: 3 }
+					640:  { slidesPerView: 4 },
+					1024: { slidesPerView: 6 }
 				}
 			});
 		});
@@ -255,33 +254,52 @@ if (function_exists('acf_register_block_type')) {
 	add_action('acf/init', 'register_acf_block_types');
 }
 
-/* CPT: Tour */
-function pachaexp_register_cpt_tour() {
-	register_post_type( 'tour', array(
-		'labels' => array(
-			'name'               => 'Tours',
-			'singular_name'      => 'Tour',
-			'add_new'            => 'Añadir Tour',
-			'add_new_item'       => 'Añadir nuevo Tour',
-			'edit_item'          => 'Editar Tour',
-			'new_item'           => 'Nuevo Tour',
-			'view_item'          => 'Ver Tour',
-			'search_items'       => 'Buscar Tours',
-			'not_found'          => 'No se encontraron Tours',
-			'not_found_in_trash' => 'No hay Tours en la papelera',
-		),
-		'public'             => true,
-		'has_archive'        => true,
-		'supports'           => array( 'title', 'editor', 'thumbnail', 'excerpt' ),
-		'menu_icon'          => 'dashicons-location-alt',
-		'rewrite'            => array( 'slug' => 'tours' ),
-		'show_in_rest'       => true,
-	) );
-}
-add_action( 'init', 'pachaexp_register_cpt_tour' );
+
 
 /* Quitar <p> y <br/> de Contact Form 7 */
 add_filter('wpcf7_autop_or_not', '__return_false');
+
+
+add_action('acf/input/admin_footer', 'pachaexp_tour_details_unique_select');
+function pachaexp_tour_details_unique_select() {
+	?>
+	<script>
+	(function($){
+		function syncDetailIcons() {
+			var $selects = $('[data-name="detail_icon"] select');
+			if ( ! $selects.length ) return;
+
+			var taken = [];
+			$selects.each(function(){
+				var v = $(this).val();
+				if ( v ) taken.push(v);
+			});
+
+			$selects.each(function(){
+				var $s   = $(this);
+				var mine = $s.val();
+				$s.find('option').each(function(){
+					var v = $(this).val();
+					$(this).prop('disabled', v && v !== mine && taken.indexOf(v) !== -1);
+				});
+			});
+		}
+
+		$(document).on('change', '[data-name="detail_icon"] select', syncDetailIcons);
+
+		/* fila añadida al repeater */
+		$(document).on('acf/fields/repeater/append', syncDetailIcons);
+
+		/* fila eliminada — pequeño delay para que el DOM se actualice */
+		$(document).on('acf/fields/repeater/remove', function(){
+			setTimeout(syncDetailIcons, 100);
+		});
+
+		acf.addAction('ready', syncDetailIcons);
+	})(jQuery);
+	</script>
+	<?php
+}
 
 /* ================================================
    WALKER NAV MENU — 3 niveles

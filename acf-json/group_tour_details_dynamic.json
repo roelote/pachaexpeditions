@@ -1,0 +1,114 @@
+{
+    "key": "group_tour_details_dynamic",
+    "title": "Trip Details (Dynamic)",
+    "fields": [
+        {
+            "key": "field_tour_details_items",
+            "label": "Trip Details",
+            "name": "tour_details_items",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Add up to 10 details. They display in 2 symmetric columns.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "min": 0,
+            "max": 10,
+            "layout": "table",
+            "button_label": "Add Detail",
+            "rows_per_page": 20,
+            "collapsed": "",
+            "sub_fields": [
+                {
+                    "key": "field_detail_icon",
+                    "label": "Icon \/ Type",
+                    "name": "detail_icon",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "Choose the icon and type for this detail.",
+                    "required": 1,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "40",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "tour_type": "Tour Type",
+                        "duration": "Duration",
+                        "activities": "Activities",
+                        "group_size": "Group Size",
+                        "difficulty": "Difficulty",
+                        "accommodation": "Accommodation",
+                        "languages": "Tour Language",
+                        "hiking_distance": "Hiking Distance",
+                        "max_altitude": "Max Altitude",
+                        "meals": "Meals",
+                        "location": "Location",
+                        "transport": "Transport",
+                        "season": "Best Season",
+                        "min_age": "Min Age",
+                        "fitness": "Fitness Level"
+                    },
+                    "default_value": false,
+                    "allow_null": 1,
+                    "multiple": 0,
+                    "ui": 1,
+                    "return_format": "value",
+                    "ajax": 0,
+                    "placeholder": "",
+                    "create_options": 0,
+                    "save_options": 0,
+                    "parent_repeater": "field_tour_details_items"
+                },
+                {
+                    "key": "field_detail_value",
+                    "label": "Value",
+                    "name": "detail_value",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Enter the value for this detail.",
+                    "required": 0,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "60",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "e.g. 4 Days \/ 3 Nights",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "parent_repeater": "field_tour_details_items"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 5,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Dynamic trip details displayed in 2 columns on single tour pages.",
+    "show_in_rest": false,
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1779924938
+}

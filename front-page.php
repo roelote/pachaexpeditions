@@ -161,9 +161,9 @@ get_header();
             $tour_link  = get_permalink( $tour_id );
         ?>
         <div class="swiper-slide">
-          <div class="bg-white rounded-2xl shadow-md overflow-hidden group hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
+          <div class="bg-white rounded-xl shadow-md overflow-hidden group hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
             <div class="relative overflow-hidden">
-              <img src="<?php echo esc_url( $tour_img ); ?>" alt="<?php echo esc_attr( $tour_title ); ?>" class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500">
+              <img src="<?php echo esc_url( $tour_img ); ?>" alt="<?php echo esc_attr( $tour_title ); ?>" class="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500">
               <div class="absolute top-0 left-0 right-0 bg-[#b1393b] text-white text-xs font-bold tracking-widest uppercase text-center py-1.5 z-10"><?php echo esc_html( $tour_badge ); ?></div>
               <?php if ( $tour_sec ) : ?>
               <span class="absolute top-8 left-3 bg-gray-900 text-white text-xs font-bold px-3 py-1 rounded-full shadow"><?php echo esc_html( $tour_sec ); ?></span>
@@ -215,9 +215,9 @@ get_header();
 
     <!-- Header -->
     <div class="text-center mb-10">
-      <span class="inline-block text-primary text-sm font-semibold tracking-widest uppercase mb-2">Pacha Expeditions</span>
-      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Exclusive Adventures & Treks</h2>
-      <p class="mt-3 text-gray-500 max-w-xl mx-auto text-base">Handpicked expeditions for those who seek the extraordinary — remote routes, immersive nature, and unforgettable high-altitude experiences.</p>
+      <span class="inline-block text-primary text-sm font-semibold tracking-widest uppercase mb-2"><?php echo esc_html( get_field('adventures_badge') ?: 'Pacha Expeditions' ); ?></span>
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight"><?php echo esc_html( get_field('adventures_title') ?: 'Exclusive Adventures & Treks' ); ?></h2>
+      <p class="mt-3 text-gray-500 max-w-xl mx-auto text-base"><?php echo esc_html( get_field('adventures_subtitle') ?: 'Handpicked expeditions for those who seek the extraordinary — remote routes, immersive nature, and unforgettable high-altitude experiences.' ); ?></p>
       <div class="mt-4 flex justify-center">
         <span class="block w-14 h-1 rounded-full bg-primary"></span>
       </div>
@@ -227,118 +227,60 @@ get_header();
     <div class="swiper adventures-swiper relative pb-12">
       <div class="swiper-wrapper">
 
-        <!-- Card 1: Ausangate Trek -->
+        <?php
+        $adv_tours = get_field( 'adventures_tours' );
+        if ( $adv_tours ) :
+          foreach ( $adv_tours as $tour ) :
+            $tour_id    = $tour->ID;
+            $tour_img   = get_the_post_thumbnail_url( $tour_id, 'large' ) ?: 'https://via.placeholder.com/800x400?text=No+Image';
+            $tour_title = get_the_title( $tour_id );
+            $raw_desc   = get_field( 'tour_description', $tour_id );
+            if ( ! $raw_desc ) {
+              $raw_desc = get_post_field( 'post_excerpt', $tour_id );
+            }
+            if ( ! $raw_desc ) {
+              $raw_desc = wp_trim_words( strip_tags( get_post_field( 'post_content', $tour_id ) ), 22, '...' );
+            }
+            $tour_desc  = $raw_desc;
+            $tour_badge = get_field( 'tour_badge_label', $tour_id ) ?: 'Special Offers';
+            $tour_sec   = get_field( 'tour_secondary_badge', $tour_id );
+            $tour_dur   = get_field( 'tour_duration', $tour_id );
+            $tour_price = get_field( 'price', $tour_id );
+            $tour_link  = get_permalink( $tour_id );
+        ?>
         <div class="swiper-slide">
-          <div class="bg-white rounded-2xl shadow-md overflow-hidden group hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
+          <div class="bg-white rounded-xl shadow-md overflow-hidden group hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
             <div class="relative overflow-hidden">
-              <img src="https://www.pachaexpeditions.com/wp-content/uploads/2021/09/salkantayhikingperu--1900x710.jpg" alt="Ausangate Trek 5 Days" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute top-0 left-0 right-0 bg-[#b1393b] text-white text-xs font-bold tracking-widest uppercase text-center py-1.5 z-10">Special Offers</div>
+              <img src="<?php echo esc_url( $tour_img ); ?>" alt="<?php echo esc_attr( $tour_title ); ?>" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute top-0 left-0 right-0 bg-[#b1393b] text-white text-xs font-bold tracking-widest uppercase text-center py-1.5 z-10"><?php echo esc_html( $tour_badge ); ?></div>
+              <?php if ( $tour_sec ) : ?>
+              <span class="absolute top-8 left-3 bg-gray-900 text-white text-xs font-bold px-3 py-1 rounded-full shadow"><?php echo esc_html( $tour_sec ); ?></span>
+              <?php endif; ?>
             </div>
             <div class="p-5 flex flex-col flex-1">
+              <?php if ( $tour_dur ) : ?>
               <div class="flex items-center gap-2 mb-2 flex-wrap">
                 <span class="flex items-center gap-1 text-xs text-gray-500 bg-gray-100 px-2.5 py-1 rounded-full font-medium">
                   <svg class="w-3.5 h-3.5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                  5 Days / 4 Nights
+                  <?php echo esc_html( $tour_dur ); ?>
                 </span>
-            
               </div>
-              <h3 class="text-base font-bold text-gray-900 mb-1 leading-snug">Ausangate Trek 5 Days — Rainbow Mountain</h3>
-              <p class="text-sm text-gray-500 mb-4 flex-1 leading-relaxed">Circumnavigate the sacred Ausangate glacier at 5,200m and witness the breathtaking Vinicunca Rainbow Mountain on this remote Andean expedition.</p>
+              <?php endif; ?>
+              <h3 class="text-base font-bold text-gray-900 mb-1 leading-snug"><?php echo esc_html( $tour_title ); ?></h3>
+              <p class="text-sm text-gray-500 mb-4 flex-1 leading-relaxed"><?php echo esc_html( $tour_desc ); ?></p>
               <div class="flex items-center justify-between mt-auto pt-3 border-t border-gray-100">
                 <div>
                   <span class="text-xs text-gray-400">From</span>
-                  <p class="text-xl font-extrabold text-primary leading-none">$480 <span class="text-xs font-normal text-gray-400">/ person</span></p>
+                  <p class="text-xl font-extrabold text-primary leading-none"><?php echo esc_html( $tour_price ); ?> <span class="text-xs font-normal text-gray-400">/ person</span></p>
                 </div>
-                <a href="#" class="bg-primary hover:bg-primary-dark text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-colors duration-200 shadow-sm">Book Now</a>
+                <a href="<?php echo esc_url( $tour_link ); ?>" class="bg-primary hover:bg-primary-dark text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-colors duration-200 shadow-sm">Book Now</a>
               </div>
             </div>
           </div>
         </div>
-
-        <!-- Card 2: Amazon Jungle Expedition -->
-        <div class="swiper-slide">
-          <div class="bg-white rounded-2xl shadow-md overflow-hidden group hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
-            <div class="relative overflow-hidden">
-              <img src="https://www.pachaexpeditions.com/wp-content/uploads/2021/09/salkantayhikingperu--1900x710.jpg" alt="Amazon Jungle Expedition 4 Days" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute top-0 left-0 right-0 bg-[#b1393b] text-white text-xs font-bold tracking-widest uppercase text-center py-1.5 z-10">Special Offers</div>
-            </div>
-            <div class="p-5 flex flex-col flex-1">
-              <div class="flex items-center gap-2 mb-2 flex-wrap">
-                <span class="flex items-center gap-1 text-xs text-gray-500 bg-gray-100 px-2.5 py-1 rounded-full font-medium">
-                  <svg class="w-3.5 h-3.5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                  4 Days / 3 Nights
-                </span>
-      
-              </div>
-              <h3 class="text-base font-bold text-gray-900 mb-1 leading-snug">Amazon Jungle Expedition — Manu Reserve</h3>
-              <p class="text-sm text-gray-500 mb-4 flex-1 leading-relaxed">Venture deep into the Manu Biosphere Reserve — home to jaguars, macaws, and giant river otters — on this immersive jungle expedition led by expert naturalist guides.</p>
-              <div class="flex items-center justify-between mt-auto pt-3 border-t border-gray-100">
-                <div>
-                  <span class="text-xs text-gray-400">From</span>
-                  <p class="text-xl font-extrabold text-primary leading-none">$320 <span class="text-xs font-normal text-gray-400">/ person</span></p>
-                </div>
-                <a href="#" class="bg-primary hover:bg-primary-dark text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-colors duration-200 shadow-sm">Book Now</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 3: Choquequirao + Inca Trail Circuit -->
-        <div class="swiper-slide">
-          <div class="bg-white rounded-2xl shadow-md overflow-hidden group hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
-            <div class="relative overflow-hidden">
-              <img src="https://www.pachaexpeditions.com/wp-content/uploads/2021/09/salkantayhikingperu--1900x710.jpg" alt="Choquequirao to Machu Picchu Circuit" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute top-0 left-0 right-0 bg-[#b1393b] text-white text-xs font-bold tracking-widest uppercase text-center py-1.5 z-10">Special Offers</div>
-            </div>
-            <div class="p-5 flex flex-col flex-1">
-              <div class="flex items-center gap-2 mb-2 flex-wrap">
-                <span class="flex items-center gap-1 text-xs text-gray-500 bg-gray-100 px-2.5 py-1 rounded-full font-medium">
-                  <svg class="w-3.5 h-3.5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                  8 Days / 7 Nights
-                </span>
-             
-              </div>
-              <h3 class="text-base font-bold text-gray-900 mb-1 leading-snug">Choquequirao to Machu Picchu Circuit</h3>
-              <p class="text-sm text-gray-500 mb-4 flex-1 leading-relaxed">The ultimate Inca circuit — trek from the "lost city" of Choquequirao through dramatic canyons and cloud forests, finishing with the sunrise at Machu Picchu.</p>
-              <div class="flex items-center justify-between mt-auto pt-3 border-t border-gray-100">
-                <div>
-                  <span class="text-xs text-gray-400">From</span>
-                  <p class="text-xl font-extrabold text-primary leading-none">$750 <span class="text-xs font-normal text-gray-400">/ person</span></p>
-                </div>
-                <a href="#" class="bg-primary hover:bg-primary-dark text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-colors duration-200 shadow-sm">Book Now</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-         <!-- Card 4: Choquequirao + Inca Trail Circuit -->
-        <div class="swiper-slide">
-          <div class="bg-white rounded-2xl shadow-md overflow-hidden group hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
-            <div class="relative overflow-hidden">
-              <img src="https://www.pachaexpeditions.com/wp-content/uploads/2022/02/choquequirao-trek-4-dias-310x340.jpg" alt="Choquequirao to Machu Picchu Circuit" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute top-0 left-0 right-0 bg-[#b1393b] text-white text-xs font-bold tracking-widest uppercase text-center py-1.5 z-10">Special Offers</div>
-            </div>
-            <div class="p-5 flex flex-col flex-1">
-              <div class="flex items-center gap-2 mb-2 flex-wrap">
-                <span class="flex items-center gap-1 text-xs text-gray-500 bg-gray-100 px-2.5 py-1 rounded-full font-medium">
-                  <svg class="w-3.5 h-3.5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                  8 Days / 7 Nights
-                </span>
-               
-              </div>
-              <h3 class="text-base font-bold text-gray-900 mb-1 leading-snug">Choquequirao to Machu Picchu Circuit</h3>
-              <p class="text-sm text-gray-500 mb-4 flex-1 leading-relaxed">The ultimate Inca circuit — trek from the "lost city" of Choquequirao through dramatic canyons and cloud forests, finishing with the sunrise at Machu Picchu.</p>
-              <div class="flex items-center justify-between mt-auto pt-3 border-t border-gray-100">
-                <div>
-                  <span class="text-xs text-gray-400">From</span>
-                  <p class="text-xl font-extrabold text-primary leading-none">$750 <span class="text-xs font-normal text-gray-400">/ person</span></p>
-                </div>
-                <a href="#" class="bg-primary hover:bg-primary-dark text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-colors duration-200 shadow-sm">Book Now</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
+        <?php endforeach; else : ?>
+        <div class="swiper-slide w-full py-12 text-center text-gray-400 text-sm col-span-3">No hay tours seleccionados. Edita la página de inicio y añade tours en la sección Exclusive Adventures.</div>
+        <?php endif; ?>
 
       </div><!-- /.swiper-wrapper -->
 
@@ -350,25 +292,31 @@ get_header();
       <div class="swiper-pagination adventures-pagination !bottom-0"></div>
     </div><!-- /.swiper -->
 
- 
-
   </div>
 </section>
 
 
 <!-- Book Your Inca Trail 2026 Banner -->
+<?php
+$banner_img     = get_field( 'banner_image' );
+$banner_img_url = is_array( $banner_img ) ? $banner_img['url'] : ( $banner_img ?: 'https://www.pachaexpeditions.com/wp-content/uploads/2025/02/inca-trail-2025.jpg' );
+$banner_title   = get_field( 'banner_title' ) ?: 'Book Your Inca Trail to Machu Picchu 2026';
+$banner_body    = get_field( 'banner_body' ) ?: 'Bookings for the 2026 season are now OPEN! In 2025, tickets for the popular dates from March through September sold out within minutes. By booking the 2026 Classic Inca Trail now, you can secure your spot and guarantee that you won\'t miss out on this incredible trek. Don\'t wait any longer, BOOK NOW!';
+$banner_btn     = get_field( 'banner_button_text' ) ?: 'Inca Trail Availability 2026';
+$banner_url     = get_field( 'banner_button_url' ) ?: '#';
+?>
 <section class="relative overflow-hidden">
-  <img src="https://www.pachaexpeditions.com/wp-content/uploads/2025/02/inca-trail-2025.jpg" alt="Inca Trail to Machu Picchu 2026" class="absolute inset-0 w-full h-full object-cover object-center">
+  <img src="<?php echo esc_url( $banner_img_url ); ?>" alt="<?php echo esc_attr( $banner_title ); ?>" class="absolute inset-0 w-full h-full object-cover object-center">
   <div class="absolute inset-0 bg-black/60"></div>
   <div class="relative z-10 py-16 px-4 text-center max-w-3xl mx-auto">
     <h2 class="text-3xl md:text-4xl font-extrabold text-white uppercase tracking-wide leading-tight mb-4">
-      Book Your Inca Trail to Machu Picchu 2026
+      <?php echo esc_html( $banner_title ); ?>
     </h2>
     <p class="text-white/85 text-base md:text-lg leading-relaxed mb-8">
-      Bookings for the 2026 season are now OPEN! In 2025, tickets for the popular dates from March through September sold out within minutes. By booking the 2026 Classic Inca Trail now, you can secure your spot and guarantee that you won't miss out on this incredible trek. Don't wait any longer, BOOK NOW!
+      <?php echo esc_html( $banner_body ); ?>
     </p>
-    <a href="#" class="inline-flex items-center gap-2 text-white font-bold text-sm px-8 py-3.5 rounded-full transition-all duration-200 shadow-lg hover:opacity-90 hover:shadow-xl" style="background-color:#b1393b;">
-      Inca Trail Availability 2026
+    <a href="<?php echo esc_url( $banner_url ); ?>" class="inline-flex items-center gap-2 text-white font-bold text-sm px-8 py-3.5 rounded-full transition-all duration-200 shadow-lg hover:opacity-90 hover:shadow-xl" style="background-color:#b1393b;">
+      <?php echo esc_html( $banner_btn ); ?>
       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
     </a>
   </div>
@@ -382,98 +330,115 @@ get_header();
 
     <!-- Header -->
     <div class="text-center mb-10">
-      <span class="inline-block text-primary text-sm font-semibold tracking-widest uppercase mb-2">Cusco</span>
-      <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Top Day Tours In Cusco</h2>
+      <span class="inline-block text-primary text-sm font-semibold tracking-widest uppercase mb-2"><?php echo esc_html( get_field('daytours_badge') ?: 'Cusco' ); ?></span>
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900"><?php echo esc_html( get_field('daytours_title') ?: 'Top Day Tours In Cusco' ); ?></h2>
       <div class="mt-4 flex justify-center">
         <span class="block w-14 h-1 rounded-full bg-primary"></span>
       </div>
     </div>
 
-    <!-- Swiper -->
-    <div class="swiper daytours-swiper relative pb-12">
-      <div class="swiper-wrapper">
-
-        <!-- Card 1 -->
-        <div class="swiper-slide">
-          <a href="#" class="group block bg-white rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden">
-            <div class="relative overflow-hidden">
-              <img src="https://www.pachaexpeditions.com/wp-content/uploads/2021/09/salkantayhikingperu--1900x710.jpg" alt="Rainbow Mountain Day Trip" class="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute top-0 left-0 right-0 bg-[#b1393b] text-white text-xs font-bold tracking-widest uppercase text-center py-1.5 z-10">Special Offer</div>
-            </div>
-            <div class="p-4">
-              <h3 class="font-bold text-gray-900 text-sm mb-1">Rainbow Mountain Day Trip</h3>
-              <p class="text-xs text-gray-500 mb-3 leading-relaxed">Vinicunca — the colorful mountain at 5,200m above Cusco.</p>
-              <div class="flex items-center justify-between">
-                <p class="text-primary font-extrabold text-base">$45 <span class="text-xs font-normal text-gray-400">/ person</span></p>
-                <span class="text-xs text-primary font-semibold">Book Now →</span>
-              </div>
-            </div>
-          </a>
+    <!-- Grid de Day Tours -->
+    <?php
+    $day_tours = get_field( 'daytours_tours' );
+    $columns = get_field( 'daytours_columns' ) ?: 3;
+    $items_limit = get_field( 'daytours_items_limit' ) ?: 6;
+    
+    // Limitar el número de tours a mostrar
+    if ( $day_tours && is_array( $day_tours ) ) {
+      $day_tours = array_slice( $day_tours, 0, $items_limit );
+    }
+    
+    // Definir clases de grid según el número de columnas
+    $grid_classes = [
+      '2' => 'grid-cols-1 md:grid-cols-2',
+      '3' => 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3',
+      '4' => 'grid-cols-1 md:grid-cols-2 lg:grid-cols-4'
+    ];
+    $grid_class = $grid_classes[ $columns ] ?? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3';
+    ?>
+    
+    <div class="grid <?php echo esc_attr( $grid_class ); ?> gap-6">
+      <?php
+      if ( $day_tours ) :
+        foreach ( $day_tours as $tour ) :
+          $tour_id    = $tour->ID;
+          $tour_img   = get_the_post_thumbnail_url( $tour_id, 'large' ) ?: 'https://via.placeholder.com/800x400?text=No+Image';
+          $tour_title = get_the_title( $tour_id );
+          $raw_desc   = get_field( 'tour_description', $tour_id );
+          if ( ! $raw_desc ) $raw_desc = get_post_field( 'post_excerpt', $tour_id );
+          if ( ! $raw_desc ) $raw_desc = wp_trim_words( strip_tags( get_post_field( 'post_content', $tour_id ) ), 18, '...' );
+          $tour_badge = get_field( 'tour_badge_label', $tour_id ) ?: 'Special Offer';
+          $tour_price = get_field( 'price', $tour_id );
+          $tour_link  = get_permalink( $tour_id );
+      ?>
+      <a href="<?php echo esc_url( $tour_link ); ?>" class="group block bg-white rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+        <div class="relative overflow-hidden">
+          <img src="<?php echo esc_url( $tour_img ); ?>" alt="<?php echo esc_attr( $tour_title ); ?>" class="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500">
+          <div class="absolute top-0 left-0 right-0 bg-[#b1393b] text-white text-xs font-bold tracking-widest uppercase text-center py-1.5 z-10"><?php echo esc_html( $tour_badge ); ?></div>
         </div>
-
-        <!-- Card 2 -->
-        <div class="swiper-slide">
-          <a href="#" class="group block bg-white rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden">
-            <div class="relative overflow-hidden">
-              <img src="https://www.pachaexpeditions.com/wp-content/uploads/2021/09/salkantayhikingperu--1900x710.jpg" alt="Machu Picchu Day Trip" class="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute top-0 left-0 right-0 bg-[#b1393b] text-white text-xs font-bold tracking-widest uppercase text-center py-1.5 z-10">Special Offer</div>
-            </div>
-            <div class="p-4">
-              <h3 class="font-bold text-gray-900 text-sm mb-1">Machu Picchu Full Day Tour</h3>
-              <p class="text-xs text-gray-500 mb-3 leading-relaxed">Train to Aguas Calientes + guided tour of the iconic citadel.</p>
-              <div class="flex items-center justify-between">
-                <p class="text-primary font-extrabold text-base">$120 <span class="text-xs font-normal text-gray-400">/ person</span></p>
-                <span class="text-xs text-primary font-semibold">Book Now →</span>
-              </div>
-            </div>
-          </a>
+        <div class="p-4">
+          <h3 class="font-bold text-gray-900 text-sm mb-1"><?php echo esc_html( $tour_title ); ?></h3>
+          <p class="text-xs text-gray-500 mb-3 leading-relaxed"><?php echo esc_html( $raw_desc ); ?></p>
+          <div class="flex items-center justify-between">
+            <p class="text-primary font-extrabold text-base"><?php echo esc_html( $tour_price ); ?> <span class="text-xs font-normal text-gray-400">/ person</span></p>
+            <span class="text-xs text-primary font-semibold">Book Now →</span>
+          </div>
         </div>
-
-        <!-- Card 3 -->
-        <div class="swiper-slide">
-          <a href="#" class="group block bg-white rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden">
-            <div class="relative overflow-hidden">
-              <img src="https://www.pachaexpeditions.com/wp-content/uploads/2021/09/salkantayhikingperu--1900x710.jpg" alt="Sacred Valley Tour" class="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute top-0 left-0 right-0 bg-[#b1393b] text-white text-xs font-bold tracking-widest uppercase text-center py-1.5 z-10">Special Offer</div>
-            </div>
-            <div class="p-4">
-              <h3 class="font-bold text-gray-900 text-sm mb-1">Sacred Valley Full Day Tour</h3>
-              <p class="text-xs text-gray-500 mb-3 leading-relaxed">Pisac market, Ollantaytambo ruins and traditional lunch included.</p>
-              <div class="flex items-center justify-between">
-                <p class="text-primary font-extrabold text-base">$55 <span class="text-xs font-normal text-gray-400">/ person</span></p>
-                <span class="text-xs text-primary font-semibold">Book Now →</span>
-              </div>
-            </div>
-          </a>
-        </div>
-
-        <!-- Card 4 -->
-        <div class="swiper-slide">
-          <a href="#" class="group block bg-white rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden">
-            <div class="relative overflow-hidden">
-              <img src="https://www.pachaexpeditions.com/wp-content/uploads/2021/09/salkantayhikingperu--1900x710.jpg" alt="Humantay Lake Day Trip" class="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute top-0 left-0 right-0 bg-[#b1393b] text-white text-xs font-bold tracking-widest uppercase text-center py-1.5 z-10">Special Offer</div>
-            </div>
-            <div class="p-4">
-              <h3 class="font-bold text-gray-900 text-sm mb-1">Humantay Lake Day Trip</h3>
-              <p class="text-xs text-gray-500 mb-3 leading-relaxed">Stunning turquoise glacial lake at 4,200m in the Salkantay range.</p>
-              <div class="flex items-center justify-between">
-                <p class="text-primary font-extrabold text-base">$65 <span class="text-xs font-normal text-gray-400">/ person</span></p>
-                <span class="text-xs text-primary font-semibold">Book Now →</span>
-              </div>
-            </div>
-          </a>
-        </div>
-
-      </div><!-- /.swiper-wrapper -->
-
-      <div class="swiper-button-prev after:text-sm after:font-bold !w-10 !h-10 bg-white shadow-md rounded-full !text-primary hover:bg-primary hover:!text-white transition-colors duration-200 -left-2 md:-left-5"></div>
-      <div class="swiper-button-next after:text-sm after:font-bold !w-10 !h-10 bg-white shadow-md rounded-full !text-primary hover:bg-primary hover:!text-white transition-colors duration-200 -right-2 md:-right-5"></div>
-      <div class="swiper-pagination !bottom-0"></div>
-    </div><!-- /.swiper -->
+      </a>
+      <?php endforeach; else : ?>
+      <div class="col-span-full w-full py-12 text-center text-gray-400 text-sm">No hay tours seleccionados. Edita la página de inicio y añade tours en Day Tours.</div>
+      <?php endif; ?>
+    </div><!-- /.grid -->
 
   </div>
 </section>
+
+
+<!-- section responsible travel -->
+<?php
+$rt_items = get_field( 'rt_items' );
+$rt_defaults = [
+  [
+    'rt_item_image' => [ 'url' => get_template_directory_uri() . '/img/responsible-travel.png' ],
+    'rt_item_title' => 'Responsible Travel Agency',
+    'rt_item_text'  => 'Responsible travel is at the heart of all the programs we offer as a core philosophy. When you book one of our adventures, you are supporting true sustainability in protecting local communities.',
+  ],
+  [
+    'rt_item_image' => [ 'url' => get_template_directory_uri() . '/img/bigfamily25.png' ],
+    'rt_item_title' => 'Happy Group & Big Family',
+    'rt_item_text'  => 'Our groups are usually small, and are generally a mixture of travelers, friends traveling together and couples, all of different ages, backgrounds and nationalities. Get ready to make many good friends.',
+  ],
+  [
+    'rt_item_image' => [ 'url' => get_template_directory_uri() . '/img/5star-services.png' ],
+    'rt_item_title' => '5 Star Services & Adventure',
+    'rt_item_text'  => 'Our service is 5 stars before, during and after your trip. Pacha Expeditions is dedicated to providing excellent customer service, where adventure experiences are unique, and the memories lived, memorable and eternal.',
+  ],
+];
+$rt_render = $rt_items ?: $rt_defaults;
+?>
+<section class="py-16 px-4 bg-white">
+  <div class="container">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+      <?php foreach ( $rt_render as $item ) :
+        $img_url = is_array( $item['rt_item_image'] ) ? $item['rt_item_image']['url'] : $item['rt_item_image'];
+        $title   = $item['rt_item_title'];
+        $text    = $item['rt_item_text'];
+      ?>
+      <div class="flex flex-col items-center text-center px-4">
+        <div class="mb-6">
+          <img src="<?php echo esc_url( $img_url ); ?>" alt="<?php echo esc_attr( $title ); ?>" class="w-24 h-24 object-contain mx-auto">
+        </div>
+        <h3 class="text-xl font-bold text-primary mb-3"><?php echo esc_html( $title ); ?></h3>
+        <div class="w-12 h-0.5 bg-primary mb-5 mx-auto"></div>
+        <p class="text-gray-600 text-sm leading-relaxed"><?php echo esc_html( $text ); ?></p>
+      </div>
+      <?php endforeach; ?>
+
+    </div>
+  </div>
+</section>
+
 
 <!-- seccion tripadviosr -->
 <section class="py-12 px-4">
@@ -486,6 +451,7 @@ get_header();
 
   </div>
 </section>
+
 
 	<main id="primary" class="site-main">
 

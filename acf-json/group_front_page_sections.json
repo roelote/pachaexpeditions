@@ -1,0 +1,622 @@
+{
+    "key": "group_front_page_sections",
+    "title": "Front Page — Secciones (Salkantay, Adventures, Banner, Day Tours, Responsible Travel)",
+    "fields": [
+        {
+            "key": "field_salkantay_tab",
+            "label": "Sección Salkantay Treks",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_salkantay_badge",
+            "label": "Badge (etiqueta superior)",
+            "name": "salkantay_badge",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Texto pequeño sobre el título. Ej: Alternative Treks",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Alternative Treks",
+            "placeholder": "Alternative Treks",
+            "maxlength": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_salkantay_title",
+            "label": "Título principal",
+            "name": "salkantay_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Título H2 de la sección.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "67",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Best Salkantay Treks to Machu Picchu",
+            "placeholder": "Best Salkantay Treks to Machu Picchu",
+            "maxlength": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_salkantay_subtitle",
+            "label": "Subtítulo \/ descripción",
+            "name": "salkantay_subtitle",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Párrafo corto debajo del título.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Explore our most popular Salkantay trekking routes — breathtaking landscapes, authentic experiences, and expert guides.",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 2,
+            "new_lines": "br"
+        },
+        {
+            "key": "field_salkantay_tours",
+            "label": "Tours Salkantay (seleccionar posts)",
+            "name": "salkantay_tours",
+            "aria-label": "",
+            "type": "relationship",
+            "instructions": "Selecciona los tours de tipo 'tour' que aparecerán en el swiper Salkantay.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "tour"
+            ],
+            "taxonomy": [],
+            "filters": [
+                "search",
+                "post_type"
+            ],
+            "elements": [
+                "featured_image"
+            ],
+            "min": "",
+            "max": "",
+            "return_format": "object",
+            "bidirectional_target": []
+        },
+        {
+            "key": "field_adventures_tab",
+            "label": "Sección Exclusive Adventures",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_adventures_badge",
+            "label": "Badge (etiqueta superior)",
+            "name": "adventures_badge",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Texto pequeño sobre el título. Ej: Pacha Expeditions",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Pacha Expeditions",
+            "placeholder": "Pacha Expeditions",
+            "maxlength": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_adventures_title",
+            "label": "Título principal",
+            "name": "adventures_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Título H2 de la sección.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "67",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Exclusive Adventures & Treks",
+            "placeholder": "Exclusive Adventures & Treks",
+            "maxlength": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_adventures_subtitle",
+            "label": "Subtítulo \/ descripción",
+            "name": "adventures_subtitle",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Párrafo corto debajo del título.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Handpicked expeditions for those who seek the extraordinary — remote routes, immersive nature, and unforgettable high-altitude experiences.",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 2,
+            "new_lines": "br"
+        },
+        {
+            "key": "field_adventures_tours",
+            "label": "Tours Adventures (seleccionar posts)",
+            "name": "adventures_tours",
+            "aria-label": "",
+            "type": "relationship",
+            "instructions": "Selecciona los tours de tipo 'tour' que aparecerán en el swiper Exclusive Adventures.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "post"
+            ],
+            "post_status": "",
+            "taxonomy": "",
+            "filters": [
+                "search",
+                "post_type"
+            ],
+            "return_format": "object",
+            "min": "",
+            "max": "",
+            "allow_in_bindings": 1,
+            "elements": [
+                "featured_image"
+            ],
+            "bidirectional": 0,
+            "bidirectional_target": []
+        },
+        {
+            "key": "field_banner_tab",
+            "label": "Banner Inca Trail",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_banner_image",
+            "label": "Imagen de fondo",
+            "name": "banner_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Imagen de fondo del banner. Tamaño recomendado: 1900x700px.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "jpg,jpeg,png,webp",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_banner_title",
+            "label": "Título del banner",
+            "name": "banner_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Texto principal del banner (en mayúsculas).",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Book Your Inca Trail to Machu Picchu 2026",
+            "placeholder": "Book Your Inca Trail to Machu Picchu 2026",
+            "maxlength": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_banner_body",
+            "label": "Texto \/ descripción del banner",
+            "name": "banner_body",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Párrafo descriptivo debajo del título.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 4,
+            "new_lines": "br"
+        },
+        {
+            "key": "field_banner_button_text",
+            "label": "Texto del botón",
+            "name": "banner_button_text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Ej: Inca Trail Availability 2026",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Inca Trail Availability 2026",
+            "placeholder": "Inca Trail Availability 2026",
+            "maxlength": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_banner_button_url",
+            "label": "URL del botón",
+            "name": "banner_button_url",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "Enlace al que dirige el botón del banner.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "https:\/\/..."
+        },
+        {
+            "key": "field_daytours_tab",
+            "label": "Sección Top Day Tours",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_daytours_badge",
+            "label": "Badge (etiqueta superior)",
+            "name": "daytours_badge",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Etiqueta pequeña sobre el título. Ej: Cusco",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Cusco",
+            "placeholder": "Cusco",
+            "maxlength": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_daytours_title",
+            "label": "Título principal",
+            "name": "daytours_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Título H2 de la sección.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "67",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Top Day Tours In Cusco",
+            "placeholder": "Top Day Tours In Cusco",
+            "maxlength": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_daytours_tours",
+            "label": "Day Tours (seleccionar posts)",
+            "name": "daytours_tours",
+            "aria-label": "",
+            "type": "relationship",
+            "instructions": "Selecciona los tours de tipo 'tour' que aparecerán en la sección Day Tours.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "post"
+            ],
+            "post_status": [
+                "publish"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search",
+                "post_type"
+            ],
+            "return_format": "object",
+            "min": "",
+            "max": "",
+            "allow_in_bindings": 1,
+            "elements": [
+                "featured_image"
+            ],
+            "bidirectional": 0,
+            "bidirectional_target": []
+        },
+        {
+            "key": "field_daytours_columns",
+            "label": "Número de columnas",
+            "name": "daytours_columns",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Selecciona el número de columnas para mostrar los Day Tours.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "2": "2 columnas",
+                "3": "3 columnas",
+                "4": "4 columnas"
+            },
+            "default_value": 3,
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
+            "key": "field_daytours_items_limit",
+            "label": "Límite de items a mostrar",
+            "name": "daytours_items_limit",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "Cantidad máxima de tours a mostrar (para 3 columnas: 6 items = 2 filas).",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 6,
+            "placeholder": 6,
+            "prepend": "",
+            "append": "",
+            "min": 1,
+            "max": 30,
+            "step": 1
+        },
+        {
+            "key": "field_rt_tab",
+            "label": "Sección Responsible Travel",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_rt_items",
+            "label": "Items (bloques de la sección)",
+            "name": "rt_items",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Agrega, edita o reordena los bloques de la sección Responsible Travel. Si está vacío se usará el contenido por defecto.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "pagination": 0,
+            "min": 0,
+            "max": 6,
+            "collapsed": "",
+            "button_label": "Agregar item",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_rt_item_image",
+                    "label": "Icono \/ Imagen",
+                    "name": "rt_item_image",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "Icono cuadrado, tamaño recomendado: 96x96px.",
+                    "required": 0,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "20",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "jpg,jpeg,png,webp,svg",
+                    "preview_size": "thumbnail",
+                    "allow_in_bindings": 0,
+                    "parent_repeater": "field_rt_items"
+                },
+                {
+                    "key": "field_rt_item_title",
+                    "label": "Título",
+                    "name": "rt_item_title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Título H3 del bloque.",
+                    "required": 0,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "40",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "Ej: Responsible Travel Agency",
+                    "maxlength": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_rt_items"
+                },
+                {
+                    "key": "field_rt_item_text",
+                    "label": "Descripción",
+                    "name": "rt_item_text",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "Párrafo descriptivo del bloque.",
+                    "required": 0,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "40",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": 3,
+                    "new_lines": "br",
+                    "parent_repeater": "field_rt_items"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_type",
+                "operator": "==",
+                "value": "front_page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Campos para controlar las secciones Salkantay, Exclusive Adventures, Banner Inca Trail, Day Tours y Responsible Travel.",
+    "show_in_rest": 0,
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1779999349
+}

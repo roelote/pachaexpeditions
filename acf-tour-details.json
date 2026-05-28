@@ -1,0 +1,85 @@
+[
+  {
+    "key": "group_tour_details_dynamic",
+    "title": "Trip Details (Dynamic)",
+    "fields": [
+      {
+        "key": "field_tour_details_items",
+        "label": "Trip Details",
+        "name": "tour_details_items",
+        "type": "repeater",
+        "instructions": "Add up to 10 details. They display in 2 symmetric columns.",
+        "required": 0,
+        "min": 0,
+        "max": 10,
+        "layout": "table",
+        "button_label": "Add Detail",
+        "sub_fields": [
+          {
+            "key": "field_detail_icon",
+            "label": "Icon / Type",
+            "name": "detail_icon",
+            "type": "select",
+            "instructions": "Choose the icon and type for this detail.",
+            "required": 1,
+            "choices": {
+              "tour_type": "Tour Type",
+              "duration": "Duration",
+              "activities": "Activities",
+              "group_size": "Group Size",
+              "difficulty": "Difficulty",
+              "accommodation": "Accommodation",
+              "languages": "Tour Language",
+              "hiking_distance": "Hiking Distance",
+              "max_altitude": "Max Altitude",
+              "meals": "Meals",
+              "location": "Location",
+              "transport": "Transport",
+              "season": "Best Season",
+              "min_age": "Min Age",
+              "fitness": "Fitness Level"
+            },
+            "default_value": "",
+            "allow_null": 1,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "column_width": "40"
+          },
+          {
+            "key": "field_detail_value",
+            "label": "Value",
+            "name": "detail_value",
+            "type": "text",
+            "instructions": "Enter the value for this detail.",
+            "required": 0,
+            "default_value": "",
+            "placeholder": "e.g. 4 Days / 3 Nights",
+            "prepend": "",
+            "append": "",
+            "maxlength": "",
+            "column_width": "60"
+          }
+        ]
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "post_type",
+          "operator": "==",
+          "value": "post"
+        }
+      ]
+    ],
+    "menu_order": 5,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Dynamic trip details displayed in 2 columns on single tour pages."
+  }
+]

@@ -195,14 +195,14 @@ if ( $gallery ) :
 										<div class="grid grid-cols-2 gap-3">
 
 											<!-- Inquire -->
-											<a href="mailto:info@pachaexpeditions.com"
-											class="flex items-center justify-center gap-1.5 border border-gray-200 hover:border-primary hover:text-primary text-gray-600 text-sm font-semibold py-2.5 rounded-xl transition-colors duration-200">
+											<button type="button" onclick="document.getElementById('inquire-modal').style.display='flex'"
+											class="flex items-center justify-center gap-1.5 border border-gray-200 hover:border-primary hover:text-primary text-gray-600 text-sm font-semibold py-2.5 rounded-xl transition-colors duration-200 w-full cursor-pointer bg-white">
 												<svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
 													<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
 														d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
 												</svg>
 												Inquire
-											</a>
+											</button>
 
 											<!-- WhatsApp -->
 											<a href="https://wa.me/51984387050?text=<?php echo urlencode('Hi! I am interested in: ' . get_the_title()); ?>"
@@ -220,7 +220,59 @@ if ( $gallery ) :
 
 								</div>
 							</div><!-- /card -->
-						
+
+							<!-- details tour -->
+						<?php
+						$pacha_icon_map = [
+							'tour_type'       => [ 'label' => 'Tour Type',       'icon' => '<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12M8 12h12M8 17h12M4 7h.01M4 12h.01M4 17h.01"/></svg>' ],
+							'duration'        => [ 'label' => 'Duration',        'icon' => '<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 7v5l3 3"/></svg>' ],
+							'activities'      => [ 'label' => 'Activities',      'icon' => '<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>' ],
+							'group_size'      => [ 'label' => 'Group Size',      'icon' => '<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a4 4 0 00-5.477-3.682M9 20H4v-2a4 4 0 015.477-3.682M15 7a4 4 0 11-8 0 4 4 0 018 0zM21 12a3 3 0 11-6 0 3 3 0 016 0zM3 12a3 3 0 116 0 3 3 0 01-6 0z"/></svg>' ],
+							'difficulty'      => [ 'label' => 'Difficulty',      'icon' => '<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>' ],
+							'accommodation'   => [ 'label' => 'Accommodation',   'icon' => '<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l9-9 9 9M5 10v9a1 1 0 001 1h4v-5h4v5h4a1 1 0 001-1v-9"/></svg>' ],
+							'languages'       => [ 'label' => 'Tour Language',   'icon' => '<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/></svg>' ],
+							'hiking_distance' => [ 'label' => 'Hiking Distance', 'icon' => '<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>' ],
+							'max_altitude'    => [ 'label' => 'Max Altitude',    'icon' => '<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3l7 18 4-9 9-4L5 3z"/></svg>' ],
+							'meals'           => [ 'label' => 'Meals',           'icon' => '<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-1.5 6h11M10 21a1 1 0 100-2 1 1 0 000 2zm7 0a1 1 0 100-2 1 1 0 000 2z"/></svg>' ],
+							'location'        => [ 'label' => 'Location',        'icon' => '<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>' ],
+							'transport'       => [ 'label' => 'Transport',       'icon' => '<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8 17l-1 4H5l-1-4M17 17l1 4h2l1-4M3 9h18l-1 8H4L3 9zM3 9l1-5h16l1 5M9 13h6M7 13h.01M17 13h.01"/></svg>' ],
+							'season'          => [ 'label' => 'Best Season',     'icon' => '<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M12 7a5 5 0 100 10A5 5 0 0012 7z"/></svg>' ],
+							'min_age'         => [ 'label' => 'Min Age',         'icon' => '<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>' ],
+							'fitness'         => [ 'label' => 'Fitness Level',   'icon' => '<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>' ],
+						];
+
+						$pacha_details = get_field('tour_details_items');
+						if ( $pacha_details ) :
+							$pacha_count = count( $pacha_details );
+							$pacha_last_row_start = floor( ( $pacha_count - 1 ) / 2 ) * 2;
+						?>
+						<div class="mt-6 rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+							<div class="bg-primary px-5 py-3">
+								<h3 class="text-white font-bold text-sm tracking-wide uppercase">Trip Details</h3>
+							</div>
+							<div class="bg-white px-4 py-2">
+								<div class="grid grid-cols-2">
+									<?php foreach ( $pacha_details as $i => $row ) :
+										$icon_key  = $row['detail_icon'] ?? '';
+										$icon_data = $pacha_icon_map[ $icon_key ] ?? [ 'label' => ucwords( str_replace( '_', ' ', $icon_key ) ), 'icon' => '' ];
+										$value     = ! empty( $row['detail_value'] ) ? esc_html( $row['detail_value'] ) : '&mdash;';
+										$is_right  = $i % 2 === 1;
+										$last_row  = $i >= $pacha_last_row_start;
+									?>
+									<div class="flex items-start gap-3 py-3
+										<?php echo $is_right ? 'border-l border-gray-100 pl-4' : 'pr-2'; ?>
+										<?php echo $last_row ? '' : 'border-b border-gray-100'; ?>">
+										<div class="text-primary flex-shrink-0 mt-0.5"><?php echo $icon_data['icon']; ?></div>
+										<div class="min-w-0">
+											<p class="text-[10px] font-semibold tracking-wide text-gray-400 uppercase leading-tight"><?php echo esc_html( $icon_data['label'] ); ?></p>
+											<p class="text-sm font-bold text-gray-800 leading-snug mt-0.5"><?php echo $value; ?></p>
+										</div>
+									</div>
+									<?php endforeach; ?>
+								</div>
+							</div>
+						</div>
+						<?php endif; ?>
 
 				</div>
 			</div>
@@ -228,6 +280,31 @@ if ( $gallery ) :
 
 </section>
 
+<!-- Inquire Modal -->
+<div id="inquire-modal" class="fixed inset-0 z-50 items-center justify-center p-4" style="display:none">
+	<!-- Backdrop -->
+	<div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="document.getElementById('inquire-modal').style.display='none'"></div>
+
+	<!-- Modal box -->
+	<div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-lg p-8 z-10 max-h-[90vh] overflow-y-auto">
+
+		<!-- Close button -->
+		<button type="button"
+			onclick="document.getElementById('inquire-modal').style.display='none'"
+			class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 transition-colors"
+			aria-label="Close">
+			<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+			</svg>
+		</button>
+
+		<h2 class="text-xl font-bold text-gray-800 mb-1">Inquire about this tour</h2>
+		<p class="text-sm text-gray-500 mb-6"><?php the_title(); ?></p>
+
+		<?php echo do_shortcode('[contact-form-7 id="78daa9c" title="Contact Us"]'); ?>
+
+	</div>
+</div>
 
 <?php
 get_footer();
