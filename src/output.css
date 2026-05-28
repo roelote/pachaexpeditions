@@ -946,6 +946,10 @@ body {
   height: 540px;
 }
 
+.h-\[700px\] {
+  height: 700px;
+}
+
 .h-full {
   height: 100%;
 }
@@ -1437,6 +1441,10 @@ body {
   padding: 2rem;
 }
 
+.p-6 {
+  padding: 1.5rem;
+}
+
 .px-2\.5 {
   padding-left: 0.625rem;
   padding-right: 0.625rem;
@@ -1530,6 +1538,11 @@ body {
 .py-6 {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
+}
+
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .pb-1 {
@@ -4035,6 +4048,10 @@ nav.is-floating {
 }
 
 @media (min-width: 768px) {
+  .md\:sticky {
+    position: sticky;
+  }
+
   .md\:-left-5 {
     left: -1.25rem;
   }
@@ -4069,6 +4086,10 @@ nav.is-floating {
 
   .md\:justify-center {
     justify-content: center;
+  }
+
+  .md\:p-10 {
+    padding: 2.5rem;
   }
 
   .md\:px-6 {
