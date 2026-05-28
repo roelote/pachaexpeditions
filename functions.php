@@ -111,6 +111,8 @@ function pachaexp_setup() {
 }
 add_action( 'after_setup_theme', 'pachaexp_setup' );
 
+
+
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *
@@ -168,6 +170,18 @@ function pachaexp_scripts() {
 	wp_enqueue_script( 'swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', array(), '11', true );
 	wp_add_inline_script( 'swiper', '
 		document.addEventListener("DOMContentLoaded", function(){
+			if ( document.querySelector(".hero-swiper") ) {
+				new Swiper(".hero-swiper", {
+					slidesPerView: 1,
+					loop: true,
+					effect: "fade",
+					fadeEffect: { crossFade: true },
+					speed: 900,
+					autoplay: { delay: 5500, disableOnInteraction: false },
+					pagination: { el: ".hero-pagination", clickable: true },
+					navigation: { nextEl: ".hero-next", prevEl: ".hero-prev" }
+				});
+			}
 			new Swiper(".salkantay-swiper", {
 				slidesPerView: 1,
 				spaceBetween: 24,

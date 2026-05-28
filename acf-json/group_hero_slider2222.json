@@ -1,0 +1,139 @@
+{
+    "key": "group_hero_slider",
+    "title": "Front Page — Hero Slider",
+    "fields": [
+        {
+            "key": "field_hero_tab",
+            "label": "Hero Slider",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_hero_slides",
+            "label": "Slides del Hero",
+            "name": "hero_slides",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Agrega, edita o reordena los slides del carrusel principal. Imagen recomendada: 1920x700px.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "pagination": 0,
+            "min": 1,
+            "max": 8,
+            "collapsed": "field_hero_slide_title",
+            "button_label": "Agregar slide",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_hero_slide_image",
+                    "label": "Imagen de fondo",
+                    "name": "hero_slide_image",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "Tamaño recomendado: 1920x700px. Formatos: jpg, webp.",
+                    "required": 1,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "30",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "jpg,jpeg,png,webp",
+                    "preview_size": "medium",
+                    "allow_in_bindings": 0,
+                    "parent_repeater": "field_hero_slides"
+                },
+                {
+                    "key": "field_hero_slide_title",
+                    "label": "Título",
+                    "name": "hero_slide_title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Título principal del slide (H1 o H2 grande).",
+                    "required": 0,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "35",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "Ej: Enjoy the Magic of the Andes",
+                    "maxlength": 80,
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_hero_slides"
+                },
+                {
+                    "key": "field_hero_slide_subtitle",
+                    "label": "Subtítulo",
+                    "name": "hero_slide_subtitle",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Texto secundario debajo del título.",
+                    "required": 0,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "35",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "Ej: Trekking & Big Adventure in Peru",
+                    "maxlength": 120,
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_hero_slides"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "site-settings"
+            }
+        ]
+    ],
+    "menu_order": -1,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Carrusel de slides para la sección hero de la página de inicio. Cada slide tiene imagen, título y subtítulo.",
+    "show_in_rest": 0,
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1780008870
+}

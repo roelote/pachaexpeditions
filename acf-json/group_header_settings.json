@@ -1,0 +1,109 @@
+{
+    "key": "group_header_settings",
+    "title": "Header — Quick Links",
+    "fields": [
+        {
+            "key": "field_header_tab",
+            "label": "Header",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_header_quick_links",
+            "label": "Quick Links",
+            "name": "header_quick_links",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Links rápidos que aparecen en la cabecera del sitio (zona superior derecha). Máximo 6 links.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 6,
+            "collapsed": "field_ql_label",
+            "button_label": "Agregar link",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_ql_label",
+                    "label": "Texto del link",
+                    "name": "ql_label",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "40",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "Ej: Circuits",
+                    "maxlength": 40,
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_header_quick_links"
+                },
+                {
+                    "key": "field_ql_url",
+                    "label": "URL",
+                    "name": "ql_url",
+                    "aria-label": "",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "60",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "https://",
+                    "parent_repeater": "field_header_quick_links"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "site-settings"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Links rápidos administrables del header.",
+    "show_in_rest": 0,
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1780009400
+}

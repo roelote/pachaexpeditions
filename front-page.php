@@ -16,9 +16,141 @@ get_header();
 ?>
 
 
-<section>
-    <img src="<?php echo get_template_directory_uri(); ?>/img/hero.jpg" class="w-full h-[700px] object-cover"  alt="Hero Image">
+<!-- Hero Slider -->
+<?php
+$hero_slides = get_field( 'hero_slides', 'option' );
+$hero_default = [
+    [
+        'hero_slide_image'    => [ 'url' => get_template_directory_uri() . '/img/hero.jpg' ],
+        'hero_slide_title'    => 'Enjoy the Magic of the Andes',
+        'hero_slide_subtitle' => 'Trekking & Big Adventure in Peru',
+    ],
+];
+$slides = $hero_slides ?: $hero_default;
+?>
+<section class="hero-slider-wrap">
+  <div class="swiper hero-swiper">
+    <div class="swiper-wrapper">
+
+      <?php foreach ( $slides as $slide ) :
+        $img_url  = is_array( $slide['hero_slide_image'] ) ? $slide['hero_slide_image']['url'] : $slide['hero_slide_image'];
+        $title    = $slide['hero_slide_title'] ?? '';
+        $subtitle = $slide['hero_slide_subtitle'] ?? '';
+      ?>
+      <div class="swiper-slide hero-slide">
+        <div class="hero-slide__bg" style="background-image:url('<?php echo esc_url( $img_url ); ?>');"></div>
+        <div class="hero-slide__overlay"></div>
+        <div class="hero-slide__content">
+          <?php if ( $title ) : ?>
+          <h1 class="hero-slide__title"><?php echo esc_html( $title ); ?></h1>
+          <?php endif; ?>
+          <?php if ( $subtitle ) : ?>
+          <p class="hero-slide__subtitle"><?php echo esc_html( $subtitle ); ?></p>
+          <?php endif; ?>
+        </div>
+      </div>
+      <?php endforeach; ?>
+
+    </div>
+
+    <!-- Flechas -->
+    <div class="swiper-button-prev hero-prev"></div>
+    <div class="swiper-button-next hero-next"></div>
+
+    <!-- Bullets -->
+    <div class="swiper-pagination hero-pagination"></div>
+  </div>
 </section>
+
+<style>
+.hero-slider-wrap { position: relative; overflow: hidden; }
+.hero-swiper { height: 600px; }
+@media (min-width: 768px) { .hero-swiper { height: 700px; } }
+
+.hero-slide {
+    position: relative;
+    overflow: hidden;
+}
+.hero-slide__bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: scale(1.08);
+    will-change: transform;
+}
+.swiper-slide-active .hero-slide__bg {
+    animation: heroZoomOut 6.5s ease-out forwards;
+}
+@keyframes heroZoomOut {
+    from { transform: scale(1.08); }
+    to   { transform: scale(1.0); }
+}
+.hero-slide__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,.28) 0%, rgba(0,0,0,.52) 100%);
+}
+.hero-slide__content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+    z-index: 2;
+}
+.hero-slide__title {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(28px, 5vw, 58px);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.15;
+    letter-spacing: -.01em;
+    text-shadow: 0 2px 18px rgba(0,0,0,.45);
+    margin: 0 0 14px;
+    max-width: 860px;
+}
+.hero-slide__subtitle {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(15px, 2.2vw, 22px);
+    font-weight: 500;
+    color: rgba(255,255,255,.88);
+    text-shadow: 0 1px 8px rgba(0,0,0,.4);
+    max-width: 620px;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Flechas hero */
+.hero-prev, .hero-next {
+    color: #fff !important;
+    background: rgba(255,255,255,.15);
+    border-radius: 50%;
+    width: 48px !important;
+    height: 48px !important;
+    backdrop-filter: blur(4px);
+    transition: background .2s;
+}
+.hero-prev:hover, .hero-next:hover { background: rgba(157,178,71,.75); }
+.hero-prev::after, .hero-next::after { font-size: 16px !important; font-weight: 700; }
+
+/* Bullets hero */
+.hero-pagination .swiper-pagination-bullet {
+    width: 8px; height: 8px;
+    background: rgba(255,255,255,.5);
+    opacity: 1;
+    transition: all .25s;
+}
+.hero-pagination .swiper-pagination-bullet-active {
+    background: #9db247;
+    width: 28px;
+    border-radius: 4px;
+}
+</style>
 
 <!-- Enjoy the Magic of the Andes -->
 <section class="py-16 bg-white px-3 xl:px-0">
@@ -31,7 +163,7 @@ get_header();
         <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight mb-1">Enjoy the Magic of the Andes.</h2>
         <p class="text-xl font-semibold text-primary mb-5">Trekking and Big Adventure.</p>
 
-        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+        <p class="text-gray-600 text-sm leading-relaxed mb-4 text-justify">
           <strong class="text-gray-800">Inca Trail Tours, Machu Picchu Tours, Alternative Treks:</strong> 100% Local Tourism Company. We are direct operators of our own programs. Our experience working in the Andes Mountains has led us to develop unique and personalized tour programs for you, the traveler. Live a unique and unforgettable experience and take away lasting memories of your vacation. We operate Inca Trail Tours, Machu Picchu Tours, and Alternative Treks. Enjoy a pleasant trip and get the most out of your investment. Our company offers added value on all our trips: small groups and personalized service.
         </p>
 
@@ -49,11 +181,11 @@ get_header();
           </div>
         </div>
 
-        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+        <p class="text-gray-600 text-sm leading-relaxed mb-4 text-justify">
           We are a local company with a highly professional team of certified technical Guides, passionate about their culture, Chefs specializing in traditional cuisine, and an excellent Quechua-speaking Support team, who will make your vacation an unforgettable experience. We offer a wide variety of tours so you can make the most of your visit to our region.
         </p>
 
-        <p class="text-gray-600 text-sm leading-relaxed mb-5">
+        <p class="text-gray-600 text-sm leading-relaxed mb-5 text-justify">
           Our programs are designed for families, friends, honeymooners, and adventurers. We are a company that does not seek to profit at the expense of others. Therefore, our prices are affordable, and our service is high-quality and personalized. We also support the local community and children, and we are a sustainable and regenerative company.
         </p>
 

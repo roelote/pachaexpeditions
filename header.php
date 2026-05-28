@@ -48,13 +48,25 @@
           <!-- Row 1: quick links + social icons + TripAdvisor -->
           <div class="flex items-center gap-3">
             <!-- Quick links -->
+            <?php
+            $ql_items = function_exists('get_field') ? get_field('header_quick_links', 'option') : [];
+            if ( empty( $ql_items ) ) {
+                $ql_items = [
+                    [ 'ql_label' => 'Circuits', 'ql_url' => '#' ],
+                    [ 'ql_label' => 'FAQs',     'ql_url' => '#' ],
+                    [ 'ql_label' => 'Contact',  'ql_url' => '#' ],
+                ];
+            }
+            ?>
             <div class="flex items-center gap-3 text-sm text-gray-500">
-              <a href="#" class="hover:text-primary transition-colors duration-200 font-medium">Circuits</a>
+              <?php foreach ( $ql_items as $i => $ql ) : ?>
+              <a href="<?php echo esc_url( $ql['ql_url'] ); ?>" class="hover:text-primary transition-colors duration-200 font-medium">
+                <?php echo esc_html( $ql['ql_label'] ); ?>
+              </a>
+              <?php if ( $i < count( $ql_items ) - 1 ) : ?>
               <span class="text-gray-300">|</span>
-              <a href="#" class="hover:text-primary transition-colors duration-200 font-medium">FAQs</a>
-              <span class="text-gray-300">|</span>
-              <a href="#" class="hover:text-primary transition-colors duration-200 font-medium">Contact</a>
-              <span class="text-gray-300">|</span>
+              <?php endif; ?>
+              <?php endforeach; ?>
             </div>
 
             <!-- Social icons -->
