@@ -1197,6 +1197,10 @@ body {
   margin-bottom: calc(1rem * var(--tw-space-y-reverse));
 }
 
+.self-start {
+  align-self: flex-start;
+}
+
 .overflow-hidden {
   overflow: hidden;
 }
@@ -4013,6 +4017,10 @@ nav.is-floating {
 }
 
 @media (min-width: 768px) {
+  .md\:sticky {
+    position: sticky;
+  }
+
   .md\:-left-5 {
     left: -1.25rem;
   }

@@ -108,8 +108,8 @@ if ( $gallery ) :
 				<?php endif; ?>
 
 
-			<div class="flex flex-col md:flex-row justify-between items-start gap-10 mt-6 xl:mt-1">
-				<div class="w-full md:w-1/2 xl:w-[70%]">
+			<div class="flex flex-col md:flex-row justify-between gap-10 mt-6 xl:mt-1">
+				<div class="w-full md:w-1/2 xl:w-[70%] self-start">
 
 					<main id="primary" class="tours-main">
 
@@ -126,10 +126,11 @@ if ( $gallery ) :
 
 
 				</div>
-				<div class="w-full md:w-1/2 xl:w-[30%]">
-						
-							<!-- card de price bookw now, enquire y whatsapp -->
-							<div class="rounded-2xl overflow-hidden shadow-xl border border-gray-100">
+				<div class="w-full md:w-1/2 xl:w-[30%]" style="align-self:stretch;">
+					<div id="tour-sticky-col" style="position:sticky;">
+
+						<!-- card de price bookw now, enquire y whatsapp -->
+						<div class="rounded-2xl overflow-hidden shadow-xl border border-gray-100">
 
 								<!-- Banner Flash Sale -->
 								<div class="relative px-5 py-4 text-center overflow-hidden bg-primary">
@@ -274,6 +275,7 @@ if ( $gallery ) :
 						</div>
 						<?php endif; ?>
 
+					</div><!-- /tour-sticky-col -->
 				</div>
 			</div>
 		</div>
@@ -305,6 +307,22 @@ if ( $gallery ) :
 
 	</div>
 </div>
+
+<script>
+(function () {
+    var nav = document.querySelector('nav.sticky, nav[class*="sticky"]');
+    var col = document.getElementById('tour-sticky-col');
+    if (!col) return;
+
+    function applyTop() {
+        var navH = nav ? nav.offsetHeight : 0;
+        col.style.top = (navH + 1) + 'px';
+    }
+
+    applyTop();
+    window.addEventListener('resize', applyTop);
+})();
+</script>
 
 <?php
 get_footer();
