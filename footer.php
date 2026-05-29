@@ -98,7 +98,7 @@
 
             <!-- Col 4: Payments -->
             <div>
-                <h4 class="footer-heading">Payment Methods</h4>
+                <h4 class="footer-heading">Our Responsibility</h4>
                 <div class="mt-4 space-y-4">
                   
                     <div>
@@ -111,7 +111,7 @@
                          alt="Protégeme"
                          class="h-14 w-auto opacity-90 hover:opacity-100 transition-opacity">
                 </a>
-                
+
                         <a target="_blank" href="#">
                             <img src="https://www.pachaexpeditions.com/wp-content/uploads/2025/04/logo.png"
                                  alt="Pacha Expeditions" class="h-14 w-auto opacity-90 hover:opacity-100 transition-opacity">
