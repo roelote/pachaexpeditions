@@ -339,6 +339,7 @@ if ( ! empty( $pacha_cats ) ) :
         'post_status'    => 'publish',
         'orderby'        => 'rand',
     ]);
+    $related_count = $related_q->post_count;
     if ( $related_q->have_posts() ) :
 ?>
 <section class="py-14 bg-gray-50 px-3 xl:px-0">
@@ -411,6 +412,8 @@ if ( ! empty( $pacha_cats ) ) :
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     if (typeof Swiper !== 'undefined') {
+        var relatedCount = <?php echo intval( $related_count ); ?>;
+        var maxSlides    = relatedCount <= 3 ? 3 : 4;
         new Swiper('.related-tours-swiper', {
             slidesPerView: 1,
             spaceBetween: 20,
@@ -424,9 +427,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 clickable: true,
             },
             breakpoints: {
-                640:  { slidesPerView: 2, spaceBetween: 20 },
-                1024: { slidesPerView: 3, spaceBetween: 24 },
-                1280: { slidesPerView: 4, spaceBetween: 24 },
+                640:  { slidesPerView: 2,          spaceBetween: 20 },
+                1024: { slidesPerView: maxSlides,   spaceBetween: 24 },
+                1280: { slidesPerView: maxSlides,   spaceBetween: 24 },
             },
         });
     }
