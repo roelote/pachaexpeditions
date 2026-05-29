@@ -325,4 +325,235 @@ if ( $gallery ) :
 </script>
 
 <?php
+/* ═══════════════════════════════════════════════════════
+   TOURS RELACIONADOS — misma categoría, excluye el actual
+═══════════════════════════════════════════════════════ */
+$pacha_cats = get_the_category();
+if ( ! empty( $pacha_cats ) ) :
+    $pacha_cat_ids = wp_list_pluck( $pacha_cats, 'term_id' );
+    $related_q = new WP_Query([
+        'post_type'      => 'post',
+        'posts_per_page' => 6,
+        'post__not_in'   => [ get_the_ID() ],
+        'category__in'   => $pacha_cat_ids,
+        'post_status'    => 'publish',
+        'orderby'        => 'rand',
+    ]);
+    if ( $related_q->have_posts() ) :
+?>
+<section class="py-14 bg-gray-50 px-3 xl:px-0">
+    <div class="container">
+
+        <div class="text-center mb-10">
+            <span class="inline-block text-primary text-sm font-semibold tracking-widest uppercase mb-2">You May Also Like</span>
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 leading-tight">Related Tours</h2>
+            <p class="text-gray-500 text-sm mt-2">More tours in the same category</p>
+            <div class="mt-4 flex justify-center">
+                <span class="block w-12 h-1 rounded-full bg-primary"></span>
+            </div>
+        </div>
+
+        <div class="swiper related-tours-swiper relative pb-12">
+            <div class="swiper-wrapper">
+                <?php while ( $related_q->have_posts() ) : $related_q->the_post();
+                    $rt_img   = get_the_post_thumbnail_url( null, 'large' ) ?: get_template_directory_uri() . '/img/fondo-footer.jpg';
+                    $rt_price = get_field('price') ?: get_field('from_price');
+                    $rt_dur   = get_field('duration');
+                    $rt_cats  = get_the_category();
+                    $rt_cat   = ! empty( $rt_cats ) ? $rt_cats[0]->name : '';
+                ?>
+                <div class="swiper-slide h-auto">
+                    <a href="<?php the_permalink(); ?>"
+                       class="group flex flex-col rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 bg-white h-full">
+                        <div class="relative overflow-hidden h-52 flex-shrink-0">
+                            <img src="<?php echo esc_url( $rt_img ); ?>"
+                                 alt="<?php the_title_attribute(); ?>"
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
+                            <?php if ( $rt_cat ) : ?>
+                            <span class="absolute top-3 left-3 bg-primary text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wide">
+                                <?php echo esc_html( $rt_cat ); ?>
+                            </span>
+                            <?php endif; ?>
+                        </div>
+                        <div class="p-4 flex flex-col flex-1">
+                            <h3 class="text-gray-900 font-bold text-sm leading-snug mb-2 group-hover:text-primary transition-colors duration-200 line-clamp-2">
+                                <?php the_title(); ?>
+                            </h3>
+                            <div class="flex items-center justify-between mt-auto pt-3 border-t border-gray-100">
+                                <?php if ( $rt_dur ) : ?>
+                                <span class="text-xs text-gray-500 flex items-center gap-1">
+                                    <svg class="w-3.5 h-3.5 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8">
+                                        <circle cx="12" cy="12" r="9"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 7v5l3 3"/>
+                                    </svg>
+                                    <?php echo esc_html( $rt_dur ); ?>
+                                </span>
+                                <?php endif; ?>
+                                <?php if ( $rt_price ) : ?>
+                                <span class="text-primary font-extrabold text-sm">
+                                    From $<?php echo number_format( (float) $rt_price ); ?>
+                                </span>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <?php endwhile; wp_reset_postdata(); ?>
+            </div>
+            <div class="swiper-button-prev pacha-related-prev"></div>
+            <div class="swiper-button-next pacha-related-next"></div>
+            <div class="swiper-pagination pacha-related-pagination"></div>
+        </div>
+
+    </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    if (typeof Swiper !== 'undefined') {
+        new Swiper('.related-tours-swiper', {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            loop: false,
+            navigation: {
+                prevEl: '.pacha-related-prev',
+                nextEl: '.pacha-related-next',
+            },
+            pagination: {
+                el: '.pacha-related-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                640:  { slidesPerView: 2, spaceBetween: 20 },
+                1024: { slidesPerView: 3, spaceBetween: 24 },
+                1280: { slidesPerView: 4, spaceBetween: 24 },
+            },
+        });
+    }
+});
+</script>
+
+<style>
+.related-tours-swiper .swiper-button-prev,
+.related-tours-swiper .swiper-button-next {
+    color: #fff !important;
+    background: #9db247;
+    border-radius: 50%;
+    width: 40px !important;
+    height: 40px !important;
+    top: 40%;
+    box-shadow: 0 2px 10px rgba(0,0,0,.2);
+    transition: background .2s;
+}
+.related-tours-swiper .swiper-button-prev:hover,
+.related-tours-swiper .swiper-button-next:hover { background: #8aa03d; }
+.related-tours-swiper .swiper-button-prev::after,
+.related-tours-swiper .swiper-button-next::after { font-size: 14px !important; font-weight: 700; }
+.related-tours-swiper .swiper-pagination-bullet { background: #9db247; opacity: .4; }
+.related-tours-swiper .swiper-pagination-bullet-active { opacity: 1; }
+.line-clamp-2 { display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+</style>
+
+    <?php endif; endif; ?>
+
+
+<?php
+/* ═══════════════════════════════════════════════════════
+   ÚLTIMOS BLOG POSTS
+═══════════════════════════════════════════════════════ */
+$pacha_blog_q = new WP_Query([
+    'post_type'      => 'blog',
+    'posts_per_page' => 3,
+    'post_status'    => 'publish',
+    'orderby'        => 'date',
+    'order'          => 'DESC',
+]);
+if ( $pacha_blog_q->have_posts() ) :
+?>
+<section class="py-14 bg-white px-3 xl:px-0">
+    <div class="container">
+
+        <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
+            <div>
+                <span class="inline-block text-primary text-sm font-semibold tracking-widest uppercase mb-2">From Our Journal</span>
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-900 leading-tight">Latest Blog Posts</h2>
+            </div>
+            <a href="<?php echo esc_url( get_post_type_archive_link('blog') ?: home_url('/blog/') ); ?>"
+               class="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline flex-shrink-0">
+                View all articles
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <?php while ( $pacha_blog_q->have_posts() ) : $pacha_blog_q->the_post();
+            $pb_thumb   = get_the_post_thumbnail_url( null, 'large' ) ?: get_template_directory_uri() . '/img/fondo-footer.jpg';
+            $pb_cats    = get_the_category();
+            $pb_cat     = ! empty( $pb_cats ) ? $pb_cats[0]->name : '';
+            $pb_words   = str_word_count( strip_tags( get_the_content() ) );
+            $pb_minutes = max( 1, ceil( $pb_words / 200 ) );
+            $pb_excerpt = wp_trim_words( get_the_excerpt(), 18, '…' );
+        ?>
+            <a href="<?php the_permalink(); ?>"
+               class="group flex flex-col rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 bg-white">
+
+                <!-- Imagen -->
+                <div class="relative overflow-hidden h-52 flex-shrink-0">
+                    <img src="<?php echo esc_url( $pb_thumb ); ?>"
+                         alt="<?php the_title_attribute(); ?>"
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                    <?php if ( $pb_cat ) : ?>
+                    <span class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-primary text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wide shadow-sm">
+                        <?php echo esc_html( $pb_cat ); ?>
+                    </span>
+                    <?php endif; ?>
+                </div>
+
+                <!-- Body -->
+                <div class="p-5 flex flex-col flex-1">
+                    <div class="flex items-center gap-3 mb-3">
+                        <time class="text-xs text-gray-400"><?php echo get_the_date('M j, Y'); ?></time>
+                        <span class="text-gray-200">|</span>
+                        <span class="text-xs text-gray-400"><?php echo $pb_minutes; ?> min read</span>
+                    </div>
+                    <h3 class="text-gray-900 font-bold text-base leading-snug mb-2 group-hover:text-primary transition-colors duration-200 line-clamp-2">
+                        <?php the_title(); ?>
+                    </h3>
+                    <p class="text-gray-500 text-sm leading-relaxed flex-1 line-clamp-3">
+                        <?php echo esc_html( $pb_excerpt ); ?>
+                    </p>
+                    <div class="flex items-center justify-between mt-4 pt-3 border-t border-gray-100">
+                        <span class="inline-flex items-center gap-1 text-xs font-semibold text-primary">
+                            Read more
+                            <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </span>
+                        <span class="flex items-center gap-1 text-xs text-gray-400">
+                            <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                            </svg>
+                            <?php echo number_format( function_exists('pachaexp_get_post_views') ? pachaexp_get_post_views( get_the_ID() ) : 0 ); ?> views
+                        </span>
+                    </div>
+                </div>
+
+            </a>
+        <?php endwhile; wp_reset_postdata(); ?>
+        </div>
+
+    </div>
+</section>
+
+<style>
+.line-clamp-3 { display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+</style>
+
+<?php endif; ?>
+
+<?php
 get_footer();
