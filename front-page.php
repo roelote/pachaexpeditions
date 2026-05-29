@@ -199,51 +199,53 @@ $slides = $hero_slides ?: $hero_default;
       </div>
 
       <!-- Col 2: 2x2 Cards grid -->
+      <?php
+      $cards_2x2     = get_field( 'cards_2x2' );
+      $badge_colors  = [ 'bg-primary', 'bg-amber-500', 'bg-emerald-600', 'bg-gray-900' ];
+      ?>
       <div class="grid grid-cols-2 gap-4" style="grid-template-rows: 400px 400px;">
 
-        <!-- Card: Classic Inca Trail 4D -->
-        <a href="#" class="group relative rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 block h-full">
-          <img src="https://www.pachaexpeditions.com/wp-content/uploads/2025/02/inca-trail-2025.jpg" alt="Classic Inca Trail 4 Days" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+        <?php if ( $cards_2x2 ) :
+          $c = 0;
+          foreach ( $cards_2x2 as $tour ) :
+            $tour_id   = $tour->ID;
+            $img_url   = get_the_post_thumbnail_url( $tour_id, 'large' ) ?: '';
+            $title     = get_the_title( $tour_id );
+            $raw_desc  = get_field( 'tour_description', $tour_id );
+            if ( ! $raw_desc ) $raw_desc = get_post_field( 'post_excerpt', $tour_id );
+            if ( ! $raw_desc ) $raw_desc = wp_trim_words( strip_tags( get_post_field( 'post_content', $tour_id ) ), 12, '...' );
+            $badge     = get_field( 'tour_duration', $tour_id ) ?: get_field( 'tour_badge_label', $tour_id );
+            $price     = get_field( 'price', $tour_id );
+            $card_url  = get_permalink( $tour_id );
+            $badge_cls = $badge_colors[ $c % 4 ];
+            $c++;
+        ?>
+        <a href="<?php echo esc_url( $card_url ); ?>" class="group relative rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 block h-full">
+          <?php if ( $img_url ) : ?>
+          <img src="<?php echo esc_url( $img_url ); ?>" alt="<?php echo esc_attr( $title ); ?>" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <?php else : ?>
+          <div class="w-full h-full bg-gray-700"></div>
+          <?php endif; ?>
           <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
           <div class="absolute bottom-0 left-0 right-0 p-4">
-            <span class="inline-block bg-primary text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full mb-1">4 Days / 3 Nights</span>
-            <h3 class="text-white font-bold text-sm leading-tight">Classic Inca Trail 4 Days</h3>
-            <p class="text-white/80 text-[11px] mt-0.5">The legendary route to the Sun Gate</p>
+            <?php if ( $badge ) : ?>
+            <span class="inline-block <?php echo esc_attr( $badge_cls ); ?> text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full mb-1"><?php echo esc_html( $badge ); ?></span>
+            <?php endif; ?>
+            <h3 class="text-white font-bold text-sm leading-tight"><?php echo esc_html( $title ); ?></h3>
+            <?php if ( $raw_desc ) : ?>
+            <p class="text-white/80 text-[11px] mt-0.5"><?php echo esc_html( $raw_desc ); ?></p>
+            <?php endif; ?>
+            <?php if ( $price ) : ?>
+            <p class="text-white font-extrabold text-base mt-1.5">From <?php echo esc_html( $price ); ?> <span class="text-white/70 text-xs font-normal">/ person</span></p>
+            <?php endif; ?>
           </div>
         </a>
-
-        <!-- Card: Short Inca Trail 2D -->
-        <a href="#" class="group relative rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 block h-full">
-          <img src="https://www.pachaexpeditions.com/wp-content/uploads/2022/02/inca-trail-02.jpg" alt="Short Inca Trail 2 Days" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-          <div class="absolute bottom-0 left-0 right-0 p-4">
-            <span class="inline-block bg-amber-500 text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full mb-1">2 Days / 1 Night</span>
-            <h3 class="text-white font-bold text-sm leading-tight">Short Inca Trail 2 Days</h3>
-            <p class="text-white/80 text-[11px] mt-0.5">Machu Picchu via the Inca Trail</p>
-          </div>
-        </a>
-
-        <!-- Card: Choquequirao Trek 4D -->
-        <a href="#" class="group relative rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 block h-full">
-          <img src="https://www.pachaexpeditions.com/wp-content/uploads/2022/02/choquequirao-trek-4-dias-310x340.jpg" alt="Choquequirao Trek 4 Days" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-          <div class="absolute bottom-0 left-0 right-0 p-4">
-            <span class="inline-block bg-emerald-600 text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full mb-1">4 Days / 3 Nights</span>
-            <h3 class="text-white font-bold text-sm leading-tight">Choquequirao Trek 4 Days</h3>
-            <p class="text-white/80 text-[11px] mt-0.5">The lost citadel of the Incas</p>
-          </div>
-        </a>
-
-        <!-- Card: Premium Inca Trail 5D -->
-        <a href="#" class="group relative rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 block h-full">
-          <img src="https://www.pachaexpeditions.com/wp-content/uploads/2025/02/inca-trail-premiun.jpg" alt="Premium Inca Trail 5 Days" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-          <div class="absolute bottom-0 left-0 right-0 p-4">
-            <span class="inline-block bg-gray-900 text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full mb-1">5 Days / 4 Nights</span>
-            <h3 class="text-white font-bold text-sm leading-tight">Premium Inca Trail 5 Days</h3>
-            <p class="text-white/80 text-[11px] mt-0.5">Luxury camping & exclusive service</p>
-          </div>
-        </a>
+        <?php endforeach; else : ?>
+        <!-- Fallback: sin posts seleccionados -->
+        <div class="col-span-2 flex items-center justify-center text-gray-400 text-sm py-10">
+          No hay tours seleccionados. Edita la página de inicio y añade tours en la sección Cards 2x2.
+        </div>
+        <?php endif; ?>
 
       </div>
     </div>

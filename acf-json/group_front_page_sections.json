@@ -3,6 +3,59 @@
     "title": "Front Page — Secciones (Salkantay, Adventures, Banner, Day Tours, Responsible Travel)",
     "fields": [
         {
+            "key": "field_cards2x2_tab",
+            "label": "Cards 2x2 (Sección About)",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_cards_2x2",
+            "label": "Tours \/ Posts para los 4 cards",
+            "name": "cards_2x2",
+            "aria-label": "",
+            "type": "relationship",
+            "instructions": "Selecciona hasta 4 tours o posts. El título, descripción, precio e imagen se toman automáticamente del post seleccionado.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "post"
+            ],
+            "post_status": [
+                "publish"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search",
+                "post_type"
+            ],
+            "return_format": "object",
+            "min": "",
+            "max": 4,
+            "allow_in_bindings": 1,
+            "elements": [
+                "featured_image"
+            ],
+            "bidirectional": 0,
+            "bidirectional_target": []
+        },
+        {
             "key": "field_salkantay_tab",
             "label": "Sección Salkantay Treks",
             "name": "",
@@ -618,5 +671,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1779999349
+    "modified": 1780015107
 }
