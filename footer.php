@@ -53,14 +53,7 @@
                 <p class="mt-4 text-sm text-gray-400 leading-relaxed">
                     Local tour operator based in Cusco, Peru. Licensed by the Ministry of Tourism. Specialists in Inca Trail, Salkantay, Machu Picchu &amp; alternative treks.
                 </p>
-                <!-- Protégeme badge -->
-                <a target="_blank"
-                   href="https://www.pachaexpeditions.com/wp-content/uploads/2025/03/protegeme.pdf"
-                   class="inline-block mt-5">
-                    <img src="https://www.pachaexpeditions.com/wp-content/uploads/2025/03/protegeme-final-e1743178374306.png"
-                         alt="Protégeme"
-                         class="h-14 w-auto opacity-90 hover:opacity-100 transition-opacity">
-                </a>
+              
             </div>
 
             <!-- Col 2: Contact -->
@@ -109,6 +102,16 @@
                 <div class="mt-4 space-y-4">
                   
                     <div>
+
+                      <!-- Protégeme badge -->
+                <a target="_blank"
+                   href="https://www.pachaexpeditions.com/wp-content/uploads/2025/03/protegeme.pdf"
+                   class="inline-block mt-5">
+                    <img src="https://www.pachaexpeditions.com/wp-content/uploads/2025/03/protegeme-final-e1743178374306.png"
+                         alt="Protégeme"
+                         class="h-14 w-auto opacity-90 hover:opacity-100 transition-opacity">
+                </a>
+                
                         <a target="_blank" href="#">
                             <img src="https://www.pachaexpeditions.com/wp-content/uploads/2025/04/logo.png"
                                  alt="Pacha Expeditions" class="h-14 w-auto opacity-90 hover:opacity-100 transition-opacity">
