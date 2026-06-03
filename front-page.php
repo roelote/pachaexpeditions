@@ -589,11 +589,7 @@ $rt_render = $rt_items ?: $rt_defaults;
 <!--seccion google reviews -->
 <section class="py-12 px-4 bg-gray-50">
   <div class="max-w-6xl mx-auto text-center">
-    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-2">Google Reviews</h2>
-    <p class="text-gray-500 mb-8">See what travelers around the world say about us on Google</p>
-
     <?php echo do_shortcode( '[trustindex no-registration=google]' ); ?>
-
   </div>
 </section>
 
