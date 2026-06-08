@@ -597,13 +597,19 @@ nav.is-floating {
     content: '';
     position: absolute;
     left: 0;
-    top: 0.6em;
+    top: 0.70rem;
     width: 6px;
     height: 6px;
     border-radius: 50%;
     background: #9db247;
     flex-shrink: 0;
 }
+
+.page-main .advgb-list li::before
+{
+        left: 1.5rem;
+        top: 0.6em;
+}   
 
 .page-main ol {
     list-style: decimal;
