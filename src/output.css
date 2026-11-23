@@ -968,6 +968,10 @@ body {
   height: 18rem;
 }
 
+.h-9 {
+  height: 2.25rem;
+}
+
 .h-\[280px\] {
   height: 280px;
 }
@@ -1036,6 +1040,10 @@ body {
   width: 1.5rem;
 }
 
+.w-9 {
+  width: 2.25rem;
+}
+
 .w-auto {
   width: auto;
 }
@@ -1081,6 +1089,10 @@ body {
 }
 
 .flex-shrink-0 {
+  flex-shrink: 0;
+}
+
+.shrink-0 {
   flex-shrink: 0;
 }
 
@@ -1251,6 +1263,10 @@ body {
   border-radius: 1rem;
 }
 
+.rounded-3xl {
+  border-radius: 1.5rem;
+}
+
 .rounded-full {
   border-radius: 9999px;
 }
@@ -1275,6 +1291,10 @@ body {
 
 .border {
   border-width: 1px;
+}
+
+.border-2 {
+  border-width: 2px;
 }
 
 .border-y {
@@ -1626,6 +1646,10 @@ body {
   padding-bottom: 1.5rem;
 }
 
+.pl-3 {
+  padding-left: 0.75rem;
+}
+
 .pl-4 {
   padding-left: 1rem;
 }
@@ -1646,6 +1670,10 @@ body {
   padding-top: 0.75rem;
 }
 
+.pt-4 {
+  padding-top: 1rem;
+}
+
 .pt-5 {
   padding-top: 1.25rem;
 }
@@ -1656,6 +1684,10 @@ body {
 
 .text-center {
   text-align: center;
+}
+
+.text-right {
+  text-align: right;
 }
 
 .text-justify {
@@ -1778,6 +1810,10 @@ body {
   letter-spacing: 0.25em;
 }
 
+.tracking-tighter {
+  letter-spacing: -0.05em;
+}
+
 .tracking-wide {
   letter-spacing: 0.025em;
 }
@@ -1877,6 +1913,11 @@ body {
 
 .text-white\/85 {
   color: rgb(255 255 255 / 0.85);
+}
+
+.text-yellow-400 {
+  --tw-text-opacity: 1;
+  color: rgb(250 204 21 / var(--tw-text-opacity, 1));
 }
 
 .opacity-0 {
@@ -4071,6 +4112,11 @@ nav.is-floating {
 .hover\:text-primary:hover {
   --tw-text-opacity: 1;
   color: rgb(157 178 71 / var(--tw-text-opacity, 1));
+}
+
+.hover\:text-white:hover {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
 
 .hover\:underline:hover {
