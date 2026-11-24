@@ -1,10 +1,10 @@
 {
     "key": "group_front_page_sections",
-    "title": "Front Page — Secciones (Salkantay, Adventures, Banner, Day Tours, Responsible Travel)",
+    "title": "Front Page — Secciones (Intro, Inca Trail, Salkantay, Adventures, Banner, Day Tours, Responsible Travel, Social Projects)",
     "fields": [
         {
-            "key": "field_cards2x2_tab",
-            "label": "Cards 2x2 (Sección About)",
+            "key": "field_about_tab",
+            "label": "Sección Intro (Come To Peru)",
             "name": "",
             "aria-label": "",
             "type": "tab",
@@ -21,12 +21,250 @@
             "selected": 0
         },
         {
-            "key": "field_cards_2x2",
-            "label": "Tours \/ Posts para los 4 cards",
-            "name": "cards_2x2",
+            "key": "field_about_badge",
+            "label": "Badge (etiqueta superior)",
+            "name": "about_badge",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Texto pequeño sobre el título.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Come To Peru",
+            "placeholder": "Come To Peru",
+            "maxlength": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_about_title",
+            "label": "Título principal",
+            "name": "about_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Título H2 de la sección.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "67",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Enjoy the Magic of the Andes.",
+            "placeholder": "Enjoy the Magic of the Andes.",
+            "maxlength": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_about_subtitle",
+            "label": "Subtítulo (línea verde)",
+            "name": "about_subtitle",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Trekking and Big Adventure.",
+            "placeholder": "Trekking and Big Adventure.",
+            "maxlength": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_about_body",
+            "label": "Contenido",
+            "name": "about_body",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "Párrafos de la sección.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "<p><strong>Inca Trail Tours, Machu Picchu Tours, Alternative Treks:</strong> 100% Local Tourism Company. We are direct operators of our own programs. Our experience working in the Andes Mountains has led us to develop unique and personalized tour programs for you, the traveler. Live a unique and unforgettable experience and take away lasting memories of your vacation. We operate Inca Trail Tours, Machu Picchu Tours, and Alternative Treks. Enjoy a pleasant trip and get the most out of your investment. Our company offers added value on all our trips: small groups and personalized service.</p>\n<p>We are a local company with a highly professional team of certified technical Guides, passionate about their culture, Chefs specializing in traditional cuisine, and an excellent Quechua-speaking Support team, who will make your vacation an unforgettable experience. We offer a wide variety of tours so you can make the most of your visit to our region.</p>\n<p>Our programs are designed for families, friends, honeymooners, and adventurers. We are a company that does not seek to profit at the expense of others. Therefore, our prices are affordable, and our service is high-quality and personalized. We also support the local community and children, and we are a sustainable and regenerative company.</p>",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_about_guide_name",
+            "label": "Guía — Nombre",
+            "name": "about_guide_name",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Deja vacío para ocultar el recuadro del guía.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Javier Mendoza Zarate",
+            "placeholder": "",
+            "maxlength": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_about_guide_role",
+            "label": "Guía — Cargo",
+            "name": "about_guide_role",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Tour guide — 25+ years of experience",
+            "placeholder": "",
+            "maxlength": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_about_guide_text",
+            "label": "Guía — Texto",
+            "name": "about_guide_text",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "34",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Ready to recommend an unforgettable experience. Enjoy the magic of the Andes with us. Direct operator of the Classic Inca Trail, Machu Picchu Tours, and Alternative Treks.",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 3,
+            "new_lines": ""
+        },
+        {
+            "key": "field_about_tags",
+            "label": "Etiquetas",
+            "name": "about_tags",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Una etiqueta por línea.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Inca Trail Operators\nMachu Picchu Tours\nAlternative Treks\n100% Local Company",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 4,
+            "new_lines": ""
+        },
+        {
+            "key": "field_inca_tab",
+            "label": "Sección Inca Trail (inicial)",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_inca_badge",
+            "label": "Badge (etiqueta superior)",
+            "name": "inca_badge",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Texto pequeño sobre el título.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Inca Trail to Machu Picchu",
+            "placeholder": "Inca Trail to Machu Picchu",
+            "maxlength": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_inca_title",
+            "label": "Título principal",
+            "name": "inca_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Título H2 de la sección.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "67",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Best Hiking Route to Machu Picchu",
+            "placeholder": "Best Hiking Route to Machu Picchu",
+            "maxlength": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_inca_subtitle",
+            "label": "Subtítulo / descripción",
+            "name": "inca_subtitle",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Párrafo debajo del título.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Enjoy one of the world's most spectacular treks with our carefully crafted Salkantay Treks to Machu Picchu. Hike through breathtaking Andean landscapes, from snow-capped mountains and glacial lakes to lush cloud forests and tropical valleys.",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 3,
+            "new_lines": "br"
+        },
+        {
+            "key": "field_inca_tours",
+            "label": "Tours Inca Trail (seleccionar posts)",
+            "name": "inca_tours",
             "aria-label": "",
             "type": "relationship",
-            "instructions": "Selecciona hasta 4 tours o posts. El título, descripción, precio e imagen se toman automáticamente del post seleccionado.",
+            "instructions": "Selecciona los tours que aparecerán en esta sección.",
             "required": 0,
             "conditional_logic": false,
             "wrapper": {
@@ -37,22 +275,17 @@
             "post_type": [
                 "post"
             ],
-            "post_status": [
-                "publish"
-            ],
-            "taxonomy": "",
+            "taxonomy": [],
             "filters": [
                 "search",
-                "post_type"
+                "taxonomy"
             ],
-            "return_format": "object",
-            "min": "",
-            "max": 4,
-            "allow_in_bindings": 1,
             "elements": [
                 "featured_image"
             ],
-            "bidirectional": 0,
+            "min": "",
+            "max": "",
+            "return_format": "object",
             "bidirectional_target": []
         },
         {
@@ -115,7 +348,7 @@
         },
         {
             "key": "field_salkantay_subtitle",
-            "label": "Subtítulo \/ descripción",
+            "label": "Subtítulo / descripción",
             "name": "salkantay_subtitle",
             "aria-label": "",
             "type": "textarea",
@@ -223,7 +456,7 @@
         },
         {
             "key": "field_adventures_subtitle",
-            "label": "Subtítulo \/ descripción",
+            "label": "Subtítulo / descripción",
             "name": "adventures_subtitle",
             "aria-label": "",
             "type": "textarea",
@@ -339,7 +572,7 @@
         },
         {
             "key": "field_banner_body",
-            "label": "Texto \/ descripción del banner",
+            "label": "Texto / descripción del banner",
             "name": "banner_body",
             "aria-label": "",
             "type": "textarea",
@@ -392,7 +625,7 @@
                 "id": ""
             },
             "default_value": "",
-            "placeholder": "https:\/\/..."
+            "placeholder": "https://..."
         },
         {
             "key": "field_daytours_tab",
@@ -580,7 +813,7 @@
             "sub_fields": [
                 {
                     "key": "field_rt_item_image",
-                    "label": "Icono \/ Imagen",
+                    "label": "Icono / Imagen",
                     "name": "rt_item_image",
                     "aria-label": "",
                     "type": "image",
@@ -648,6 +881,191 @@
                     "parent_repeater": "field_rt_items"
                 }
             ]
+        },
+        {
+            "key": "field_fp_social_tab",
+            "label": "Sección Social Projects",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_fp_social_eyebrow",
+            "label": "Eyebrow",
+            "name": "social_eyebrow",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Community Impact",
+            "placeholder": "Community Impact",
+            "maxlength": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_fp_social_title",
+            "label": "Title",
+            "name": "social_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "These are Our Social Projects",
+            "placeholder": "These are Our Social Projects",
+            "maxlength": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_fp_social_description",
+            "label": "Description",
+            "name": "social_description",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Sustainable tourism is committed to having a low impact on the environment and the local cultural industry, while helping to generate income and employment for the local population.",
+            "rows": 4,
+            "new_lines": "",
+            "maxlength": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_fp_social_projects_cards",
+            "label": "Project Cards",
+            "name": "social_projects_cards",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Add the social project cards shown in this section.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "button_label": "Add Project Card",
+            "min": 0,
+            "max": 0,
+            "rows_per_page": 20,
+            "collapsed": "",
+            "sub_fields": [
+                {
+                    "key": "field_fp_social_card_image",
+                    "label": "Image",
+                    "name": "card_image",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "url",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": 0,
+                    "min_height": 0,
+                    "min_size": 0,
+                    "max_width": 0,
+                    "max_height": 0,
+                    "max_size": 0,
+                    "mime_types": "",
+                    "parent_repeater": "field_fp_social_projects_cards"
+                },
+                {
+                    "key": "field_fp_social_card_title",
+                    "label": "Title",
+                    "name": "card_title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "placeholder": "Community Support",
+                    "default_value": "",
+                    "maxlength": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_fp_social_projects_cards"
+                },
+                {
+                    "key": "field_fp_social_card_description",
+                    "label": "Description",
+                    "name": "card_description",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "rows": 3,
+                    "new_lines": "",
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "parent_repeater": "field_fp_social_projects_cards"
+                },
+                {
+                    "key": "field_fp_social_card_link",
+                    "label": "Link (See more)",
+                    "name": "card_link",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "URL del botón \"See more\". Si se deja vacío, el botón no se muestra.",
+                    "required": 0,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array"
+                }
+            ]
         }
     ],
     "location": [
@@ -669,7 +1087,8 @@
     "description": "Campos para controlar las secciones Salkantay, Exclusive Adventures, Banner Inca Trail, Day Tours y Responsible Travel.",
     "show_in_rest": 0,
     "display_title": "",
-    "allow_ai_access": false,
+    "enable_acf_abilities": true,
     "ai_description": "",
-    "modified": 1780015107
+    "allow_ai_access": false,
+    "modified": 1795556256
 }
