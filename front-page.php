@@ -152,108 +152,131 @@ $slides = $hero_slides ?: $hero_default;
 }
 </style>
 
-<!-- Enjoy the Magic of the Andes -->
+<!-- Intro: Come To Peru -->
 <section class="py-16 bg-white px-3 xl:px-0">
-  <div class="container">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
+  <div class="container max-w-4xl mx-auto">
 
-      <!-- Col 1: Text -->
-      <div>
-        <span class="inline-block text-primary text-sm font-semibold tracking-widest uppercase mb-3">Come To Peru</span>
-        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight mb-1">Enjoy the Magic of the Andes.</h2>
-        <p class="text-xl font-semibold text-primary mb-5">Trekking and Big Adventure.</p>
+    <div class="text-center mb-8">
+      <span class="inline-block text-primary text-sm font-semibold tracking-widest uppercase mb-3"><?php echo esc_html( get_field( 'about_badge' ) ?: 'Come To Peru' ); ?></span>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight mb-1"><?php echo esc_html( get_field( 'about_title' ) ?: 'Enjoy the Magic of the Andes.' ); ?></h2>
+      <?php $about_sub = get_field( 'about_subtitle' ); if ( $about_sub === null || $about_sub === false ) { $about_sub = 'Trekking and Big Adventure.'; } ?>
+      <?php if ( $about_sub ) : ?>
+      <p class="text-xl font-semibold text-primary"><?php echo esc_html( $about_sub ); ?></p>
+      <?php endif; ?>
+    </div>
 
-        <p class="text-gray-600 text-sm leading-relaxed mb-4 text-justify">
-          <strong class="text-gray-800">Inca Trail Tours, Machu Picchu Tours, Alternative Treks:</strong> 100% Local Tourism Company. We are direct operators of our own programs. Our experience working in the Andes Mountains has led us to develop unique and personalized tour programs for you, the traveler. Live a unique and unforgettable experience and take away lasting memories of your vacation. We operate Inca Trail Tours, Machu Picchu Tours, and Alternative Treks. Enjoy a pleasant trip and get the most out of your investment. Our company offers added value on all our trips: small groups and personalized service.
-        </p>
+    <?php
+    $about_body = get_field( 'about_body' );
+    if ( $about_body === null || $about_body === false ) { $about_body = '<p><strong>Inca Trail Tours, Machu Picchu Tours, Alternative Treks:</strong> 100% Local Tourism Company. We are direct operators of our own programs. Our experience working in the Andes Mountains has led us to develop unique and personalized tour programs for you, the traveler. Live a unique and unforgettable experience and take away lasting memories of your vacation. We operate Inca Trail Tours, Machu Picchu Tours, and Alternative Treks. Enjoy a pleasant trip and get the most out of your investment. Our company offers added value on all our trips: small groups and personalized service.</p>\n<p>We are a local company with a highly professional team of certified technical Guides, passionate about their culture, Chefs specializing in traditional cuisine, and an excellent Quechua-speaking Support team, who will make your vacation an unforgettable experience. We offer a wide variety of tours so you can make the most of your visit to our region.</p>\n<p>Our programs are designed for families, friends, honeymooners, and adventurers. We are a company that does not seek to profit at the expense of others. Therefore, our prices are affordable, and our service is high-quality and personalized. We also support the local community and children, and we are a sustainable and regenerative company.</p>'; }
+    if ( $about_body ) :
+    ?>
+    <div class="text-gray-600 text-sm leading-relaxed text-justify space-y-4 [&_strong]:text-gray-800">
+      <?php echo wp_kses_post( $about_body ); ?>
+    </div>
+    <?php endif; ?>
 
-        <!-- Guide highlight -->
-        <div class="flex items-start gap-4 bg-gray-50 rounded-2xl p-4 mb-5 border border-gray-100">
-          <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-            </svg>
-          </div>
-          <div>
-            <p class="text-sm font-bold text-gray-900">Javier Mendoza Zarate</p>
-            <p class="text-xs text-primary font-medium mb-1">Tour guide — 25+ years of experience</p>
-            <p class="text-xs text-gray-500 leading-relaxed">Ready to recommend an unforgettable experience. Enjoy the magic of the Andes with us. Direct operator of the Classic Inca Trail, Machu Picchu Tours, and Alternative Treks.</p>
-          </div>
-        </div>
-
-        <p class="text-gray-600 text-sm leading-relaxed mb-4 text-justify">
-          We are a local company with a highly professional team of certified technical Guides, passionate about their culture, Chefs specializing in traditional cuisine, and an excellent Quechua-speaking Support team, who will make your vacation an unforgettable experience. We offer a wide variety of tours so you can make the most of your visit to our region.
-        </p>
-
-        <p class="text-gray-600 text-sm leading-relaxed mb-5 text-justify">
-          Our programs are designed for families, friends, honeymooners, and adventurers. We are a company that does not seek to profit at the expense of others. Therefore, our prices are affordable, and our service is high-quality and personalized. We also support the local community and children, and we are a sustainable and regenerative company.
-        </p>
-
-        <!-- Tags -->
-        <div class="flex flex-wrap gap-2">
-          <span class="text-xs font-semibold text-primary border border-primary/30 bg-primary/5 px-3 py-1.5 rounded-full">Inca Trail Operators</span>
-          <span class="text-xs font-semibold text-primary border border-primary/30 bg-primary/5 px-3 py-1.5 rounded-full">Machu Picchu Tours</span>
-          <span class="text-xs font-semibold text-primary border border-primary/30 bg-primary/5 px-3 py-1.5 rounded-full">Alternative Treks</span>
-          <span class="text-xs font-semibold text-primary border border-primary/30 bg-primary/5 px-3 py-1.5 rounded-full">100% Local Company</span>
-        </div>
+    <?php
+    $about_guide_name = get_field( 'about_guide_name' );
+    $about_guide_unset = ( $about_guide_name === null || $about_guide_name === false );
+    if ( $about_guide_unset ) { $about_guide_name = 'Javier Mendoza Zarate'; }
+    if ( $about_guide_name ) :
+    ?>
+    <!-- Guide highlight -->
+    <div class="flex items-start gap-4 bg-gray-50 rounded-2xl p-4 mt-6 border border-gray-100">
+      <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+        <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+        </svg>
       </div>
-
-      <!-- Col 2: 2x2 Cards grid -->
-      <?php
-      $cards_2x2     = get_field( 'cards_2x2' );
-      $badge_colors  = [ 'bg-primary', 'bg-amber-500', 'bg-emerald-600', 'bg-gray-900' ];
-      ?>
-      <div class="grid grid-cols-2 gap-4" style="grid-template-rows: 400px 400px;">
-
-        <?php if ( $cards_2x2 ) :
-          $c = 0;
-          foreach ( $cards_2x2 as $tour ) :
-            $tour_id   = $tour->ID;
-            $img_url   = get_the_post_thumbnail_url( $tour_id, 'large' ) ?: '';
-            $title     = get_the_title( $tour_id );
-            $raw_desc  = get_field( 'tour_description', $tour_id );
-            if ( ! $raw_desc ) $raw_desc = get_post_field( 'post_excerpt', $tour_id );
-            if ( ! $raw_desc ) $raw_desc = wp_trim_words( strip_tags( get_post_field( 'post_content', $tour_id ) ), 12, '...' );
-            $badge     = get_field( 'tour_duration', $tour_id ) ?: get_field( 'tour_badge_label', $tour_id );
-            $price     = get_field( 'price', $tour_id );
-            $card_url  = get_permalink( $tour_id );
-            $badge_cls = $badge_colors[ $c % 4 ];
-            $c++;
-        ?>
-        <a href="<?php echo esc_url( $card_url ); ?>" class="group relative rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 block h-full">
-          <?php if ( $img_url ) : ?>
-          <img src="<?php echo esc_url( $img_url ); ?>" alt="<?php echo esc_attr( $title ); ?>" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-          <?php else : ?>
-          <div class="w-full h-full bg-gray-700"></div>
-          <?php endif; ?>
-          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-          <div class="absolute bottom-0 left-0 right-0 p-4">
-            <?php if ( $badge ) : ?>
-            <span class="inline-block <?php echo esc_attr( $badge_cls ); ?> text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full mb-1"><?php echo esc_html( $badge ); ?></span>
-            <?php endif; ?>
-            <h3 class="text-white font-bold text-sm leading-tight"><?php echo esc_html( $title ); ?></h3>
-            <?php if ( $raw_desc ) : ?>
-            <p class="text-white/80 text-[11px] mt-0.5"><?php echo esc_html( $raw_desc ); ?></p>
-            <?php endif; ?>
-            <?php if ( $price ) : ?>
-            <p class="text-white font-extrabold text-base mt-1.5">From <?php echo esc_html( $price ); ?> <span class="text-white/70 text-xs font-normal">/ person</span></p>
-            <?php endif; ?>
-          </div>
-        </a>
-        <?php endforeach; else : ?>
-        <!-- Fallback: sin posts seleccionados -->
-        <div class="col-span-2 flex items-center justify-center text-gray-400 text-sm py-10">
-          No hay tours seleccionados. Edita la página de inicio y añade tours en la sección Cards 2x2.
-        </div>
+      <div>
+        <p class="text-sm font-bold text-gray-900"><?php echo esc_html( $about_guide_name ); ?></p>
+        <?php if ( $about_role = $about_guide_unset ? 'Tour guide — 25+ years of experience' : get_field( 'about_guide_role' ) ) : ?>
+        <p class="text-xs text-primary font-medium mb-1"><?php echo esc_html( $about_role ); ?></p>
         <?php endif; ?>
-
+        <?php if ( $about_gtext = $about_guide_unset ? 'Ready to recommend an unforgettable experience. Enjoy the magic of the Andes with us. Direct operator of the Classic Inca Trail, Machu Picchu Tours, and Alternative Treks.' : get_field( 'about_guide_text' ) ) : ?>
+        <p class="text-xs text-gray-500 leading-relaxed"><?php echo esc_html( $about_gtext ); ?></p>
+        <?php endif; ?>
       </div>
     </div>
+    <?php endif; ?>
+
+    <?php
+    $about_tags = array_filter( array_map( 'trim', preg_split( '/\r\n|\r|\n/', (string) ( ( $about_tags_raw = get_field( 'about_tags' ) ) === null || $about_tags_raw === false ? "Inca Trail Operators\nMachu Picchu Tours\nAlternative Treks\n100% Local Company" : $about_tags_raw ) ) ) );
+    if ( $about_tags ) :
+    ?>
+    <!-- Tags -->
+    <div class="flex flex-wrap justify-center gap-2 mt-6">
+      <?php foreach ( $about_tags as $about_tag ) : ?>
+      <span class="text-xs font-semibold text-primary border border-primary/30 bg-primary/5 px-3 py-1.5 rounded-full"><?php echo esc_html( $about_tag ); ?></span>
+      <?php endforeach; ?>
+    </div>
+    <?php endif; ?>
+
   </div>
 </section>
 
 
 
+
+<!-- Trust badges (fixed) -->
+<section class="pb-12 bg-white px-3 xl:px-0">
+  <div class="container">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <?php
+      $trust_badges = [
+        [ 'Official Operator',     '<path stroke-linecap="round" stroke-linejoin="round" d="M12 3l7.5 3v5.5c0 4.5-3 8.2-7.5 9.5-4.5-1.3-7.5-5-7.5-9.5V6L12 3zM8.8 12.2l2.2 2.2 4.2-4.4"/>' ],
+        [ 'Certified Guides',      '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="10" r="3"/><path stroke-linecap="round" stroke-linejoin="round" d="M6.2 18.5c1.2-2.3 3.2-3.5 5.8-3.5s4.6 1.2 5.8 3.5"/>' ],
+        [ 'Small Groups',          '<circle cx="12" cy="6.5" r="2.5"/><circle cx="5.5" cy="10.5" r="2"/><circle cx="18.5" cy="10.5" r="2"/><path stroke-linecap="round" stroke-linejoin="round" d="M8 19v-1.5a4 4 0 018 0V19M2.5 18v-1a3 3 0 013-3M21.5 18v-1a3 3 0 00-3-3"/>' ],
+        [ 'Sustainable Tourism',   '<circle cx="12" cy="12" r="9"/><path stroke-linecap="round" stroke-linejoin="round" d="M3 12h18M12 3c2.5 2.5 3.8 5.5 3.8 9S14.5 18.5 12 21c-2.5-2.5-3.8-5.5-3.8-9S9.5 5.5 12 3z"/>' ],
+      ];
+      foreach ( $trust_badges as $tb ) : ?>
+      <div class="flex flex-col items-center justify-center gap-3 bg-gray-100 rounded-2xl px-4 py-6">
+        <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><?php echo $tb[1]; // static SVG markup ?></svg>
+        <span class="text-xs font-bold uppercase tracking-wide text-gray-800 text-center"><?php echo esc_html( $tb[0] ); ?></span>
+      </div>
+      <?php endforeach; ?>
+    </div>
+  </div>
+</section>
+
+<!-- Inca Trail to Machu Picchu (initial section) -->
+<section class="py-16 bg-white px-3 xl:px-0">
+  <div class="container">
+
+    <!-- Header -->
+    <div class="text-center mb-10">
+      <span class="inline-block text-primary text-sm font-semibold tracking-widest uppercase mb-2"><?php echo esc_html( get_field('inca_badge') ?: 'Inca Trail to Machu Picchu' ); ?></span>
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight"><?php echo esc_html( get_field('inca_title') ?: 'Best Hiking Route to Machu Picchu' ); ?></h2>
+      <p class="mt-3 text-gray-500 max-w-xl mx-auto text-base"><?php echo esc_html( get_field('inca_subtitle') ?: "Enjoy one of the world's most spectacular treks with our carefully crafted Salkantay Treks to Machu Picchu. Hike through breathtaking Andean landscapes, from snow-capped mountains and glacial lakes to lush cloud forests and tropical valleys." ); ?></p>
+      <div class="mt-4 flex justify-center">
+        <span class="block w-14 h-1 rounded-full" style="background-color:#f97316"></span>
+      </div>
+    </div>
+
+    <!-- Swiper -->
+    <div class="swiper inca-swiper relative pb-12">
+      <div class="swiper-wrapper">
+        <?php
+        $inca_tours = get_field( 'inca_tours' );
+        if ( $inca_tours ) :
+          foreach ( $inca_tours as $tour ) :
+        ?>
+        <div class="swiper-slide"><?php get_template_part( 'template-parts/tour-card', null, [ 'tour_id' => $tour->ID ] ); ?></div>
+        <?php endforeach; else : ?>
+        <div class="swiper-slide w-full py-12 text-center text-gray-400 text-sm col-span-3">No hay tours seleccionados. Edita la página de inicio y añade tours en la sección Inca Trail.</div>
+        <?php endif; ?>
+      </div><!-- /.swiper-wrapper -->
+
+      <!-- Navigation -->
+      <div class="swiper-button-prev after:text-sm after:font-bold !w-10 !h-10 bg-white shadow-md rounded-full !text-primary hover:bg-primary hover:!text-white transition-colors duration-200 -left-2 md:-left-5"></div>
+      <div class="swiper-button-next after:text-sm after:font-bold !w-10 !h-10 bg-white shadow-md rounded-full !text-primary hover:bg-primary hover:!text-white transition-colors duration-200 -right-2 md:-right-5"></div>
+
+      <!-- Pagination -->
+      <div class="swiper-pagination !bottom-0"></div>
+    </div><!-- /.swiper -->
+
+  </div>
+</section>
 
 <!-- Best Salkantay Treks to Machu Picchu -->
 <section class="py-16 bg-gray-50 px-3 xl:px-0">
@@ -265,7 +288,7 @@ $slides = $hero_slides ?: $hero_default;
       <h2 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight"><?php echo esc_html( get_field('salkantay_title') ?: 'Best Salkantay Treks to Machu Picchu' ); ?></h2>
       <p class="mt-3 text-gray-500 max-w-xl mx-auto text-base"><?php echo esc_html( get_field('salkantay_subtitle') ?: 'Explore our most popular Salkantay trekking routes — breathtaking landscapes, authentic experiences, and expert guides.' ); ?></p>
       <div class="mt-4 flex justify-center">
-        <span class="block w-14 h-1 rounded-full bg-primary"></span>
+        <span class="block w-14 h-1 rounded-full" style="background-color:#f97316"></span>
       </div>
     </div>
 
@@ -277,115 +300,8 @@ $slides = $hero_slides ?: $hero_default;
         $salk_tours = get_field( 'salkantay_tours' );
         if ( $salk_tours ) :
           foreach ( $salk_tours as $tour ) :
-            $tour_id    = $tour->ID;
-            $tour_img   = get_the_post_thumbnail_url( $tour_id, 'large' ) ?: 'https://via.placeholder.com/800x400?text=No+Image';
-            $tour_title = get_the_title( $tour_id );
-            $raw_desc   = get_field( 'tour_description', $tour_id );
-            if ( ! $raw_desc ) {
-              $raw_desc = get_post_field( 'post_excerpt', $tour_id );
-            }
-            if ( ! $raw_desc ) {
-              $raw_desc = wp_trim_words( strip_tags( get_post_field( 'post_content', $tour_id ) ), 22, '...' );
-            }
-            $tour_desc  = $raw_desc;
-            $tour_badge = get_field( 'tour_badge_label', $tour_id ) ?: 'Best Seller';
-            $tour_sec   = get_field( 'tour_secondary_badge', $tour_id );
-            $tour_dur   = get_field( 'tour_duration', $tour_id );
-            $tour_price = get_field( 'price', $tour_id );
-            $tour_link  = get_permalink( $tour_id );
         ?>
-        <div class="swiper-slide">
-          <article class="bg-white rounded-3xl border border-gray-100 shadow-md hover:shadow-xl transition-shadow duration-300 p-4 group flex flex-col h-full">
-            <a href="<?php echo esc_url( $tour_link ); ?>" class="relative block overflow-hidden rounded-2xl" aria-label="<?php echo esc_attr( $tour_title ); ?>">
-              <img src="<?php echo esc_url( $tour_img ); ?>" alt="<?php echo esc_attr( $tour_title ); ?>" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
-            </a>
-
-            <?php
-            // Category (first post category) and difficulty (from Trip Details)
-            $card_cats = get_the_category( $tour_id );
-            $card_cat  = ! empty( $card_cats ) ? $card_cats[0]->name : $tour_badge;
-            $card_details = get_field( 'tour_details_items', $tour_id );
-            $card_diff = '';
-            if ( $card_details ) {
-              foreach ( $card_details as $row ) {
-                if ( ( $row['detail_icon'] ?? '' ) === 'difficulty' && ! empty( $row['detail_value'] ) ) {
-                  $card_diff = $row['detail_value'];
-                  break;
-                }
-              }
-            }
-            ?>
-            <!-- Category + difficulty row -->
-            <div class="flex items-center justify-between gap-3 mt-4">
-              <span class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-primary">
-                <span class="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 20l5-9 4 6 3-4 6 7H3zM15 8a2 2 0 100-4 2 2 0 000 4z"/></svg>
-                </span>
-                <?php echo esc_html( $card_cat ); ?>
-              </span>
-              <?php if ( $card_diff ) : ?>
-              <span class="flex items-center gap-2 text-xs text-gray-700 pl-3 border-l border-gray-200 leading-tight">
-                <svg class="w-6 h-6 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 17a8 8 0 1116 0M12 17l3.5-5"/></svg>
-                <span><strong class="text-gray-900">Difficulty:</strong> <?php echo esc_html( $card_diff ); ?></span>
-              </span>
-              <?php endif; ?>
-
-            </div>
-
-            <h3 class="text-xl font-extrabold text-gray-900 mt-3 mb-2 leading-snug">
-              <a href="<?php echo esc_url( $tour_link ); ?>" class="hover:text-primary transition-colors"><?php echo esc_html( $tour_title ); ?></a>
-            </h3>
-            <p class="text-sm text-gray-500 mb-4 leading-relaxed line-clamp-3"><?php echo esc_html( $tour_desc ); ?></p>
-
-            <!-- Duration / rating + price -->
-            <div class="grid grid-cols-2 gap-4 pt-4 border-t border-gray-100 mt-auto">
-              <div class="flex flex-col justify-center gap-3 text-xs text-gray-600">
-                <?php
-                // Duration from the tour's Trip Details (repeater), fallback to legacy field
-                $card_dur = '';
-                if ( $card_details ) {
-                  foreach ( $card_details as $row ) {
-                    if ( ( $row['detail_icon'] ?? '' ) === 'duration' && ! empty( $row['detail_value'] ) ) {
-                      $card_dur = $row['detail_value'];
-                      break;
-                    }
-                  }
-                }
-                if ( ! $card_dur ) { $card_dur = $tour_dur; }
-                ?>
-                <p class="flex items-center gap-1.5">
-                  <svg class="w-4 h-4 text-primary shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M10 15l-5.9 3.1 1.1-6.6L.4 6.9l6.6-1L10 0l3 5.9 6.6 1-4.8 4.7 1.1 6.6z"/></svg>
-                  <strong class="text-gray-900">Rated Tour</strong>
-                  <span class="text-yellow-400 tracking-tighter">★★★★★</span>
-                </p>
-                <?php if ( $card_dur ) : ?>
-                <p class="flex items-center gap-1.5">
-                  <svg class="w-4 h-4 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                  <span><strong class="text-gray-900">Duration:</strong> <?php echo esc_html( $card_dur ); ?></span>
-                </p>
-                <?php endif; ?>
-
-              </div>
-              <div class="pl-4 border-l border-gray-100">
-                <p class="text-xs text-gray-500">Price, From</p>
-                <p class="text-3xl font-extrabold text-gray-900 leading-tight"><?php echo esc_html( $tour_price ); ?></p>
-                <p class="text-xs text-gray-400">per person</p>
-              </div>
-            </div>
-
-            <!-- Actions -->
-            <div class="grid grid-cols-2 gap-3 mt-4">
-              <a href="https://wa.me/51984387050?text=<?php echo rawurlencode( 'Hi! I am interested in: ' . $tour_title ); ?>" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between gap-2 border-2 border-primary text-primary hover:bg-primary hover:text-white font-bold text-sm px-4 py-3 rounded-xl transition-colors duration-200">
-                Contact us
-                <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 9l3 3-3 3"/></svg>
-              </a>
-              <a href="<?php echo esc_url( $tour_link ); ?>" class="flex items-center justify-between gap-2 bg-primary hover:bg-primary-dark text-white font-bold text-sm px-4 py-3 rounded-xl transition-colors duration-200 shadow-sm">
-                View Itinerary
-                <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.5 12S6 5 12 5s9.5 7 9.5 7-3.5 7-9.5 7S2.5 12 2.5 12z"/></svg>
-              </a>
-            </div>
-          </article>
-        </div>
+        <div class="swiper-slide"><?php get_template_part( 'template-parts/tour-card', null, [ 'tour_id' => $tour->ID ] ); ?></div>
         <?php endforeach; else : ?>
         <div class="swiper-slide w-full py-12 text-center text-gray-400 text-sm col-span-3">No hay tours seleccionados. Edita la página de inicio y añade tours en la sección Salkantay.</div>
         <?php endif; ?>
@@ -415,7 +331,7 @@ $slides = $hero_slides ?: $hero_default;
       <h2 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight"><?php echo esc_html( get_field('adventures_title') ?: 'Exclusive Adventures & Treks' ); ?></h2>
       <p class="mt-3 text-gray-500 max-w-xl mx-auto text-base"><?php echo esc_html( get_field('adventures_subtitle') ?: 'Handpicked expeditions for those who seek the extraordinary — remote routes, immersive nature, and unforgettable high-altitude experiences.' ); ?></p>
       <div class="mt-4 flex justify-center">
-        <span class="block w-14 h-1 rounded-full bg-primary"></span>
+        <span class="block w-14 h-1 rounded-full" style="background-color:#f97316"></span>
       </div>
     </div>
 
@@ -427,53 +343,8 @@ $slides = $hero_slides ?: $hero_default;
         $adv_tours = get_field( 'adventures_tours' );
         if ( $adv_tours ) :
           foreach ( $adv_tours as $tour ) :
-            $tour_id    = $tour->ID;
-            $tour_img   = get_the_post_thumbnail_url( $tour_id, 'large' ) ?: 'https://via.placeholder.com/800x400?text=No+Image';
-            $tour_title = get_the_title( $tour_id );
-            $raw_desc   = get_field( 'tour_description', $tour_id );
-            if ( ! $raw_desc ) {
-              $raw_desc = get_post_field( 'post_excerpt', $tour_id );
-            }
-            if ( ! $raw_desc ) {
-              $raw_desc = wp_trim_words( strip_tags( get_post_field( 'post_content', $tour_id ) ), 22, '...' );
-            }
-            $tour_desc  = $raw_desc;
-            $tour_badge = get_field( 'tour_badge_label', $tour_id ) ?: 'Special Offers';
-            $tour_sec   = get_field( 'tour_secondary_badge', $tour_id );
-            $tour_dur   = get_field( 'tour_duration', $tour_id );
-            $tour_price = get_field( 'price', $tour_id );
-            $tour_link  = get_permalink( $tour_id );
         ?>
-        <div class="swiper-slide">
-          <div class="bg-white rounded-xl shadow-md overflow-hidden group hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
-            <div class="relative overflow-hidden">
-              <img src="<?php echo esc_url( $tour_img ); ?>" alt="<?php echo esc_attr( $tour_title ); ?>" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute top-0 left-0 right-0 bg-[#b1393b] text-white text-xs font-bold tracking-widest uppercase text-center py-1.5 z-10"><?php echo esc_html( $tour_badge ); ?></div>
-              <?php if ( $tour_sec ) : ?>
-              <span class="absolute top-8 left-3 bg-gray-900 text-white text-xs font-bold px-3 py-1 rounded-full shadow"><?php echo esc_html( $tour_sec ); ?></span>
-              <?php endif; ?>
-            </div>
-            <div class="p-5 flex flex-col flex-1">
-              <?php if ( $tour_dur ) : ?>
-              <div class="flex items-center gap-2 mb-2 flex-wrap">
-                <span class="flex items-center gap-1 text-xs text-gray-500 bg-gray-100 px-2.5 py-1 rounded-full font-medium">
-                  <svg class="w-3.5 h-3.5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                  <?php echo esc_html( $tour_dur ); ?>
-                </span>
-              </div>
-              <?php endif; ?>
-              <h3 class="text-base font-bold text-gray-900 mb-1 leading-snug"><?php echo esc_html( $tour_title ); ?></h3>
-              <p class="text-sm text-gray-500 mb-4 flex-1 leading-relaxed"><?php echo esc_html( $tour_desc ); ?></p>
-              <div class="flex items-center justify-between mt-auto pt-3 border-t border-gray-100">
-                <div>
-                  <span class="text-xs text-gray-400">From</span>
-                  <p class="text-xl font-extrabold text-primary leading-none"><?php echo esc_html( $tour_price ); ?> <span class="text-xs font-normal text-gray-400">/ person</span></p>
-                </div>
-                <a href="<?php echo esc_url( $tour_link ); ?>" class="bg-primary hover:bg-primary-dark text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-colors duration-200 shadow-sm">Book Now</a>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div class="swiper-slide"><?php get_template_part( 'template-parts/tour-card', null, [ 'tour_id' => $tour->ID ] ); ?></div>
         <?php endforeach; else : ?>
         <div class="swiper-slide w-full py-12 text-center text-gray-400 text-sm col-span-3">No hay tours seleccionados. Edita la página de inicio y añade tours en la sección Exclusive Adventures.</div>
         <?php endif; ?>
@@ -501,10 +372,13 @@ $banner_body    = get_field( 'banner_body' ) ?: 'Bookings for the 2026 season ar
 $banner_btn     = get_field( 'banner_button_text' ) ?: 'Inca Trail Availability 2026';
 $banner_url     = get_field( 'banner_button_url' ) ?: '#';
 ?>
-<section class="relative overflow-hidden">
-  <img src="<?php echo esc_url( $banner_img_url ); ?>" alt="<?php echo esc_attr( $banner_title ); ?>" class="absolute inset-0 w-full h-full object-cover object-center">
+<style>
+.inca-banner { background-size: cover; background-position: center; background-repeat: no-repeat; }
+@media (min-width: 1024px) { .inca-banner { background-attachment: fixed; } } /* fixed parallax; disabled on mobile where it is unsupported */
+</style>
+<section class="inca-banner relative overflow-hidden min-h-[480px] md:min-h-[600px] flex items-center" role="img" aria-label="<?php echo esc_attr( $banner_title ); ?>" style="background-image:url('<?php echo esc_url( $banner_img_url ); ?>');">
   <div class="absolute inset-0 bg-black/60"></div>
-  <div class="relative z-10 py-16 px-4 text-center max-w-3xl mx-auto">
+  <div class="relative z-10 py-24 px-4 text-center max-w-3xl mx-auto">
     <h2 class="text-3xl md:text-4xl font-extrabold text-white uppercase tracking-wide leading-tight mb-4">
       <?php echo esc_html( $banner_title ); ?>
     </h2>
@@ -529,7 +403,7 @@ $banner_url     = get_field( 'banner_button_url' ) ?: '#';
       <span class="inline-block text-primary text-sm font-semibold tracking-widest uppercase mb-2"><?php echo esc_html( get_field('daytours_badge') ?: 'Cusco' ); ?></span>
       <h2 class="text-3xl md:text-4xl font-bold text-gray-900"><?php echo esc_html( get_field('daytours_title') ?: 'Top Day Tours In Cusco' ); ?></h2>
       <div class="mt-4 flex justify-center">
-        <span class="block w-14 h-1 rounded-full bg-primary"></span>
+        <span class="block w-14 h-1 rounded-full" style="background-color:#f97316"></span>
       </div>
     </div>
 
@@ -557,30 +431,8 @@ $banner_url     = get_field( 'banner_button_url' ) ?: '#';
       <?php
       if ( $day_tours ) :
         foreach ( $day_tours as $tour ) :
-          $tour_id    = $tour->ID;
-          $tour_img   = get_the_post_thumbnail_url( $tour_id, 'large' ) ?: 'https://via.placeholder.com/800x400?text=No+Image';
-          $tour_title = get_the_title( $tour_id );
-          $raw_desc   = get_field( 'tour_description', $tour_id );
-          if ( ! $raw_desc ) $raw_desc = get_post_field( 'post_excerpt', $tour_id );
-          if ( ! $raw_desc ) $raw_desc = wp_trim_words( strip_tags( get_post_field( 'post_content', $tour_id ) ), 18, '...' );
-          $tour_badge = get_field( 'tour_badge_label', $tour_id ) ?: 'Special Offer';
-          $tour_price = get_field( 'price', $tour_id );
-          $tour_link  = get_permalink( $tour_id );
       ?>
-      <a href="<?php echo esc_url( $tour_link ); ?>" class="group block bg-white rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden">
-        <div class="relative overflow-hidden">
-          <img src="<?php echo esc_url( $tour_img ); ?>" alt="<?php echo esc_attr( $tour_title ); ?>" class="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500">
-          <div class="absolute top-0 left-0 right-0 bg-[#b1393b] text-white text-xs font-bold tracking-widest uppercase text-center py-1.5 z-10"><?php echo esc_html( $tour_badge ); ?></div>
-        </div>
-        <div class="p-4">
-          <h3 class="font-bold text-gray-900 text-sm mb-1"><?php echo esc_html( $tour_title ); ?></h3>
-          <p class="text-xs text-gray-500 mb-3 leading-relaxed"><?php echo esc_html( $raw_desc ); ?></p>
-          <div class="flex items-center justify-between">
-            <p class="text-primary font-extrabold text-base"><?php echo esc_html( $tour_price ); ?> <span class="text-xs font-normal text-gray-400">/ person</span></p>
-            <span class="text-xs text-primary font-semibold">Book Now →</span>
-          </div>
-        </div>
-      </a>
+      <?php get_template_part( 'template-parts/tour-card', null, [ 'tour_id' => $tour->ID ] ); ?>
       <?php endforeach; else : ?>
       <div class="col-span-full w-full py-12 text-center text-gray-400 text-sm">No hay tours seleccionados. Edita la página de inicio y añade tours en Day Tours.</div>
       <?php endif; ?>
@@ -635,6 +487,46 @@ $rt_render = $rt_items ?: $rt_defaults;
   </div>
 </section>
 
+
+<!-- Social Projects -->
+<section class="py-12 md:py-16 bg-white">
+  <div class="container px-4">
+
+    <div class="text-center mx-auto mb-12">
+      <span class="inline-block text-primary text-sm font-semibold tracking-widest uppercase mb-2"><?php echo esc_html( get_field( 'social_eyebrow' ) ?: 'Community Impact' ); ?></span>
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight"><?php echo esc_html( get_field( 'social_title' ) ?: 'These are Our Social Projects' ); ?></h2>
+      <span class="mx-auto mt-4 block h-1 w-14 rounded-full" style="background-color:#f97316"></span>
+      <p class="mt-4 text-sm text-gray-500 leading-relaxed mx-auto max-w-4xl">
+        <?php echo esc_html( get_field( 'social_description' ) ?: 'Sustainable tourism is committed to having a low impact on the environment and the local cultural industry, while helping to generate income and employment for the local population. Our motto: "Enjoy the Magic of the Andes"' ); ?>
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-1">
+      <?php if ( have_rows( 'social_projects_cards' ) ) : ?>
+        <?php while ( have_rows( 'social_projects_cards' ) ) : the_row(); ?>
+          <?php $sp_img = get_sub_field( 'card_image' ); ?>
+          <div class="group relative h-72 md:h-96 overflow-hidden bg-gray-800">
+            <?php if ( $sp_img ) : ?>
+            <img src="<?php echo esc_url( $sp_img ); ?>" alt="<?php echo esc_attr( get_sub_field( 'card_title' ) ); ?>" loading="lazy" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
+            <?php endif; ?>
+            <div class="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition-colors"></div>
+            <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+              <h3 class="text-xl md:text-2xl font-bold text-white"><?php echo esc_html( get_sub_field( 'card_title' ) ); ?></h3>
+              <p class="mt-2 text-sm md:text-base text-white/90 max-w-sm"><?php echo esc_html( get_sub_field( 'card_description' ) ); ?></p>
+              <?php $sp_link = get_sub_field( 'card_link' ); ?>
+              <?php if ( ! empty( $sp_link['url'] ) ) : ?>
+              <a href="<?php echo esc_url( $sp_link['url'] ); ?>" class="relative z-10 inline-block mt-5 px-6 py-2 rounded-full bg-primary text-white text-sm font-semibold transition-colors"<?php echo ! empty( $sp_link['target'] ) ? ' target="' . esc_attr( $sp_link['target'] ) . '" rel="noopener noreferrer"' : ''; ?>><?php esc_html_e( 'See more', 'pachaexp' ); ?></a>
+              <?php endif; ?>
+            </div>
+          </div>
+        <?php endwhile; ?>
+      <?php elseif ( current_user_can( 'edit_pages' ) ) : ?>
+        <p class="col-span-full text-center text-sm text-gray-400">No projects added yet. Add them from the Front Page editor (Social Projects).</p>
+      <?php endif; ?>
+    </div>
+
+  </div>
+</section>
 
 <!-- seccion tripadviosr -->
 <section class="py-12 px-4">
