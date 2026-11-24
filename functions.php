@@ -182,6 +182,17 @@ function pachaexp_scripts() {
 					navigation: { nextEl: ".hero-next", prevEl: ".hero-prev" }
 				});
 			}
+			new Swiper(".inca-swiper", {
+				slidesPerView: 1,
+				spaceBetween: 24,
+				loop: false,
+				pagination: { el: ".inca-swiper .swiper-pagination", clickable: true, dynamicBullets: true },
+				navigation: { nextEl: ".inca-swiper .swiper-button-next", prevEl: ".inca-swiper .swiper-button-prev" },
+				breakpoints: {
+					768:  { slidesPerView: 2 },
+					1024: { slidesPerView: 3 }
+				}
+			});
 			new Swiper(".salkantay-swiper", {
 				slidesPerView: 1,
 				spaceBetween: 24,
@@ -277,6 +288,7 @@ function register_acf_block_types()
 		'category'          => 'formatting',
 		'icon'              => 'format-gallery',
 		'keywords'          => array('menu tours', 'tour'),
+		'mode'              => 'edit',
 	));
 
 
